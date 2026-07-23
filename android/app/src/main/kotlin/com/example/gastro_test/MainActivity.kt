@@ -1,0 +1,5 @@
+package com.example.gastro_test
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
