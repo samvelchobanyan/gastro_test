@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/_ds_bundle.js"></script>
+<style>
+  html,body{margin:0;padding:0}
+  *{box-sizing:border-box}
+  .gscroll::-webkit-scrollbar{display:none}
+  .gscroll{scrollbar-width:none}
+  button,input,select,textarea{font-family:var(--font-family-base) !important}
+  a{color:var(--color-text-accent)}
+  a:hover{color:var(--accent-600)}
+</style>
+</helmet>
+<div style="width:100%;min-width:360px;font-family:var(--font-family-base)">
+  <div style="position:relative;width:100%;min-width:360px;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:var(--color-bg-main)">
+
+    <!-- scroll body -->
+    <div class="gscroll" style="flex:1;min-height:0;overflow-y:auto;background:var(--color-bg-canvas)">
+      <div style="max-width:480px;margin:0 auto;padding:48px 16px 24px;display:flex;flex-direction:column">
+
+        <!-- title -->
+        <div style="margin-bottom:32px;text-align:center">
+          <div style="font:var(--text-display);color:var(--color-text-primary)">Welcome back</div>
+          <div style="margin-top:8px;font-size:var(--font-size-body-lg);color:var(--color-text-tertiary)">Log in to order in seconds</div>
+        </div>
+
+        <!-- fields -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <x-import component-from-global-scope="GastroDesignSystem_472aed.TextInput" label="Username" placeholder="Enter your username" value="{{ username }}" on-change="{{ setUsername }}" icon-left="user" hint-size="100%,76px"></x-import>
+          <x-import component-from-global-scope="GastroDesignSystem_472aed.TextInput" label="Password" placeholder="Enter your password" type="password" value="{{ password }}" on-change="{{ setPassword }}" icon-left="lock" hint-size="100%,76px"></x-import>
+        </div>
+
+        <!-- forgot password -->
+        <div style="margin-top:12px;display:flex;justify-content:flex-end">
+          <a href="#" style="font-size:var(--font-size-body);font-weight:var(--font-weight-semibold);text-decoration:none">Forgot password?</a>
+        </div>
+
+        <!-- login button -->
+        <div style="margin-top:24px">
+          <x-import component-from-global-scope="GastroDesignSystem_472aed.Button" variant="primary" size="lg" full-width="{{ true }}" on-click="{{ onLogin }}" hint-size="100%,56px">Log in</x-import>
+        </div>
+
+        <!-- register -->
+        <div style="margin-top:24px;display:flex;align-items:center;justify-content:center;gap:6px">
+          <span style="font-size:var(--font-size-body);color:var(--color-text-tertiary)">New here?</span>
+          <a href="#" style="font-size:var(--font-size-body);font-weight:var(--font-weight-semibold);text-decoration:none">Create an account</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- bottom tab bar -->
+    <div style="flex:none">
+      <x-import component-from-global-scope="GastroDesignSystem_472aed.BottomTabBar" items="{{ tabs }}" active-key="{{ activeTab }}" on-change="{{ setActiveTab }}" hint-size="100%,64px"></x-import>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeTab: 'login', username: '', password: '' };
+
+  renderVals() {
+    return {
+      username: this.state.username,
+      password: this.state.password,
+      setUsername: (v) => this.setState({ username: v }),
+      setPassword: (v) => this.setState({ password: v }),
+      onLogin: () => {},
+      tabs: [
+        { key: 'main', icon: 'house', label: 'Home' },
+        { key: 'menu', icon: 'fork-knife', label: 'Menu' },
+        { key: 'scan', icon: 'qr-code', label: '' },
+        { key: 'restaurant', icon: 'storefront', label: 'Restaurant' },
+        { key: 'login', icon: 'user', label: 'Login' },
+      ],
+      activeTab: this.state.activeTab,
+      setActiveTab: (k) => {
+        if (k === 'main') { window.location.href = 'index.html'; return; }
+        if (k === 'menu') { window.location.href = 'Menu.dc.html'; return; }
+        if (k === 'restaurant') { window.location.href = 'Restaurant.dc.html'; return; }
+        if (k === 'login') { window.location.href = 'Login.dc.html'; return; }
+        this.setState({ activeTab: k });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

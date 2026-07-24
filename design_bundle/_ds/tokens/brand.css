@@ -1,0 +1,30 @@
+/* ============================================================
+   TIER 1 — BRAND ACCENT PALETTE  (the swappable layer)
+   ------------------------------------------------------------
+   WHITE-LABEL: This is the ONLY file a customer's brand needs
+   to override. Swap this single ramp (and, if desired, the
+   radius scale) to re-skin the entire app. Semantic + component
+   tokens all resolve through --accent-*, so nothing downstream
+   needs to change.
+
+   ⚠ PLACEHOLDER ACCENT — no brand colors are finalized yet.
+   This neutral indigo is a stand-in chosen to be legible on
+   both light surfaces and as a CTA fill. Replace per customer.
+   ============================================================ */
+
+:root {
+  --accent-50:   #FDECED;
+  --accent-100:  #FBD5D7;
+  --accent-200:  #F5AAAE;
+  --accent-300:  #EF7E85;
+  --accent-400:  #E9535C;
+  --accent-500:  #E42832;  /* base accent */
+  --accent-600:  #C11F28;  /* pressed / hover-equivalent */
+  --accent-700:  #9C1920;
+  --accent-800:  #771318;
+  --accent-900:  #520D10;
+
+  /* Foreground that sits ON the accent fill (locked for AA).
+     White passes contrast on --accent-500 and darker. */
+  --accent-contrast: #FFFFFF;
+}

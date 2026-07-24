@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/_ds_bundle.js"></script>
+<style>
+  html,body{margin:0;padding:0}
+  *{box-sizing:border-box}
+  .gscroll::-webkit-scrollbar{display:none}
+  .gscroll{scrollbar-width:none}
+  a{color:var(--color-text-accent)}
+  a:hover{color:var(--accent-600)}
+</style>
+</helmet>
+<div style="width:100%;min-width:360px;font-family:var(--font-family-base)">
+  <div style="position:relative;width:100%;min-width:360px;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:var(--color-bg-main)">
+
+    <!-- header -->
+    <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:20px 16px 8px">
+      <div style="font:var(--text-h1);color:var(--color-text-primary)">Menu</div>
+      <x-import component-from-global-scope="GastroDesignSystem_472aed.Avatar" name="{{ userName }}" size="lg" hint-size="56px,56px"></x-import>
+    </div>
+
+    <!-- filter bar (horizontal scroll) -->
+    <div class="gscroll" style="flex:none;display:flex;gap:8px;overflow-x:auto;padding:12px 16px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+        <div style="flex:none">
+          <x-import component-from-global-scope="GastroDesignSystem_472aed.FilterBar" label="{{ f.label }}" icon="{{ f.icon }}" selected="{{ f.selected }}" on-click="{{ f.onClick }}" hint-size="auto,40px"></x-import>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- menu list -->
+    <div class="gscroll" style="flex:1;min-height:0;overflow-y:auto;background:var(--color-bg-canvas);padding:16px 16px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ items }}" as="item" hint-placeholder-count="10">
+          <x-import component-from-global-scope="GastroDesignSystem_472aed.MenuItemCard" name="{{ item.name }}" description="{{ item.description }}" price="{{ item.price }}" image-url="{{ item.imageUrl }}" tag="{{ item.tag }}" quantity="{{ item.quantity }}" on-add="{{ item.onAdd }}" on-quantity-change="{{ item.onQuantityChange }}" hint-size="100%,136px"></x-import>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- bottom tab bar -->
+    <div style="flex:none">
+      <x-import component-from-global-scope="GastroDesignSystem_472aed.BottomTabBar" items="{{ tabs }}" active-key="{{ activeTab }}" on-change="{{ setActiveTab }}" hint-size="100%,64px"></x-import>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeTab: 'menu', filter: 'all', quantities: { marg: 2 } };
+
+  setQty(id, q) {
+    this.setState((s) => {
+      const quantities = { ...s.quantities };
+      if (q <= 0) delete quantities[id]; else quantities[id] = q;
+      return { quantities };
+    });
+  }
+
+  renderVals() {
+    const menu = [
+      { id: 'marg', name: 'Margherita', description: 'San Marzano tomato, fior di latte, fresh basil, cold-pressed olive oil.', price: 12.50, tag: 'Popular', imageUrl: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=240&h=240&fit=crop' },
+      { id: 'diavola', name: 'Diavola', description: 'Spicy salami, tomato, mozzarella, chili flakes, oregano.', price: 14.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=240&h=240&fit=crop' },
+      { id: 'burrata', name: 'Burrata & prosciutto', description: 'Creamy burrata, San Daniele prosciutto, rocket, aged balsamic.', price: 13.50, tag: "Chef's pick", imageUrl: 'https://images.unsplash.com/photo-1541529086526-db283c563270?w=240&h=240&fit=crop' },
+      { id: 'arancini', name: 'Arancini', description: 'Saffron risotto, mozzarella, slow-cooked ragù, breadcrumb crust.', price: 8.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1633436375153-d7045cb93e38?w=240&h=240&fit=crop' },
+      { id: 'carbonara', name: 'Carbonara', description: 'Guanciale, Pecorino Romano, egg yolk, cracked black pepper.', price: 15.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=240&h=240&fit=crop' },
+      { id: 'cacio', name: 'Cacio e pepe', description: 'Tonnarelli, Pecorino Romano, toasted black pepper.', price: 13.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1516100882582-96c3a05fe590?w=240&h=240&fit=crop' },
+      { id: 'tiramisu', name: 'Tiramisu', description: 'Mascarpone, espresso-soaked savoiardi, dusted cocoa.', price: 7.50, tag: null, imageUrl: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=240&h=240&fit=crop' },
+      { id: 'panna', name: 'Panna cotta', description: 'Vanilla bean cream, wild berry coulis.', price: 7.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=240&h=240&fit=crop' },
+      { id: 'negroni', name: 'Negroni', description: 'Gin, Campari, sweet vermouth, orange peel.', price: 9.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=240&h=240&fit=crop' },
+      { id: 'espresso', name: 'Espresso', description: 'Single-origin, double shot.', price: 3.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=240&h=240&fit=crop' },
+    ];
+
+    const items = menu.map((m) => ({
+      ...m,
+      quantity: this.state.quantities[m.id] || 0,
+      onAdd: () => this.setQty(m.id, 1),
+      onQuantityChange: (q) => this.setQty(m.id, q),
+    }));
+
+    const filterDefs = [
+      { key: 'all', label: 'All', icon: 'fork-knife' },
+      { key: 'pizza', label: 'Pizza', icon: 'pizza' },
+      { key: 'pasta', label: 'Pasta', icon: 'bowl-food' },
+      { key: 'dessert', label: 'Dessert', icon: 'ice-cream' },
+      { key: 'drinks', label: 'Drinks', icon: 'wine' },
+    ];
+    const filters = filterDefs.map((f) => ({
+      label: f.label,
+      icon: f.icon,
+      selected: this.state.filter === f.key,
+      onClick: () => this.setState({ filter: f.key }),
+    }));
+
+    return {
+      userName: 'Aram',
+      items,
+      filters,
+      tabs: [
+        { key: 'main', icon: 'house', label: 'Home' },
+        { key: 'menu', icon: 'fork-knife', label: 'Menu' },
+        { key: 'scan', icon: 'qr-code', label: '' },
+        { key: 'restaurant', icon: 'storefront', label: 'Restaurant' },
+        { key: 'login', icon: 'user', label: 'Login' },
+      ],
+      activeTab: this.state.activeTab,
+      setActiveTab: (k) => {
+        if (k === 'main') { window.location.href = 'index.html'; return; }
+        if (k === 'menu') { window.location.href = 'Menu.dc.html'; return; }
+        if (k === 'restaurant') { window.location.href = 'Restaurant.dc.html'; return; }
+        if (k === 'login') { window.location.href = 'Login.dc.html'; return; }
+        this.setState({ activeTab: k });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -34,6 +34,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  flutter_riverpod: ^3.3.2
+  go_router: ^17.2.3
+  phosphor_flutter: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +59,14 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  # Plus Jakarta Sans — the design bundle's type family. Bundled as an asset
+  # (OFL) per spec instead of the CSS Google Fonts @import. This is the variable
+  # font; weight is selected in DSTypography via FontVariation on the wght axis.
+  fonts:
+    - family: Plus Jakarta Sans
+      fonts:
+        - asset: assets/fonts/PlusJakartaSans.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

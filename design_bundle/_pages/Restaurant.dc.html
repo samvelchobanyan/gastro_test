@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/_ds_bundle.js"></script>
+<style>
+  html,body{margin:0;padding:0}
+  *{box-sizing:border-box}
+  .gscroll::-webkit-scrollbar{display:none}
+  .gscroll{scrollbar-width:none}
+  button,input,select,textarea{font-family:var(--font-family-base) !important}
+  a{color:var(--color-text-accent)}
+  a:hover{color:var(--accent-600)}
+</style>
+</helmet>
+<div style="width:100%;min-width:360px;font-family:var(--font-family-base)">
+  <div style="position:relative;width:100%;min-width:360px;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:var(--color-bg-main)">
+
+    <!-- scroll body -->
+    <div class="gscroll" style="flex:1;min-height:0;overflow-y:auto;background:var(--color-bg-canvas)">
+
+      <!-- restaurant header -->
+      <x-import component-from-global-scope="GastroDesignSystem_472aed.RestaurantHeader" cover-image="{{ restaurant.coverImage }}" name="{{ restaurant.name }}" description="{{ restaurant.description }}" rating="{{ restaurant.rating }}" review-count="{{ restaurant.reviewCount }}" hint-size="100%,260px"></x-import>
+
+      <!-- tabs -->
+      <div style="padding:16px 16px 0">
+        <x-import component-from-global-scope="GastroDesignSystem_472aed.SegmentedControl" options="{{ tabOptions }}" value="{{ activeSection }}" on-change="{{ setActiveSection }}" hint-size="100%,48px"></x-import>
+      </div>
+
+      <!-- section content -->
+      <sc-if value="{{ isBranches }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px 16px">
+          <sc-for list="{{ branches }}" as="b" hint-placeholder-count="4">
+            <x-import component-from-global-scope="GastroDesignSystem_472aed.BranchCard" image="{{ b.image }}" name="{{ b.name }}" address="{{ b.address }}" hours="{{ b.hours }}" is-open-now="{{ b.isOpenNow }}" hint-size="100%,88px"></x-import>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTopItems }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:16px 16px">
+          <sc-for list="{{ topItems }}" as="item" hint-placeholder-count="4">
+            <x-import component-from-global-scope="GastroDesignSystem_472aed.MenuItemCard" name="{{ item.name }}" description="{{ item.description }}" price="{{ item.price }}" image-url="{{ item.imageUrl }}" tag="{{ item.tag }}" quantity="{{ item.quantity }}" hint-size="100%,136px"></x-import>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:16px 16px;display:flex;flex-direction:column;gap:16px">
+          <p style="margin:0;font-size:var(--font-size-body);line-height:var(--line-height-body);color:var(--color-text-secondary)">{{ restaurant.about }}</p>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ aboutRows }}" as="row" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:12px">
+                <i class="ph {{ row.icon }}" style="font-size:20px;color:var(--color-text-tertiary)"></i>
+                <span style="font-size:var(--font-size-body);color:var(--color-text-primary)">{{ row.text }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <!-- bottom tab bar -->
+    <div style="flex:none">
+      <x-import component-from-global-scope="GastroDesignSystem_472aed.BottomTabBar" items="{{ tabs }}" active-key="{{ activeTab }}" on-change="{{ setActiveTab }}" hint-size="100%,64px"></x-import>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeTab: 'restaurant', section: 'branches' };
+
+  renderVals() {
+    const branches = [
+      { name: 'Abovyan st. (Near the Moscow cinema)', address: 'Abovyan str. 18/3', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=120&h=120&fit=crop' },
+      { name: 'Hovsep Emin st. (next to RAU)', address: 'Hovsep Emin str. 126', img: 'https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=120&h=120&fit=crop' },
+      { name: 'Tumanyan st.', address: 'Tumanyan str. 35', img: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=120&h=120&fit=crop' },
+      { name: 'Northern Avenue', address: 'Northern Avenue 12/1', img: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=120&h=120&fit=crop' },
+    ];
+
+    const topItems = [
+      { name: 'Margherita', description: 'San Marzano tomato, fior di latte, fresh basil, cold-pressed olive oil.', price: 12.50, tag: 'Popular', imageUrl: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=240&h=240&fit=crop' },
+      { name: 'Burrata & prosciutto', description: 'Creamy burrata, San Daniele prosciutto, rocket, aged balsamic.', price: 13.50, tag: "Chef's pick", imageUrl: 'https://images.unsplash.com/photo-1541529086526-db283c563270?w=240&h=240&fit=crop' },
+      { name: 'Carbonara', description: 'Guanciale, Pecorino Romano, egg yolk, cracked black pepper.', price: 15.00, tag: null, imageUrl: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=240&h=240&fit=crop' },
+      { name: 'Tiramisu', description: 'Mascarpone, espresso-soaked savoiardi, dusted cocoa.', price: 7.50, tag: null, imageUrl: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=240&h=240&fit=crop' },
+    ];
+
+    const section = this.state.section;
+
+    return {
+      restaurant: {
+        coverImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&h=520&fit=crop',
+        name: 'Bella Napoli',
+        description: 'Wood-fired Neapolitan pizza & pasta',
+        rating: 4.8,
+        reviewCount: 1243,
+        about: 'Bella Napoli brings wood-fired Neapolitan pizza and hand-made pasta to the heart of the city. Family-run since 2009, we source San Marzano tomatoes, fior di latte and 00 flour direct from Campania.',
+      },
+      tabOptions: [
+        { label: 'Branches', value: 'branches', icon: 'map-pin' },
+        { label: 'Top Items', value: 'top', icon: 'star' },
+        { label: 'About', value: 'about', icon: 'info' },
+      ],
+      activeSection: section,
+      setActiveSection: (v) => this.setState({ section: v }),
+      isBranches: section === 'branches',
+      isTopItems: section === 'top',
+      isAbout: section === 'about',
+      branches: branches.map((b) => ({ image: b.img, name: b.name, address: b.address, hours: '08:00 – 22:00', isOpenNow: true })),
+      topItems: topItems.map((m) => ({ ...m, quantity: 0 })),
+      aboutRows: [
+        { icon: 'ph-map-pin', text: 'Abovyan str. 18/3, Yerevan' },
+        { icon: 'ph-clock', text: 'Open daily · 08:00 – 22:00' },
+        { icon: 'ph-phone', text: '+374 10 123 456' },
+      ],
+      tabs: [
+        { key: 'main', icon: 'house', label: 'Home' },
+        { key: 'menu', icon: 'fork-knife', label: 'Menu' },
+        { key: 'scan', icon: 'qr-code', label: '' },
+        { key: 'restaurant', icon: 'storefront', label: 'Restaurant' },
+        { key: 'login', icon: 'user', label: 'Login' },
+      ],
+      activeTab: this.state.activeTab,
+      setActiveTab: (k) => {
+        if (k === 'main') { window.location.href = 'index.html'; return; }
+        if (k === 'menu') { window.location.href = 'Menu.dc.html'; return; }
+        if (k === 'restaurant') { window.location.href = 'Restaurant.dc.html'; return; }
+        if (k === 'login') { window.location.href = 'Login.dc.html'; return; }
+        this.setState({ activeTab: k });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

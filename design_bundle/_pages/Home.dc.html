@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#E42832"/>
+  <text x="50" y="50" dominant-baseline="central" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="44" font-weight="700" fill="#fff">G</text>
+</svg>
+</template>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="_ds/gastro-design-system-472aed14-5ab5-4e18-af6e-e4acf17165d4/_ds_bundle.js"></script>
+<style>
+  html,body{margin:0;padding:0}
+  *{box-sizing:border-box}
+  .gscroll::-webkit-scrollbar{display:none}
+  .gscroll{scrollbar-width:none}
+  a{color:var(--color-text-accent)}
+  a:hover{color:var(--accent-600)}
+  /* keep quick-action tiles at their original height while width flexes */
+  .qat button{aspect-ratio:auto !important;height:104px !important}
+</style>
+</helmet>
+<div style="width:100%;min-width:360px;font-family:var(--font-family-base)">
+  <div style="position:relative;width:100%;min-width:360px;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:var(--color-bg-main)">
+
+    <!-- header -->
+    <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:20px 16px 16px">
+      <div>
+        <div style="font:var(--text-h1);color:var(--color-text-primary)">Hi, <span style="color:var(--color-brand-primary)">{{ userName }}</span></div>
+        <div style="margin-top:2px;font-size:var(--font-size-body);color:var(--color-text-tertiary)">{{ points }} Points</div>
+      </div>
+      <x-import component-from-global-scope="GastroDesignSystem_472aed.Avatar" name="{{ userName }}" size="lg" hint-size="56px,56px"></x-import>
+    </div>
+
+    <!-- scroll body -->
+    <div class="gscroll" style="flex:1;min-height:0;overflow-y:auto;background:var(--color-bg-canvas)">
+
+      <div style="padding:24px 16px 0">
+        <x-import component-from-global-scope="GastroDesignSystem_472aed.LoyaltyWidget" points="{{ points }}" membership="Prime" discount-label="10%" qr-value="{{ qrValue }}" hint-size="100%,160px"></x-import>
+      </div>
+
+      <div class="qat" style="padding:24px 16px 0">
+        <x-import component-from-global-scope="GastroDesignSystem_472aed.QuickActionTiles" actions="{{ quickActions }}" hint-size="100%,96px"></x-import>
+      </div>
+
+      <div style="padding:24px 16px 0">
+        <x-import component-from-global-scope="GastroDesignSystem_472aed.SectionHeader" title="News" action="See all" hint-size="100%,28px"></x-import>
+      </div>
+      <div class="gscroll" style="display:flex;gap:12px;overflow-x:auto;padding:16px 16px 0">
+        <sc-for list="{{ news }}" as="item" hint-placeholder-count="2">
+          <x-import component-from-global-scope="GastroDesignSystem_472aed.NewsListing" image="{{ item.image }}" title="{{ item.title }}" published-at="{{ item.publishedAt }}" orientation="vertical" hint-size="220px,214px"></x-import>
+        </sc-for>
+      </div>
+
+      <div style="padding:24px 16px 0">
+        <x-import component-from-global-scope="GastroDesignSystem_472aed.SectionHeader" title="Coffee shops nearby" action="See all" hint-size="100%,28px"></x-import>
+      </div>
+      <div style="margin:16px 16px 16px;display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ shops }}" as="shop" hint-placeholder-count="5">
+          <x-import component-from-global-scope="GastroDesignSystem_472aed.BranchCard" image="{{ shop.image }}" name="{{ shop.title }}" address="{{ shop.subtitle }}" hours="{{ shop.hours }}" is-open-now="{{ shop.isOpenNow }}" on-click="{{ shop.onClick }}" hint-size="100%,88px"></x-import>
+        </sc-for>
+      </div>
+
+    </div>
+
+    <!-- bottom tab bar -->
+    <div style="flex:none">
+      <x-import component-from-global-scope="GastroDesignSystem_472aed.BottomTabBar" items="{{ tabs }}" active-key="{{ activeTab }}" on-change="{{ setActiveTab }}" hint-size="100%,64px"></x-import>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeTab: 'main' };
+
+  renderVals() {
+    const shops = [
+      { name: 'Abovyan st. (Near the Moscow cinema)', address: 'Abovyan str. 18/3', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=120&h=120&fit=crop' },
+      { name: 'Hovsep Emin st. (next to RAU)', address: 'Hovsep Emin str. 126', img: 'https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=120&h=120&fit=crop' },
+      { name: 'Tumanyan st.', address: 'Tumanyan str. 35', img: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=120&h=120&fit=crop' },
+      { name: 'Aleq Manukyan st.', address: 'Aleq Manukyan 15A', img: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=120&h=120&fit=crop' },
+      { name: 'Sayat - Nova ave.', address: 'Sayat-Nova str. 8', img: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=120&h=120&fit=crop' },
+      { name: 'Northern Avenue', address: 'Northern Avenue 12/1', img: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=120&h=120&fit=crop' },
+      { name: 'Ler Kamsar st. (next to AUA)', address: 'Ler Kamsar str. 15/1', img: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=120&h=120&fit=crop' },
+    ];
+
+    return {
+      userName: 'Aram',
+      points: 157,
+      qrValue: 'GASTRO-MEMBER-157-ARAM',
+      quickActions: [
+        { key: 'rate', icon: 'star', label: 'Rate' },
+        { key: 'history', icon: 'clock-counter-clockwise', label: 'History' },
+        { key: 'favourites', icon: 'heart', label: 'Favourites' },
+      ],
+      news: [
+        { image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=440&h=280&fit=crop', title: 'New seasonal roast now at every branch', publishedAt: 'Jul 12' },
+        { image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=440&h=280&fit=crop', title: 'Double points on cold brew this week', publishedAt: 'Jul 10' },
+      ],
+      shops: shops.map((s) => ({
+        title: s.name,
+        subtitle: s.address,
+        image: s.img,
+        hours: '08:00 – 22:00',
+        isOpenNow: true,
+        onClick: () => {},
+      })),
+      tabs: [
+        { key: 'main', icon: 'house', label: 'Home' },
+        { key: 'menu', icon: 'fork-knife', label: 'Menu' },
+        { key: 'scan', icon: 'qr-code', label: '' },
+        { key: 'restaurant', icon: 'storefront', label: 'Restaurant' },
+        { key: 'login', icon: 'user', label: 'Login' },
+      ],
+      activeTab: this.state.activeTab,
+      setActiveTab: (k) => {
+        if (k === 'menu') { window.location.href = 'Menu.dc.html'; return; }
+        if (k === 'main') { window.location.href = 'index.html'; return; }
+        if (k === 'restaurant') { window.location.href = 'Restaurant.dc.html'; return; }
+        if (k === 'login') { window.location.href = 'Login.dc.html'; return; }
+        this.setState({ activeTab: k });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

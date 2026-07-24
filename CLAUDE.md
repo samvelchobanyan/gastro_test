@@ -2,7 +2,13 @@
 
 ## 1. Project context
 
-gastro_test is a Flutter mobile application.
+for restaurants and service points. It is
+**white-label**: one codebase, re-skinned per client through a swappable theme layer.
+
+This project has two sources of truth. The knowledge base (Section 2) defines **HOW** we
+build — architecture, patterns, conventions. The design bundle (Section 3) defines **WHAT**
+we build — tokens, component specs, screens. On conflict: the wiki governs implementation,
+the bundle governs visuals and metrics.
 
 Core stack: Flutter/Dart, Riverpod (state), Freezed (immutability), Dio (networking), go_router (navigation), FlutterSecureStorage (token persistence). Backend and additional stack details will be added as the project develops.
 
@@ -22,7 +28,7 @@ When working on this project, you must:
 - Read `C:\knowledge\flutter-kb\index.md` to understand what knowledge is available
 - Read individual pages when relevant to the current task
 - Read `C:\knowledge\flutter-kb\projects\gastro_test\` for project-scoped ADRs (once they exist)
-- Append candidate entries to `C:\knowledge\flutter-kb\log.md` (continuous capture, see Section 5)
+- Append candidate entries to `C:\knowledge\flutter-kb\log.md` (continuous capture, see Section 7)
 
 You must not:
 - Create new pages in the wiki (only the curator agent does that, during ingest)
@@ -31,7 +37,73 @@ You must not:
 
 ---
 
-## 3. Language convention
+## 3. Design bundle location
+
+The design bundle lives at: **`design_bundle/`** (inside this project).
+
+It is an export from **Claude Design** — a web stack (CSS custom properties + React
+components). **The code is not ported.** It is read as a specification from which Flutter
+is written.
+
+Structure:
+- `_ds/` — the design system: tokens, component specs (`.jsx`), `_ds_manifest.json`
+- `_pages/` — four screens as `.dc.html`, each fully self-describing
+
+**Read `design_bundle/BUNDLE.md` before your first work with the bundle.** It documents
+the token architecture, the Claude Design markup syntax, and known gotchas.
+
+### 3.1 Layer mapping
+
+- `_ds/*/tokens/*.css` → `design_system/foundations/` — colors, typography, spacing, radius,
+  sizing. Tier 3 (`components.css`) belongs here too: those are values, not components.
+  Follow the existing token pipeline convention: raw tokens → theme mapping → context aliases.
+- `_ds/*/components/**/*.jsx` → widgets, placed per 3.1.1.
+- `_pages/*.dc.html` → screen composition, consumed when building a feature screen.
+
+Not used in this project: `motion.css`, `elevation.css`.
+
+#### 3.1.1 Widget placement
+
+- **Used by more than one screen** → `design_system/components/`. Naming mirrors
+  `_ds/components/` in the bundle, so the mapping is direct.
+- **Used by one screen only** → `features/<screen>/widgets/`.
+
+Widgets receive their data through props and callbacks. They do not fetch data themselves:
+the screen gets data from its controller or from global state and passes it down.
+
+The bundle's own folder layout (`components/menu/`, `components/cart/`, …) is a flat web
+structure and carries no authority over placement here.
+
+### 3.2 Reading the bundle
+
+From `.jsx` take: variants, size scale, states (pressed / loading / disabled), icon slots,
+prop names and semantics, internal composition. Ignore: hooks, `className`, inline styles,
+JSX markup.
+
+React-flavoured constructs appear throughout the bundle (`setState`, `DCLogic`, `$bind`,
+`{{ }}` bindings). They describe **intent**, not prescription: they tell you what state a
+screen has, never how to manage it. State management is Riverpod, per the wiki.
+
+### 3.3 Theming (white-label)
+
+Brand-dependent tokens live in a **ThemeExtension**; invariant tokens (gray ramp, status
+colors, spacing, typography, sizing) are plain constants — wrapping them adds boilerplate
+with no benefit.
+
+Derived shades are computed from the accent, not enumerated by hand:
+- `dark` = `Color.lerp(accent, Colors.black, 0.18)`
+- `light` = `Color.lerp(Colors.white, accent, 0.12)`
+
+Onboarding a new client means supplying one accent color (and optionally the corner style).
+
+Re-skin checklist — the leaf tokens that must repaint when the brand changes:
+`--accent-500/600/50`, `--color-brand-primary`, `--color-brand-interactive`,
+`--color-brand-subtle`, `--color-text-accent`, `--color-border-interactive`,
+`--color-focus-ring`, `--button-primary-bg`, `--button-primary-bg-active`,
+`--input-border-focus`, `--chip-bg-selected`, `--control-on-bg`, `--fab-bg`.
+Overriding `--accent-500` alone is not sufficient.
+
+## 4. Language convention
 
 Communication with the user during work — plans, questions, review discussions, explanations — happens in **Russian**. This makes review comfortable and reduces friction for decisions.
 
@@ -41,7 +113,7 @@ The split: plans and discussions — Russian; anything that ends up on disk (in 
 
 ---
 
-## 4. Six principles
+## 5. Six principles
 
 These principles govern how you use the knowledge base. They are not optional.
 
@@ -62,11 +134,11 @@ These principles govern how you use the knowledge base. They are not optional.
 
 ---
 
-## 5. Workflow for architectural tasks
+## 6. Workflow for architectural tasks
 
 When the user gives you a task that touches architecture (new feature, refactoring, structural change, new dependency, etc.), follow this workflow.
 
-### 5.1 Start with the wiki
+### 6.1 Start with the wiki
 
 1. **Read the index.** `C:\knowledge\flutter-kb\index.md`. Identify pages relevant to the task by scanning entries (page name, type, severity, applies_to, one-line description).
 
@@ -77,7 +149,7 @@ When the user gives you a task that touches architecture (new feature, refactori
 
 3. **Read project ADRs.** `C:\knowledge\flutter-kb\projects\gastro_test\` may contain project-specific decisions relevant to the task. Check them (once the folder is populated).
 
-### 5.2 Plan the approach
+### 6.2 Plan the approach
 
 Based on the wiki content and the task, formulate a plan. The plan should:
 
@@ -85,7 +157,7 @@ Based on the wiki content and the task, formulate a plan. The plan should:
 - Articulate any deviation from the wiki and why (e.g., "Wiki suggests X here, but in this case we want Y because Z")
 - Identify project-specific constraints from gastro_test ADRs
 
-### 5.3 Communicate before implementing
+### 6.3 Communicate before implementing
 
 Present the plan to the user **before** writing code. Include:
 
@@ -95,26 +167,28 @@ Present the plan to the user **before** writing code. Include:
 
 Wait for the user's confirmation before proceeding to implementation. Sam prefers conceptual alignment before code; do not skip this step.
 
-### 5.4 Implement
+### 6.4 Implement
 
 Once the plan is approved, implement. During implementation, respect:
 
 - The project's existing code style and structure
 - Layered architecture (see wiki principles)
-- Design system tokens when they exist in the project; do not hardcode design values
+- Design tokens for every visual value; never hardcode. Brand-dependent tokens are read
+  **only through `Theme.of(context)`** — a direct import breaks the re-skin, and the
+  breakage surfaces on the second client, not the first.
 - Riverpod conventions for state management
 
-### 5.5 Capture decisions
+### 6.5 Capture decisions
 
 At each decision event during the conversation, apply continuous capture (Section 6).
 
 ---
 
-## 6. Continuous capture protocol
+## 7. Continuous capture protocol
 
 This is how Principle 6 is implemented in practice.
 
-### 6.1 Detecting a decision event
+### 7.1 Detecting a decision event
 
 A decision event is a moment when:
 
@@ -126,7 +200,7 @@ A decision event is a moment when:
 
 Decision events happen **during** the conversation, not at the end. They can happen multiple times in one session.
 
-### 6.2 Classifying the candidate
+### 7.2 Classifying the candidate
 
 When a decision event occurs, classify it:
 
@@ -142,7 +216,7 @@ When a decision event occurs, classify it:
 
 - **Implementation detail** — concrete code-level choice with no transferable value. No log entry needed.
 
-### 6.3 Splitting decisions into levels
+### 7.3 Splitting decisions into levels
 
 One conversation can produce multiple candidates. Decompose decisions into three levels:
 
@@ -155,7 +229,7 @@ For example, a discussion about adding a search feature can yield:
 - Pattern: "Debounced search controller via Riverpod AsyncNotifier" (`applies_to: any-flutter-project`)
 - Code: actual SearchController class — not in wiki
 
-### 6.4 Checking existence
+### 7.4 Checking existence
 
 Before logging a candidate, check the wiki index to see if a similar page already exists. Three possible outcomes:
 
@@ -163,7 +237,7 @@ Before logging a candidate, check the wiki index to see if a similar page alread
 - **Related page exists** — the candidate is an extension or refinement of an existing page. Log it as a candidate with a reference to the related page (so the curator agent can decide whether to update the existing page or create a new one).
 - **No match exists** — log it as a new candidate.
 
-### 6.5 Writing the log entry
+### 7.5 Writing the log entry
 
 Append to `C:\knowledge\flutter-kb\log.md` at the end of the file.
 
@@ -193,7 +267,7 @@ Source: Claude Code session 2026-05-15, files mini_player_widget.dart and main_s
 Suggested action: create new pitfall page
 ```
 
-### 6.6 Behavior in the conversation
+### 7.6 Behavior in the conversation
 
 When you append a candidate, mention it briefly in your reply (in Russian, per Language convention):
 
@@ -205,7 +279,7 @@ If no candidate emerges from the decision event, you do not need to mention it. 
 
 ---
 
-## 7. Anti-patterns
+## 8. Anti-patterns
 
 The following are mistakes you must not make.
 
@@ -224,3 +298,11 @@ The following are mistakes you must not make.
 **Do not hardcode design values.** Use design system tokens (colors, spacing, radius, typography) when they exist in the project. If you need a value not in the design system, raise it with the user before introducing a hardcoded value.
 
 **Do not invent abstractions speculatively.** Sam pushes back hard on premature abstraction. Add providers, layers, or abstractions only when there is a concrete need. When in doubt, do less.
+
+**Do not port code from the design bundle.** It is CSS and React; we write Flutter from it.
+Copying markup structure, class names, or the React state model produces non-idiomatic
+Flutter and leaks a foreign state model into a Riverpod project.
+
+**Do not read brand-dependent tokens outside `Theme.of(context)`.** Importing a brand value
+directly into a widget silently removes it from the white-label layer. This is invisible
+until a second client is onboarded and one element stays the wrong color.
