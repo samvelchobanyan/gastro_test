@@ -27,8 +27,9 @@ abstract final class DSSizing {
   // Bars & rows
   static const double appbarHeight = 56;
   static const double appbarHeightIos = 44;
-  static const double bottomNavHeight = 56; // no labels
-  static const double bottomNavHeightLabeled = 64; // with labels
+  // Both dropped to 48 in the 2026-09 bundle (were 56 / 64).
+  static const double bottomNavHeight = 48; // no labels
+  static const double bottomNavHeightLabeled = 48; // with labels
   static const double rowHeightCompact = 48;
   static const double rowHeightIcon = 56;
   static const double rowHeightTwoLine = 72;

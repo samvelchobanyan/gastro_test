@@ -1,0 +1,21 @@
+<!-- @dsCard group="Foundations" viewport="700x180" name="Elevation" subtitle="Restrained, neutral shadows for true layers" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-family-base); background: var(--color-bg-canvas); color: var(--color-text-primary); display: flex; gap: 28px; align-items: flex-start; }
+  .cell { text-align: center; }
+  .box { width: 120px; height: 76px; background: var(--color-bg-surface); border-radius: var(--radius-md); }
+  .lbl { margin-top: 14px; font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); }
+  .tok { font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+  <div class="cell"><div class="box" style="box-shadow:var(--elevation-card)"></div><div class="lbl">Card</div><div class="tok">shadow-sm</div></div>
+  <div class="cell"><div class="box" style="box-shadow:var(--elevation-raised)"></div><div class="lbl">Raised</div><div class="tok">shadow-md · FAB</div></div>
+  <div class="cell"><div class="box" style="box-shadow:var(--elevation-overlay)"></div><div class="lbl">Overlay</div><div class="tok">shadow-lg · dialog</div></div>
+  <div class="cell"><div class="box" style="box-shadow:var(--elevation-sheet)"></div><div class="lbl">Sheet</div><div class="tok">upward cast</div></div>
+</body>
+</html>

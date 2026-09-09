@@ -1,0 +1,48 @@
+<!-- @dsCard group="Foundations" viewport="700x170" name="Semantic surfaces & text" subtitle="Locked bg ↔ text pairings (contrast matrix)" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-canvas); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .tile { border-radius: var(--radius-md); padding: 12px; height: 96px; box-sizing: border-box; border: 1px solid var(--color-border-muted); display: flex; flex-direction: column; justify-content: space-between; }
+  .tile .t { font-size: 14px; line-height: 20px; font-weight: var(--font-weight-semibold); }
+  .tile .s { font-size: 12px; line-height: 16px; }
+  .cap { margin-top: 8px; font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); font-weight: var(--font-weight-semibold); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div>
+      <div class="tile" style="background:var(--color-bg-canvas)">
+        <div class="t" style="color:var(--color-text-primary)">Primary</div>
+        <div class="s" style="color:var(--color-text-secondary)">Secondary text</div>
+      </div>
+      <div class="cap">bg-canvas</div>
+    </div>
+    <div>
+      <div class="tile" style="background:var(--color-bg-surface)">
+        <div class="t" style="color:var(--color-text-primary)">Primary</div>
+        <div class="s" style="color:var(--color-text-accent)">Accent text</div>
+      </div>
+      <div class="cap">bg-surface</div>
+    </div>
+    <div>
+      <div class="tile" style="background:var(--color-brand-primary);border-color:transparent">
+        <div class="t" style="color:var(--color-text-on-brand)">On brand</div>
+        <div class="s" style="color:var(--color-text-on-brand)">CTA label</div>
+      </div>
+      <div class="cap">brand-primary</div>
+    </div>
+    <div>
+      <div class="tile" style="background:var(--color-bg-inverse);border-color:transparent">
+        <div class="t" style="color:var(--color-text-inverse)">Inverse</div>
+        <div class="s" style="color:var(--color-text-inverse)">Toast / dark</div>
+      </div>
+      <div class="cap">bg-inverse</div>
+    </div>
+  </div>
+</body>
+</html>

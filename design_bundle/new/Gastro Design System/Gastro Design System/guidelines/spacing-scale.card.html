@@ -1,0 +1,25 @@
+<!-- @dsCard group="Foundations" viewport="700x180" name="Spacing scale" subtitle="4px-grid scale · xs → xxl" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); }
+  .row { display: flex; align-items: center; gap: 12px; height: 22px; }
+  .bar { background: var(--color-brand-primary); height: 14px; border-radius: 3px; }
+  .name { flex: 0 0 92px; font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); }
+  .val { flex: 0 0 44px; font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="row"><span class="name">space-xxs</span><span class="val">2px</span><span class="bar" style="width:2px"></span></div>
+  <div class="row"><span class="name">space-xs</span><span class="val">4px</span><span class="bar" style="width:4px"></span></div>
+  <div class="row"><span class="name">space-sm</span><span class="val">8px</span><span class="bar" style="width:8px"></span></div>
+  <div class="row"><span class="name">space-md</span><span class="val">12px</span><span class="bar" style="width:12px"></span></div>
+  <div class="row"><span class="name">space-base</span><span class="val">16px</span><span class="bar" style="width:16px"></span></div>
+  <div class="row"><span class="name">space-lg</span><span class="val">24px</span><span class="bar" style="width:24px"></span></div>
+  <div class="row"><span class="name">space-xl</span><span class="val">32px</span><span class="bar" style="width:32px"></span></div>
+  <div class="row"><span class="name">space-xxl</span><span class="val">48px</span><span class="bar" style="width:48px"></span></div>
+</body>
+</html>

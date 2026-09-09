@@ -5,6 +5,10 @@
 /// areas) are kept OUT of this scale in [DSLayout]: a value tied to one purpose
 /// gets its own named constant, it does not dilute the rhythm scale.
 abstract final class DSSpacing {
+  /// Off the 4px grid on purpose — added by the bundle for tight text stacks
+  /// (name over caption). The bundle's own audit lists it as the sanctioned
+  /// replacement for the hardcoded `gap: 2` inside components.
+  static const double xxs = 2;
   static const double xs = 4;
   static const double sm = 8;
   static const double md = 12;

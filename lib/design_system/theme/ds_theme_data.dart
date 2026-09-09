@@ -10,7 +10,7 @@ import 'package:gastro_test/design_system/theme/ds_brand.dart';
 /// - the [DSBrand] extension so brand tokens are reachable via `context.brand`.
 abstract final class DSTheme {
   static ThemeData light({DSBrand? brand}) {
-    final b = brand ?? DSBrand.placeholder();
+    final b = brand ?? DSBrand.coffeeHouse();
     return ThemeData(
       useMaterial3: true,
       fontFamily: DSTypography.fontFamily,

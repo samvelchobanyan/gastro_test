@@ -1,0 +1,39 @@
+<!-- @dsCard group="Foundations" viewport="700x500" name="Typography" subtitle="Display through Overline — full 10-style scale" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); }
+  .row { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--color-border-muted); }
+  .row:last-child { border-bottom: 0; }
+  .meta { flex: 0 0 150px; font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+  .meta b { display: block; color: var(--color-text-secondary); font-size: 12px; font-weight: var(--font-weight-semibold); }
+  .display { font-size: var(--font-size-display); line-height: var(--line-height-display); font-weight: var(--font-weight-bold); letter-spacing: var(--letter-spacing-tight); }
+  .h1 { font-size: var(--font-size-h1); line-height: var(--line-height-h1); font-weight: var(--font-weight-bold); }
+  .h2 { font-size: var(--font-size-h2); line-height: var(--line-height-h2); font-weight: var(--font-weight-bold); }
+  .h3 { font-size: var(--font-size-h3); line-height: var(--line-height-h3); font-weight: var(--font-weight-bold); }
+  .bodylg { font-size: var(--font-size-body-lg); line-height: var(--line-height-body-lg); font-weight: var(--font-weight-regular); color: var(--color-text-secondary); }
+  .body { font-size: var(--font-size-body); line-height: var(--line-height-body); font-weight: var(--font-weight-regular); color: var(--color-text-secondary); }
+  .bodysb { font-size: var(--font-size-body); line-height: var(--line-height-body); font-weight: var(--font-weight-semibold); color: var(--color-text-secondary); }
+  .bodysm { font-size: var(--font-size-body-sm); line-height: var(--line-height-body-sm); font-weight: var(--font-weight-regular); color: var(--color-text-secondary); }
+  .bodyxs { font-size: var(--font-size-body-xs); line-height: var(--line-height-body-xs); font-weight: var(--font-weight-regular); color: var(--color-text-secondary); }
+  .caption { font-size: var(--font-size-caption); line-height: var(--line-height-caption); font-weight: var(--font-weight-regular); color: var(--color-text-tertiary); }
+  .overline { font-size: var(--font-size-overline); line-height: var(--line-height-overline); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-overline); text-transform: uppercase; color: var(--color-text-secondary); }
+</style>
+</head>
+<body>
+  <div class="row"><div class="meta"><b>Display</b>32 / 40 · Bold 700</div><div class="display">Order in seconds</div></div>
+  <div class="row"><div class="meta"><b>Heading 1</b>24 / 32 · Bold 700</div><div class="h1">Your favourites</div></div>
+  <div class="row"><div class="meta"><b>Heading 2</b>20 / 28 · Bold 700</div><div class="h2">Popular this week</div></div>
+  <div class="row"><div class="meta"><b>Heading 3</b>16 / 24 · Bold 700</div><div class="h3">Add to cart</div></div>
+  <div class="row"><div class="meta"><b>Body Large</b>16 / 24 · Regular 400</div><div class="bodylg">Slow-cooked short rib with charred leeks and a rosemary jus.</div></div>
+  <div class="row"><div class="meta"><b>Body Regular</b>14 / 20 · Regular 400</div><div class="body">Compact UI text for inputs, form labels and descriptions.</div></div>
+  <div class="row"><div class="meta"><b>Body Regular Semibold</b>14 / 20 · SemiBold 600</div><div class="bodysb">Emphasised UI text, inline labels and key values.</div></div>
+  <div class="row"><div class="meta"><b>Body Small</b>12 / 16 · Regular 400</div><div class="bodysm">Fine print, helper text and secondary metadata.</div></div>
+  <div class="row"><div class="meta"><b>Body Extra Small</b>10 / 14 · Regular 400</div><div class="bodyxs">Micro labels, timestamps and dense list metadata.</div></div>
+  <div class="row"><div class="meta"><b>Caption</b>12 / 16 · Regular 400</div><div class="caption">Delivered in 25–35 min · Free over $20</div></div>
+  <div class="row"><div class="meta"><b>Overline</b>10 / 12 · SemiBold · CAPS</div><div class="overline">Chef's specials</div></div>
+</body>
+</html>

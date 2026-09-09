@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="styles.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1280px;height:854px;overflow:hidden}
+  .page{display:flex;width:1280px;height:854px;font-family:var(--font-family-base)}
+  .main{flex:1;background:var(--gray-900);display:flex;align-items:center;justify-content:center}
+  .wordmark{color:var(--gray-0);font-weight:var(--font-weight-bold);font-size:150px;letter-spacing:var(--letter-spacing-tight);line-height:1}
+  .swatches{width:160px;height:854px;display:flex;flex-direction:column}
+  .swatch{flex:1}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="main"><div class="wordmark">Gastro</div></div>
+  <div class="swatches">
+    <div class="swatch" style="background:var(--accent-300)"></div>
+    <div class="swatch" style="background:var(--accent-500)"></div>
+    <div class="swatch" style="background:var(--accent-700)"></div>
+    <div class="swatch" style="background:var(--gray-900)"></div>
+  </div>
+</div>
+</body>
+</html>

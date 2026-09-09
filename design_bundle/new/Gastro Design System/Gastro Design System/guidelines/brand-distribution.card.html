@@ -1,0 +1,24 @@
+<!-- @dsCard group="Foundations" viewport="700x150" name="60 · 30 · 10 distribution" subtitle="Neutrals dominate · structure supports · accent acts" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); color: var(--color-text-primary); }
+  .bar { display: flex; height: 64px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border-muted); }
+  .seg { display: flex; flex-direction: column; justify-content: center; padding: 0 16px; }
+  .pct { font-size: 22px; line-height: 26px; font-weight: var(--font-weight-bold); }
+  .role { font-size: 11px; line-height: 15px; }
+  .cap { margin-top: 12px; font-size: 12px; line-height: 16px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="seg" style="flex:60;background:var(--color-bg-canvas);color:var(--color-text-primary)"><span class="pct">60</span><span class="role">Neutral canvas</span></div>
+    <div class="seg" style="flex:30;background:var(--gray-200);color:var(--color-text-secondary)"><span class="pct">30</span><span class="role">Structure</span></div>
+    <div class="seg" style="flex:10;background:var(--color-brand-primary);color:var(--color-text-on-brand)"><span class="pct">10</span><span class="role">Accent</span></div>
+  </div>
+  <div class="cap">Accent is reserved for CTAs, active states and focus rings only.</div>
+</body>
+</html>

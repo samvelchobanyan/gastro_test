@@ -29,12 +29,14 @@ abstract final class DSTypography {
     color: DSColors.textPrimary,
   );
 
+  // The 2026-09 bundle moved all three heading tiers to bold (700); they were
+  // semibold / medium / semibold.
   static const TextStyle h1 = TextStyle(
     fontFamily: fontFamily,
     fontSize: 24,
     height: 32 / 24,
-    fontWeight: semibold,
-    fontVariations: [FontVariation('wght', 600)],
+    fontWeight: bold,
+    fontVariations: [FontVariation('wght', 700)],
     letterSpacing: -0.24, // -0.01em
     color: DSColors.textPrimary,
   );
@@ -43,8 +45,8 @@ abstract final class DSTypography {
     fontFamily: fontFamily,
     fontSize: 20,
     height: 28 / 20,
-    fontWeight: medium,
-    fontVariations: [FontVariation('wght', 500)],
+    fontWeight: bold,
+    fontVariations: [FontVariation('wght', 700)],
     color: DSColors.textPrimary,
   );
 
@@ -52,8 +54,8 @@ abstract final class DSTypography {
     fontFamily: fontFamily,
     fontSize: 16,
     height: 24 / 16,
-    fontWeight: semibold,
-    fontVariations: [FontVariation('wght', 600)],
+    fontWeight: bold,
+    fontVariations: [FontVariation('wght', 700)],
     color: DSColors.textPrimary,
   );
 
@@ -70,6 +72,38 @@ abstract final class DSTypography {
     fontFamily: fontFamily,
     fontSize: 14,
     height: 20 / 14,
+    fontWeight: regular,
+    fontVariations: [FontVariation('wght', 400)],
+    color: DSColors.textPrimary,
+  );
+
+  /// Emphasis variant of [body] — same metrics, semibold.
+  static const TextStyle bodySemibold = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14,
+    height: 20 / 14,
+    fontWeight: semibold,
+    fontVariations: [FontVariation('wght', 600)],
+    color: DSColors.textPrimary,
+  );
+
+  /// 12/16. Metrically identical to [caption]; kept as its own name because the
+  /// component specs reference `--text-body-sm` and `--text-caption` separately
+  /// and may diverge later.
+  static const TextStyle bodySm = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 12,
+    height: 16 / 12,
+    fontWeight: regular,
+    fontVariations: [FontVariation('wght', 400)],
+    color: DSColors.textPrimary,
+  );
+
+  /// 10/14. Not [overline]: same size, but regular weight, no tracking, no caps.
+  static const TextStyle bodyXs = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 10,
+    height: 14 / 10,
     fontWeight: regular,
     fontVariations: [FontVariation('wght', 400)],
     color: DSColors.textPrimary,
@@ -98,15 +132,12 @@ abstract final class DSTypography {
   /// axis move together. Needed because `copyWith(fontWeight:)` alone is a no-op
   /// on a variable font (the axis in [fontVariations] wins). DS-internal use.
   static TextStyle withWeight(TextStyle base, FontWeight weight) {
-    const axis = <FontWeight, double>{
-      regular: 400,
-      medium: 500,
-      semibold: 600,
-      bold: 700,
-    };
+    // Not a const map: FontWeight overrides ==/hashCode, which Dart forbids as
+    // a const map key. The axis value is derivable from the weight index.
+    final axis = weight.value.toDouble();
     return base.copyWith(
       fontWeight: weight,
-      fontVariations: [FontVariation('wght', axis[weight] ?? 400)],
+      fontVariations: [FontVariation('wght', axis)],
     );
   }
 }

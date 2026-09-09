@@ -1,0 +1,53 @@
+<!-- @dsCard group="Foundations" viewport="700x210" name="Iconography — Phosphor" subtitle="Phosphor icon set · 24px default · 48px touch target" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); }
+  .set { display: flex; gap: 18px; align-items: center; color: var(--color-text-primary); }
+  .set i { font-size: 24px; }
+  .divider { height: 1px; background: var(--color-border-muted); margin: 16px 0; }
+  .lower { display: flex; align-items: flex-end; gap: 28px; }
+  .ramp { display: flex; align-items: flex-end; gap: 20px; }
+  .cell { text-align: center; color: var(--color-brand-primary); }
+  .cell .lbl { margin-top: 8px; font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); font-weight: var(--font-weight-semibold); }
+  .target { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); color: var(--color-text-primary); }
+  .target i { font-size: 24px; }
+  .note { font-size: 12px; line-height: 17px; color: var(--color-text-tertiary); max-width: 220px; }
+</style>
+</head>
+<body>
+  <div class="set">
+    <i class="ph ph-house"></i>
+    <i class="ph ph-magnifying-glass"></i>
+    <i class="ph ph-fork-knife"></i>
+    <i class="ph ph-shopping-cart-simple"></i>
+    <i class="ph ph-heart"></i>
+    <i class="ph ph-star"></i>
+    <i class="ph ph-storefront"></i>
+    <i class="ph ph-motorcycle"></i>
+    <i class="ph ph-map-pin"></i>
+    <i class="ph ph-clock"></i>
+    <i class="ph ph-receipt"></i>
+    <i class="ph ph-credit-card"></i>
+    <i class="ph ph-bell"></i>
+    <i class="ph ph-sliders-horizontal"></i>
+    <i class="ph ph-user"></i>
+  </div>
+  <div class="divider"></div>
+  <div class="lower">
+    <div class="ramp">
+      <div class="cell"><i class="ph ph-heart" style="font-size:16px"></i><div class="lbl">16</div></div>
+      <div class="cell"><i class="ph ph-heart" style="font-size:20px"></i><div class="lbl">20</div></div>
+      <div class="cell"><i class="ph ph-heart" style="font-size:24px"></i><div class="lbl">24</div></div>
+      <div class="cell"><i class="ph ph-heart" style="font-size:32px"></i><div class="lbl">32</div></div>
+      <div class="cell"><i class="ph ph-heart" style="font-size:40px"></i><div class="lbl">40</div></div>
+      <div class="cell"><span class="target"><i class="ph ph-heart"></i></span><div class="lbl">48 target</div></div>
+    </div>
+    <div class="note">Keep vectors inside a safe zone — a 24px glyph sits in a 48px tap target with 12px padding each side.</div>
+  </div>
+</body>
+</html>

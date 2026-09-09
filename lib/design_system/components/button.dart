@@ -28,6 +28,10 @@ class Button extends StatefulWidget {
   final IconData? iconLeft;
   final IconData? iconRight;
 
+  /// Fully rounded instead of the size's default corner (the bundle passes
+  /// `radius="full"` for the capsule action inside [Wallet]).
+  final bool pill;
+
   const Button({
     super.key,
     required this.label,
@@ -38,6 +42,7 @@ class Button extends StatefulWidget {
     this.loading = false,
     this.iconLeft,
     this.iconRight,
+    this.pill = false,
   });
 
   bool get _enabled => onPressed != null && !loading;
@@ -63,8 +68,9 @@ class _ButtonState extends State<Button> {
     DSButtonSize.xs => DSSizing.buttonPadXs,
   };
 
-  double get _radius =>
-      widget.size == DSButtonSize.xs ? DSRadius.sm : DSRadius.md;
+  double get _radius => widget.pill
+      ? DSRadius.full
+      : (widget.size == DSButtonSize.xs ? DSRadius.sm : DSRadius.md);
 
   TextStyle get _labelStyle {
     // Type scale has no 13px tier — the smaller sizes use Body (14), semibold.

@@ -1,0 +1,21 @@
+<!-- @dsCard group="Foundations" viewport="700x150" name="Button heights" subtitle="56 / 48 · 40 · 32 — matched to touch targets" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); display: flex; align-items: flex-end; gap: 20px; }
+  .cell { text-align: center; }
+  .btn { display: flex; align-items: center; justify-content: center; background: var(--button-primary-bg); color: var(--button-primary-text); border-radius: var(--radius-md); font-weight: var(--font-weight-semibold); padding: 0 20px; }
+  .lbl { margin-top: 8px; font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); }
+  .val { font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+  <div class="cell"><div class="btn" style="height:56px;font-size:16px">Checkout</div><div class="lbl">Large</div><div class="val">56px</div></div>
+  <div class="cell"><div class="btn" style="height:48px;font-size:16px">Checkout</div><div class="lbl">Primary</div><div class="val">48px</div></div>
+  <div class="cell"><div class="btn" style="height:40px;font-size:14px">Filter</div><div class="lbl">Secondary</div><div class="val">40px</div></div>
+  <div class="cell"><div class="btn" style="height:32px;font-size:13px;border-radius:var(--radius-sm)">Edit</div><div class="lbl">Tertiary</div><div class="val">32px</div></div>
+</body>
+</html>

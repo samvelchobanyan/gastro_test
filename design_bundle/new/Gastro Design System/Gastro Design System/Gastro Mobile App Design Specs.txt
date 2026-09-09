@@ -1,0 +1,312 @@
+
+You are: UX/UI Designer
+I am: Product Designer
+
+I’ll build a fully functional mobile app for restaurants. I need a design system. The screens will be assembled either in ClaudeDesign or in Figma, I haven’t decided yet. 
+
+GlobalMobile app will be branded for customers using their logo, name and their brand accent colors. Also, the block arrangement may differ from customer to customer. So rearranging block sizes or their order shouldn’t break the layout. 
+
+Design philosophyModular. Bento cards. Reusable components. Consistent. 
+
+Look and feelFlat. Minimalistic. Elegant. Clean. High contrast ratio to pass AAA accessibility tests. Color scheme
+The UI should be monochrome by default, with applied accent colors. Black, White, shades of gray + accent color for each brand. 
+
+Iconography
+Phosphor (https://github.com/phosphor-icons/homepage)
+
+Languages
+English
+
+Font Family
+Plus Jakarta Sans 
+Hierarchy
+The system should utilize a three-tier token architecture (Global → Semantic → Component) governed by strict layering, distribution, and semantic assignment rules.
+
+Screen width 360px
+
+Grid
+4px
+Layout
+
+4 columns max
+Margins from left and right: 16px
+Gutter: 8px
+Options:
+4 equal columns (each 76px)
+2 equal columns (each 160px)
+1 small column (76px) and 3 combined columns (244px) 
+1 full width column: 328px
+
+
+Spacing tokens
+Use this standardized scale to create Design Tokens or variables:
+
+Token Name
+Value
+space-xs
+4px
+space-sm
+8px
+space-md
+12px
+space-base
+16px
+space-lg
+24px
+space-xl
+32px
+space-xxl
+48px
+
+
+Typography tokens
+Here is the 4px baseline aligned typography scale designed for mobile screens. For a perfect vertical rhythm, the line-height must always be a multiple of 4.
+
+Style name
+Font size
+Line height
+4px grid steps
+Recommended usage
+Font weight
+CSS value
+Display
+32px
+40px
+10 blocks
+Large promotional headers, onboarding hero text
+Bold
+700
+Heading 1
+24px
+32px
+8 blocks
+Main page titles, dashboard primary metrics
+SemiBold
+600
+Heading 2
+20px
+28px
+7 blocks
+Section headers, modal titles, card headers
+Medium
+500
+Heading 3
+16px
+24px
+6 blocks
+Sub-sections, bold list items, button text
+SemiBold
+600
+Body Large
+16px
+24px
+6 blocks
+Default long-form reading, article body text
+Regular
+400
+Body Regular
+14px
+20px
+5 blocks
+Compact UI text, inputs, form labels, descriptions
+Regular
+400
+Caption
+12px
+16px
+4 blocks
+Helper text, timestamps, badge labels, errors
+Regular
+400
+Overline
+10px
+12px
+3 blocks
+All-caps category labels, small table headers
+SemiBold (ALL CAPS)
+600
+
+
+
+
+Iconography
+Icons must be aligned to the 4px grid using a concept called bounding boxes. The icon graphic itself can have irregular shapes, but the invisible box container around it must always scale in multiples of 4 to keep layouts clean and clickable.
+
+Do not let your raw icon shapes touch the very edge of the bounding box. Leave an inner safe zone padding inside your component layer. This allows icons of different shapes (circles, squares, triangles) to look optically balanced next to each other.
+
+24px Bounding Box Rule: Keep your icon vectors inside a 20px × 20px or 22px × 22px area centered inside the 24px frame.
+Alignment: Always use center-horizontal and center-vertical alignment for the vector paths inside the box frame.
+
+Mobile screens require physical fingers to tap items accurately. A 16px or 24px icon is too small to tap reliably on its own.
+
+The 48px Target: The absolute minimum interactive touch target is 48px × 48px.
+The 4px Solution: If your icon container is 24px, add 12px of padding on all four sides (12px + 24px + 12px = 48px). This expands the clickable zone without making the icon look visually giant.
+
+
+Container Bounding Box
+Icon Visual Asset Size
+Common Use Case
+Minimum Touch Target Padding
+16px x 16px
+14px - 16px
+Status bar indicators, inline chevron inside text, badges
+Add +16px padding for touch
+20px x 20px
+18px - 20px
+List item elements, form input icons, compact buttons
+Add +12px padding for touch
+24px × 24px
+20px – 22px
+Default Mobile Standard: Bottom nav bar, header actions
+Add +12px padding for touch
+32px × 32px
+24px – 28px
+Floating action buttons (FAB), primary quick actions
+Add +8px padding for touch
+40px × 40px
+30px – 32px
+Grid menus, feature highlights, large onboarding cards
+Native touch target ready
+
+Component Sizes
+
+1. Standard Button Sizes
+Buttons are the most high-traffic interactive elements. Their heights must match standard touch targets.
+Large / Primary Button: 56px or 48px height.
+Usage: Main call-to-action (CTA) buttons at the bottom of the screen (e.g., &quot;Checkout&quot;, &quot;Submit&quot;). 
+Medium / Secondary Button: 40px height.
+Usage: Content-level actions, filter buttons, or secondary options.
+Small / Tertiary Button: 32px height.
+Usage: Inline card actions, &quot;Edit&quot; tags, or compact utilities.
+
+2. Form Inputs and Fields
+Text input fields should match primary action heights to create a unified design system.
+Standard Input Height: 56px (Floating label style) or 48px (Fixed label style).
+Internal Padding (Left/Right): 16px (space-base) to align perfectly with your screen margins.
+Internal Padding (Top/Bottom): 12px (space-md) or 16px to vertically center text content inside a 48px/56px container.
+Input Helper Text Gap: 8px (space-sm) below the bounding box.
+
+3. Structural Components (Bars &amp; Rows)
+System bars and navigation components require specific structural constraints.
+Top Navigation / App Bar: 56px (Android standard) or 44px/52px (iOS standard).
+Bottom Navigation Bar: 56px (no labels) or 64px to 80px (with labels and safe area spacing included).
+List Item / Table Row: 48px (Compact text single-line), 56px (Icon + Single-line), or 72px / 88px (Two-line / Multi-line items with descriptions).
+
+
+Rounding RulesCorner radiuses must scale proportionally with element sizes to maintain visual harmony. 
+Micro Elements (4px / 8px): Badges, checkboxes, and rating stars.
+Small Components (8px / 12px): Tooltips, tags, small buttons, and nested image thumbnails.
+Medium Components (12px / 16px): System dialogs, standard input fields, and UI cards.
+Macro Components (24px / 32px): Bottom sheets, modal overlays, and full-screen card transitions.
+Full Rounding (9999px): Pills, tabs, and avatar frames. 
+Auto Layout &amp; Stacking LogicSpecify how multiple elements arrange themselves within a container.
+Vertical Content Gaps: Headlines and text descriptions must sit 8px apart. Independent content blocks (e.g., a text box sitting above an image block) must sit 16px apart. 
+Component Wrapping: When a text field breaks into two rows, the surrounding element bounding box must automatically scale vertically by increments of 4px.
+Nested Elements Rule: Inner padding should always be smaller than or equal to outer padding (Padding-Inner (12px) ≤ Padding-Outer (16px)). This creates a nested visual hierarchy.
+Screen Edge Overrides (Safe Areas)Mobile screens possess native physical hardware barriers that interfere with the layout.
+Top Notch/Dynamic Island: Explicitly instruct engineers to lock the Top App Bar background color to the Status Bar, shifting the interactive header text down by exactly 48px or 52px depending on the iOS device template.
+Bottom Home Indicator: Fixed or absolute bottom buttons must inject a minimum of 32px of empty bottom padding underneath the interactive button container to clear the system touch-swipe strip.
+States
+Component State Matrix
+
+State Name
+Trigger Condition
+Visual Styling Rule
+Accessibility/UX Requirement
+Enabled (Default)
+Idle component, ready for interaction.
+Base token styles applied.
+Text must meet contrast ratios.
+Pressed (Active)
+The user is physically touching the element.
++10% to +12% Black or White overlay or darkened background fill.
+Immediate feedback (under 100ms).
+Focused
+Keyboard/hardware nav selection or active input field.
+2px stroke outline inside or outside the container bounds.
+Must be highly distinct from the Default state.
+Disabled
+Elements cannot be interacted with due to logic constraints.
+30% to 38% Opacity reduction on fill and text content.
+Clear contrast drop; icon modifications if needed.
+Loading
+Action is processing after tap.
+Text/Icons hidden; Centered spinner component matching button size.
+Disable further tap tracking until finished.
+Error (Invalid)
+Form validations or execution errors fail.
+System Error Color applied to border, text, and icons.
+Accompanying assistive text below the asset.
+
+
+State Rules for Core Mobile Components
+
+A. Interactive Buttons (Primary / Secondary) 
+Pressed State: Since mobile devices do not have cursors, the Hover state is omitted. Apply a dark translucent overlay tint on top of the button background when the touch down event occurs (:active). 
+Loading State: The button container must maintain its exact width and height (e.g., 48px or 56px), freeze all tap behaviors, hide the text label, and show a centered spinner. 
+
+B. Text Input Fields
+Active/Focused State: When a user taps into an input box (:focus), change the border width from 1px to 2px and shift the color token to your primary brand brand color.
+Error State: The border changes to a distinct error color (typically Red-500). If a helper icon is present on the right side of the field, swap it with an alert icon.
+
+C. Selection Controls (Checkboxes, Radios, Switches) 
+Selected (Checked) vs. Unselected: Ensure the background container shifts color completely when toggled.
+Pressed State: Add an implicit, translucent radial glow block (+8px margin) around the toggle handle during touch events to signify responsiveness.
+
+Color System ArchitectureTo prevent arbitrary color choices, our system utilizes a three-tier token architecture (Global → Semantic → Component) governed by strict layering, distribution, and semantic assignment rules.
+
+1. The Token Layering Hierarchy
+Engineers and designers must never reference raw HEX/RGBA values directly. Colors must be assigned through this exact abstraction pipeline:
+
+Tier 1: Primitive/Global Tokens (The Palette): Raw hex codes assigned to functional names (e.g., blue-500: #1A73E8, gray-100: #F8F9FA).
+Tier 2: Semantic Tokens (The Purpose): Tokens named after their direct meaning or intent in the interface (e.g., color-text-primary, color-bg-surface, color-border-interactive).
+Tier 3: Component Tokens (The Override): Highly specific tokens tied to unique component states where semantic tokens fall short (e.g., button-primary-active-bg). 
+2. Structural Color Distribution (The 60-30-10 Rule)To maintain optimal cognitive load and clean visual hierarchy on mobile screens, layouts must follow this structural framework:
+60% Dominant Color (Neutrals): Reserved for core canvas backgrounds, structural layouts, and app containers (color-bg-main, color-bg-canvas). 
+30% Secondary Color (Structural Elements): Used for micro-surfaces, component containers, dividers, borders, and secondary typography (color-bg-surface, color-border-muted, color-text-secondary). 
+10% Accent Color (Action Elements): Strictly reserved for focal points, Primary CTAs, active states, key interactive indicators, and focus rings (color-brand-primary, color-brand-interactive). 
+
+3. Surface &amp; Contrast Layering Matrix
+To ensure predictable text legibility, text tokens are legally locked to specific background variables. The following matrix dictates permitted pairings:
+
+Background Semantic Token
+Permitted Typography Tokens
+Prohibited Typography Tokens
+color-bg-main / color-bg-canvas
+color-text-primary, color-text-secondary
+color-text-on-brand
+color-bg-surface (Cards/Modals)
+color-text-primary, color-text-secondary, color-text-accent
+color-text-on-brand
+color-brand-primary (CTAs)
+color-text-on-brand
+color-text-primary, color-text-secondary
+color-bg-error (Alert Banners)
+color-text-error
+color-text-secondary, color-text-accent
+
+
+
+
+4. Semantic Functional Roles
+Status-driven colors must match their defined real-world system meanings universally:
+
+Success (color-status-success): Confirmations, completed actions, positive balances, valid form validations (Green).
+Warning (color-status-warning): Non-blocking system alerts, pending states, data limits, irreversible action warnings (Amber/Yellow).
+Error (color-status-error): Destructive actions, system failures, invalid input fields, blocked processes (Red).
+Info (color-status-info): General announcements, helpful tooltips, neutral system updates (Blue/Teal). 
+
+Accessibility (A11y) &amp; Localization
+This design system mandates strict adherence to the Web Content Accessibility Guidelines (WCAG 2.2 AA standards) and platform-native accessibility engines (Apple VoiceOver / Android TalkBack). 
+
+1. Contrast Guardrails
+All interface states must automatically pass mathematical contrast validation before shipping:
+Normal Body Text &amp; Captions (under 18pt/24px): Must maintain a minimum contrast ratio of 4.5:1 against its direct background element.
+Large Display Text &amp; Headings (18pt/24px and above): Must maintain a minimum contrast ratio of 3.0:1.
+Graphical Objects &amp; UI Components: Form inputs borders, active checkmarks, and selected button frames must maintain a minimum contrast ratio of 3.0:1 against adjacent backgrounds to remain identifiable. 
+
+2. Redundant Visual Indicators (Color Blindness Rule)
+Color must never be used as the sole conveyor of information, status, or feedback.
+Error States: Input boxes marked invalid via a red border must explicitly feature an error helper icon (e.g., an alert triangle) and localized microcopy text explaining the solution. 
+Data Displays: Charts, graphs, and system dashboards must utilize varying stroke patterns (dashed, dotted), structural textures, or literal text tags next to legends to distinguish data series. 
+

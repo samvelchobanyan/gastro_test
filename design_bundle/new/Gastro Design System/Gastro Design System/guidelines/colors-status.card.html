@@ -1,0 +1,37 @@
+<!-- @dsCard group="Foundations" viewport="700x180" name="Status hues" subtitle="Success · Warning · Error · Info — functional roles" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .col { }
+  .row { display: flex; gap: 4px; margin-bottom: 8px; }
+  .chip { flex: 1; height: 40px; border-radius: var(--radius-sm); border: 1px solid var(--color-border-muted); }
+  .name { font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); color: var(--color-text-primary); }
+  .role { font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="col">
+      <div class="row"><span class="chip" style="background:var(--green-50)"></span><span class="chip" style="background:var(--green-500)"></span><span class="chip" style="background:var(--green-700)"></span></div>
+      <div class="name">Success</div><div class="role">Confirmed · valid · positive</div>
+    </div>
+    <div class="col">
+      <div class="row"><span class="chip" style="background:var(--amber-50)"></span><span class="chip" style="background:var(--amber-500)"></span><span class="chip" style="background:var(--amber-700)"></span></div>
+      <div class="name">Warning</div><div class="role">Pending · limits · caution</div>
+    </div>
+    <div class="col">
+      <div class="row"><span class="chip" style="background:var(--red-50)"></span><span class="chip" style="background:var(--red-500)"></span><span class="chip" style="background:var(--red-700)"></span></div>
+      <div class="name">Error</div><div class="role">Destructive · invalid · failed</div>
+    </div>
+    <div class="col">
+      <div class="row"><span class="chip" style="background:var(--blue-50)"></span><span class="chip" style="background:var(--blue-500)"></span><span class="chip" style="background:var(--blue-700)"></span></div>
+      <div class="name">Info</div><div class="role">Announcements · tooltips</div>
+    </div>
+  </div>
+</body>
+</html>

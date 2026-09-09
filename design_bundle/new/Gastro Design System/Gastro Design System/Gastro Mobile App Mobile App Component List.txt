@@ -1,0 +1,150 @@
+
+Mobile App Design System — Component Brief
+Restaurant / HoReCa Whitelabel Product
+This document lists the components required for the consumer mobile app, organized into two sets: general-purpose UI components and restaurant/ordering domain-specific components. Use this as the confirmation checklist before screen assembly begins in Claude Design.
+1. General UI Components
+Component
+Description
+Top App Bar / Navigation Bar
+Header showing screen title, back button, and optional action icons (search, cart, notifications)
+Bottom Tab Bar
+Persistent bottom navigation between core app sections (Home, Search, Orders, Profile)
+Button (Primary)
+Main call-to-action, filled background, used for the single most important action on screen
+Button (Secondary)
+Outlined or text-only button for secondary actions alongside a primary button
+Icon Button
+Tappable icon-only control, used for compact actions like favorite, share, or close
+Floating Action Button (FAB)
+Circular elevated button anchored to a screen edge for a key persistent action
+Text Input Field
+Single-line input with label, placeholder, helper text, and error states
+Text Area
+Multi-line input for longer free text entry
+Search Bar
+Input optimized for search with icon, clear button, and live suggestions
+Dropdown / Select
+Tappable field that opens a list of selectable options
+Checkbox
+Binary selection control for multi-select lists or agreements
+Radio Button
+Single-choice selection among a small set of mutually exclusive options
+Toggle / Switch
+On/off control for settings or binary preferences
+Stepper
+Increment/decrement control, typically used for quantity selection
+Slider
+Draggable control for selecting a value within a range
+Card
+Container grouping related content (image, title, metadata) with consistent padding and elevation
+List Item
+Single row in a list, with optional leading icon/avatar, title, subtitle, and trailing element
+Avatar
+Circular or rounded image/initial representing a user or entity
+Badge
+Small numeric or status indicator overlaid on an icon or element (e.g. cart count)
+Tag / Chip
+Compact label for categories, filters, or selectable options
+Tab Bar (Segmented Control)
+Horizontal set of tabs for switching between views within a single screen
+Accordion / Expandable Panel
+Collapsible section that reveals additional content on tap
+Modal / Bottom Sheet
+Overlay surface sliding up from the bottom for focused tasks or confirmations
+Dialog / Alert
+Centered overlay for critical confirmations or warnings, blocking background interaction
+Toast / Snackbar
+Brief, non-blocking message confirming an action or showing a status update
+Tooltip
+Small contextual hint shown on long-press or info-icon tap
+Progress Bar (Linear)
+Horizontal bar showing completion or loading progress
+Progress Indicator (Spinner)
+Circular loading indicator for indeterminate wait states
+Skeleton Loader
+Placeholder shapes mimicking content layout while data loads
+Empty State
+Illustration/message shown when a list or section has no content
+Error State
+Illustration/message with retry action shown when content fails to load
+Pagination / Page Indicator
+Dots or numbers showing position within a multi-step flow or carousel
+Carousel / Image Slider
+Horizontally scrollable set of images or cards, often with paging dots
+Rating Stars
+Interactive or display-only star rating control
+Date Picker
+Calendar-based control for selecting a single date or range
+Time Picker
+Scrollable wheel or list for selecting a time
+Map View / Pin
+Embedded map component with location markers, used for delivery tracking
+Bottom Navigation Drawer
+Slide-out panel for secondary navigation or account-level options
+Breadcrumb
+Indicator of current location within a multi-step flow (e.g. checkout steps)
+Form Group
+Layout container grouping related input fields with shared spacing rules
+Divider
+Thin line separating content sections or list groups
+2. Restaurant / Ordering Domain Components
+Component
+Description
+Menu Item Card
+Card showing dish photo, name, short description, price, and add-to-cart control
+Menu Category Tabs
+Horizontal scrollable tabs for jumping between menu sections (Starters, Mains, Drinks)
+Item Customization Sheet
+Bottom sheet for selecting size, add-ons, and special instructions before adding to cart
+Quantity Stepper (Cart)
+Increment/decrement control tied to a specific cart item&apos;s quantity
+Cart Summary Bar
+Persistent bottom bar showing item count and running total, tappable to open full cart
+Cart Line Item
+Row in the cart screen showing item, quantity, price, and edit/remove actions
+Order Total Breakdown
+Itemized summary of subtotal, delivery fee, tax, discount, and final total
+Promo Code Input
+Field with apply button for entering and validating discount codes
+Restaurant Card
+Card showing restaurant logo/cover image, name, cuisine type, rating, and delivery time
+Restaurant Header
+Banner section on a restaurant&apos;s page with cover photo, name, rating, hours, and follow/favorite action
+Cuisine/Category Filter Chip
+Selectable chip for filtering restaurants or dishes by cuisine, price, or dietary tag
+Search Filters Panel
+Expandable panel with sort and filter controls (price, rating, delivery time, dietary)
+Delivery/Pickup Toggle
+Segmented control for switching order type between delivery and pickup
+Address Selector
+Component for choosing or entering a delivery address, with saved-address list
+Delivery Time Estimate
+Inline indicator showing estimated delivery or pickup time
+Order Status Timeline
+Step-based progress indicator (Confirmed, Preparing, On the way, Delivered)
+Live Order Tracking Map
+Map view with live courier location, restaurant pin, and destination pin
+Order History Card
+Card summarizing a past order with date, items preview, total, and reorder action
+Reorder Button
+Quick action to add all items from a past order back into the cart
+Rating &amp; Review Prompt
+Post-order modal/card prompting star rating and optional written review
+Tip Selector
+Preset and custom tip amount selector shown at checkout
+Payment Method Card
+Row/card representing a saved payment method with selection state
+Payment Method Picker
+List/sheet for selecting or adding a payment method during checkout
+Loyalty/Rewards Badge
+Indicator showing earned points, tier status, or available rewards
+Table Reservation Picker
+Date, time, and party-size selector for booking a table
+Reservation Confirmation Card
+Summary card showing confirmed reservation details (date, time, table, party size)
+Waitlist Status Indicator
+Live indicator showing queue position or estimated wait time
+Notes for Claude Design Handoff
+Confirm this list against actual product scope before screen assembly — remove anything out of scope for v1, flag anything missing.
+Each component should be built once at the “neutral/base” level (no brand colors), with brand tokens (color, type, radius) applied as a separate layer.
+Define states per component where relevant: default, hover/pressed, disabled, loading, error, empty.

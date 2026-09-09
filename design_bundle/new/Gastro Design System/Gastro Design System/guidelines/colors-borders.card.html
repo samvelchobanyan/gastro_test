@@ -1,0 +1,23 @@
+<!-- @dsCard group="Foundations" viewport="700x130" name="Borders & dividers" subtitle="Structural strokes — the 30% layer" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .box { height: 52px; border-radius: var(--radius-md); background: var(--color-bg-surface); }
+  .lbl { margin-top: 8px; font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); color: var(--color-text-primary); }
+  .tok { font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div><div class="box" style="border:1px solid var(--color-border-muted)"></div><div class="lbl">Muted</div><div class="tok">border-muted</div></div>
+    <div><div class="box" style="border:1px solid var(--color-border-default)"></div><div class="lbl">Default</div><div class="tok">border-default</div></div>
+    <div><div class="box" style="border:1px solid var(--color-border-strong)"></div><div class="lbl">Strong</div><div class="tok">border-strong</div></div>
+    <div><div class="box" style="border:2px solid var(--color-border-interactive)"></div><div class="lbl">Interactive</div><div class="tok">border-interactive</div></div>
+  </div>
+</body>
+</html>

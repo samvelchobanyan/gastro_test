@@ -62,10 +62,11 @@ class DSBrand extends ThemeExtension<DSBrand> {
     );
   }
 
-  /// Placeholder accent (`#E42832`). No brand colors are finalized yet — the
-  /// real accent arrives from the customer. Swapping this one call re-skins the
-  /// whole app.
-  factory DSBrand.placeholder() => DSBrand.fromAccent(const Color(0xFFE42832));
+  /// The current client: the coffee-house brand shipped in the design bundle's
+  /// UI project (`brand.css`, `--accent-500: #ED1D25`). The design-system
+  /// library itself carries a neutral indigo placeholder — this is the override
+  /// that makes the app that client's. Swapping this one call re-skins it all.
+  factory DSBrand.coffeeHouse() => DSBrand.fromAccent(const Color(0xFFED1D25));
 
   // ---- Tier-3 component leaves (the re-skin checklist), resolved from above ----
   Color get buttonPrimaryBg => primary;

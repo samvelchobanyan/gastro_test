@@ -3,7 +3,7 @@ import 'package:gastro_test/core/extensions/ds_extensions.dart';
 import 'package:gastro_test/design_system/foundations/ds_colors.dart';
 import 'package:gastro_test/design_system/foundations/ds_radius.dart';
 import 'package:gastro_test/design_system/foundations/ds_typography.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphor_icons/phosphor_icons.dart';
 
 enum DSAvatarSize { xs, sm, md, lg, xl }
 

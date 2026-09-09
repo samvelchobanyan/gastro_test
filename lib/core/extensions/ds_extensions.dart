@@ -12,6 +12,9 @@ extension DSTypographyX on BuildContext {
   TextStyle get h3 => DSTypography.h3;
   TextStyle get bodyLg => DSTypography.bodyLg;
   TextStyle get body => DSTypography.body;
+  TextStyle get bodySemibold => DSTypography.bodySemibold;
+  TextStyle get bodySm => DSTypography.bodySm;
+  TextStyle get bodyXs => DSTypography.bodyXs;
   TextStyle get caption => DSTypography.caption;
   TextStyle get overline => DSTypography.overline;
 }

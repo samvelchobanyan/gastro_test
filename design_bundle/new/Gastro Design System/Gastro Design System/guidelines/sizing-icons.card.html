@@ -1,0 +1,26 @@
+<!-- @dsCard group="Foundations" viewport="700x170" name="Icons & touch targets" subtitle="Bounding boxes (mult. of 4) · 48px min target" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); display: flex; align-items: flex-end; gap: 24px; }
+  .cell { text-align: center; }
+  .box { display: inline-flex; align-items: center; justify-content: center; background: var(--color-brand-subtle); border: 1px dashed var(--accent-300); border-radius: 4px; }
+  .glyph { background: var(--color-brand-primary); border-radius: 3px; }
+  .lbl { margin-top: 8px; font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); }
+  .val { font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+  .target { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); }
+  .target .glyph { width: 24px; height: 24px; }
+</style>
+</head>
+<body>
+  <div class="cell"><span class="box" style="width:16px;height:16px"><span class="glyph" style="width:14px;height:14px"></span></span><div class="lbl">16</div><div class="val">inline</div></div>
+  <div class="cell"><span class="box" style="width:20px;height:20px"><span class="glyph" style="width:18px;height:18px"></span></span><div class="lbl">20</div><div class="val">list</div></div>
+  <div class="cell"><span class="box" style="width:24px;height:24px"><span class="glyph" style="width:22px;height:22px"></span></span><div class="lbl">24</div><div class="val">default</div></div>
+  <div class="cell"><span class="box" style="width:32px;height:32px"><span class="glyph" style="width:28px;height:28px"></span></span><div class="lbl">32</div><div class="val">FAB</div></div>
+  <div class="cell"><span class="box" style="width:40px;height:40px"><span class="glyph" style="width:32px;height:32px"></span></span><div class="lbl">40</div><div class="val">grid</div></div>
+  <div class="cell"><span class="target"><span class="glyph"></span></span><div class="lbl">48</div><div class="val">min target</div></div>
+</body>
+</html>

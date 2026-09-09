@@ -9,18 +9,21 @@ import 'package:flutter/widgets.dart';
 /// §3.3: importing a brand value directly would silently break the re-skin.
 abstract final class DSColors {
   // ---- Neutral ramp (13 solid steps — numeric names per density rule) ----
+  // Re-tinted in the 2026-09 bundle: the whole ramp moved from cool blue-grays
+  // to pure neutrals. Every step changed value under the same name, which is
+  // intended here — this is a repaint of the scale, not an inserted step.
   static const Color gray0 = Color(0xFFFFFFFF);
-  static const Color gray50 = Color(0xFFF8F9FA);
-  static const Color gray100 = Color(0xFFF1F3F5);
-  static const Color gray200 = Color(0xFFE9ECEF);
-  static const Color gray300 = Color(0xFFDEE2E6);
-  static const Color gray400 = Color(0xFFCED4DA);
-  static const Color gray500 = Color(0xFFADB5BD);
-  static const Color gray600 = Color(0xFF868E96);
-  static const Color gray700 = Color(0xFF495057);
-  static const Color gray800 = Color(0xFF343A40);
-  static const Color gray900 = Color(0xFF212529);
-  static const Color gray950 = Color(0xFF16191C);
+  static const Color gray50 = Color(0xFFF7F7F7);
+  static const Color gray100 = Color(0xFFF1F1F1);
+  static const Color gray200 = Color(0xFFEAEAEA);
+  static const Color gray300 = Color(0xFFE0E0E0);
+  static const Color gray400 = Color(0xFFD1D1D1);
+  static const Color gray500 = Color(0xFFB3B3B3);
+  static const Color gray600 = Color(0xFF8C8C8C);
+  static const Color gray700 = Color(0xFF4F4F4F);
+  static const Color gray800 = Color(0xFF383838);
+  static const Color gray900 = Color(0xFF232323);
+  static const Color gray950 = Color(0xFF171717);
   static const Color gray1000 = Color(0xFF000000);
 
   // ---- Status hues ----

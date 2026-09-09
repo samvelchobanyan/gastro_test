@@ -1,0 +1,31 @@
+<!-- @dsCard group="Foundations" viewport="700x190" name="Motion" subtitle="Durations & easing — feedback under 100ms" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); }
+  .head { font-size: 12px; line-height: 16px; color: var(--color-text-tertiary); margin-bottom: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .track { position: relative; height: 8px; background: var(--color-bg-surface-sunken); border-radius: var(--radius-full); }
+  .dot { position: absolute; top: -4px; left: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--color-brand-primary); }
+  .lbl { margin-top: 10px; font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); }
+  .tok { font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+  @keyframes travel { 0%,12% { left: 0; } 50%,62% { left: calc(100% - 16px); } 100% { left: 0; } }
+  .d1 { animation: travel 2.4s var(--ease-standard) infinite; }
+  .d2 { animation: travel 2.4s var(--ease-decelerate) infinite; }
+  .d3 { animation: travel 2.4s var(--ease-accelerate) infinite; }
+  .d4 { animation: travel 2.4s var(--ease-emphasized) infinite; }
+</style>
+</head>
+<body>
+  <div class="head">100 · 150 · 200 · 300ms &nbsp;/&nbsp; easing curves</div>
+  <div class="grid">
+    <div><div class="track"><span class="dot d1"></span></div><div class="lbl">Standard</div><div class="tok">default UI</div></div>
+    <div><div class="track"><span class="dot d2"></span></div><div class="lbl">Decelerate</div><div class="tok">entering</div></div>
+    <div><div class="track"><span class="dot d3"></span></div><div class="lbl">Accelerate</div><div class="tok">exiting</div></div>
+    <div><div class="track"><span class="dot d4"></span></div><div class="lbl">Emphasized</div><div class="tok">confirm</div></div>
+  </div>
+</body>
+</html>

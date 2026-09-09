@@ -1,0 +1,22 @@
+<!-- @dsCard group="Organisms" viewport="700x300" name="News Listing" subtitle="Image, title, publish date" -->
+<!DOCTYPE html><html><head><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:24px;font-family:var(--font-family-base);background:var(--color-bg-canvas)}.row{display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap}.col{display:flex;flex-direction:column;gap:16px;max-width:420px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { NewsListing } = window.GastroDesignSystem_472aed;
+function Demo() {
+  const img = 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300';
+  return (
+    <div className="col">
+      <NewsListing image={img} title="New downtown location opening this fall" publishedAt="Jul 10, 2026" onClick={() => {}} />
+      <NewsListing image={img} title="Weekend brunch menu is back" publishedAt="Jul 2, 2026" onClick={() => {}} />
+      <NewsListing image={img} title="We're hiring line cooks — apply today" publishedAt="Jun 28, 2026" onClick={() => {}} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

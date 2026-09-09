@@ -1,0 +1,33 @@
+<!-- @dsCard group="Foundations" viewport="700x160" name="Brand accent (placeholder)" subtitle="Swappable per customer — the 10% action color" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); }
+  .ramp { display: flex; gap: 4px; }
+  .sw { flex: 1; }
+  .chip { height: 48px; border-radius: var(--radius-sm); border: 1px solid var(--color-border-muted); }
+  .lbl { margin-top: 6px; font-size: 11px; line-height: 14px; color: var(--color-text-tertiary); font-weight: var(--font-weight-semibold); }
+  .hex { font-size: 10px; line-height: 14px; color: var(--color-text-tertiary); font-variant-numeric: tabular-nums; }
+  .note { margin-top: 12px; font-size: 12px; line-height: 16px; color: var(--color-text-tertiary); }
+  .note b { color: var(--color-text-accent); font-weight: var(--font-weight-semibold); }
+</style>
+</head>
+<body>
+  <div class="ramp">
+    <div class="sw"><div class="chip" style="background:var(--accent-50)"></div><div class="lbl">50</div><div class="hex">EDF0FE</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-100)"></div><div class="lbl">100</div><div class="hex">DBE1FD</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-200)"></div><div class="lbl">200</div><div class="hex">B7C3FB</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-300)"></div><div class="lbl">300</div><div class="hex">93A5F9</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-400)"></div><div class="lbl">400</div><div class="hex">6F87F7</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-500);outline:2px solid var(--color-text-primary);outline-offset:1px"></div><div class="lbl">500</div><div class="hex">4C6EF5</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-600)"></div><div class="lbl">600</div><div class="hex">3B5BDB</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-700)"></div><div class="lbl">700</div><div class="hex">2F49AF</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-800)"></div><div class="lbl">800</div><div class="hex">243884</div></div>
+    <div class="sw"><div class="chip" style="background:var(--accent-900)"></div><div class="lbl">900</div><div class="hex">1A275E</div></div>
+  </div>
+  <div class="note"><b>Placeholder.</b> Base = 500. Override <code>tokens/brand.css</code> to re-skin the whole app.</div>
+</body>
+</html>

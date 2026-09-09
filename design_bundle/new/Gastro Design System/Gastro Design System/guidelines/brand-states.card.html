@@ -1,0 +1,26 @@
+<!-- @dsCard group="Foundations" viewport="700x180" name="Component states" subtitle="Enabled · Pressed · Focused · Disabled · Loading · Error" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); display: flex; gap: 16px; align-items: flex-start; }
+  .cell { text-align: center; }
+  .btn { position: relative; display: flex; align-items: center; justify-content: center; width: 96px; height: 48px; background: var(--button-primary-bg); color: var(--button-primary-text); border-radius: var(--radius-md); font-size: 14px; font-weight: var(--font-weight-semibold); overflow: hidden; }
+  .btn .press { position: absolute; inset: 0; background: var(--overlay-press-light); }
+  .lbl { margin-top: 8px; font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); font-weight: var(--font-weight-semibold); }
+  .spinner { width: 18px; height: 18px; border: 2px solid var(--alpha-white-24); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .err { border: 1px solid var(--color-status-error); background: var(--color-bg-error); color: var(--color-text-error); }
+</style>
+</head>
+<body>
+  <div class="cell"><div class="btn">Add</div><div class="lbl">Enabled</div></div>
+  <div class="cell"><div class="btn">Add<span class="press"></span></div><div class="lbl">Pressed</div></div>
+  <div class="cell"><div class="btn" style="outline:2px solid var(--color-focus-ring);outline-offset:2px">Add</div><div class="lbl">Focused</div></div>
+  <div class="cell"><div class="btn" style="opacity:var(--state-disabled-opacity)">Add</div><div class="lbl">Disabled</div></div>
+  <div class="cell"><div class="btn"><span class="spinner"></span></div><div class="lbl">Loading</div></div>
+  <div class="cell"><div class="btn err">Retry</div><div class="lbl">Error</div></div>
+</body>
+</html>

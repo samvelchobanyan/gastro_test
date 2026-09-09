@@ -1,0 +1,27 @@
+<!-- @dsCard group="Foundations" viewport="700x160" name="Radius scale" subtitle="Corner radii scale with element size" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; font-family: var(--font-family-base); background: var(--color-bg-main); color: var(--color-text-primary); }
+  .grid { display: flex; gap: 14px; align-items: flex-end; }
+  .cell { flex: 1; text-align: center; }
+  .box { height: 64px; background: var(--color-brand-subtle); border: 1.5px solid var(--accent-300); }
+  .lbl { margin-top: 8px; font-size: 12px; line-height: 16px; font-weight: var(--font-weight-semibold); }
+  .val { font-size: 11px; line-height: 15px; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell"><div class="box" style="border-radius:var(--radius-xs)"></div><div class="lbl">xs</div><div class="val">4px</div></div>
+    <div class="cell"><div class="box" style="border-radius:var(--radius-sm)"></div><div class="lbl">sm</div><div class="val">8px</div></div>
+    <div class="cell"><div class="box" style="border-radius:var(--radius-md)"></div><div class="lbl">md</div><div class="val">12px</div></div>
+    <div class="cell"><div class="box" style="border-radius:var(--radius-lg)"></div><div class="lbl">lg</div><div class="val">16px</div></div>
+    <div class="cell"><div class="box" style="border-radius:var(--radius-xl)"></div><div class="lbl">xl</div><div class="val">24px</div></div>
+    <div class="cell"><div class="box" style="border-radius:var(--radius-2xl)"></div><div class="lbl">2xl</div><div class="val">32px</div></div>
+    <div class="cell"><div class="box" style="border-radius:var(--radius-full)"></div><div class="lbl">full</div><div class="val">9999</div></div>
+  </div>
+</body>
+</html>
