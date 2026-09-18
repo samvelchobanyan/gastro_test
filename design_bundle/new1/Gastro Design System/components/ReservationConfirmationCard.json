@@ -1,0 +1,233 @@
+{
+  "kind": "component",
+  "name": "ReservationConfirmationCard",
+  "version": "2026-09-12",
+  "description": "Success summary shown after booking a table: restaurant, date/time, party size, and confirmation code.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--card-bg",
+    "radius": "--radius-card",
+    "border": {
+      "width": 1,
+      "color": "--card-border"
+    },
+    "padding": {
+      "all": "--space-lg"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-md",
+      4,
+      "--space-md",
+      8
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "successIcon",
+        "type": "box",
+        "size": [
+          56,
+          56
+        ],
+        "background": "--color-bg-success",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "successIcon.glyph",
+          "type": "icon",
+          "name": "check-circle",
+          "weight": "fill",
+          "size": 28,
+          "color": "--color-status-success"
+        }
+      },
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "Table confirmed",
+        "style": "--text-h2",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "restaurantName",
+        "type": "text",
+        "content": "{restaurantName}",
+        "style": "--text-body",
+        "color": "--color-text-tertiary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "details",
+        "type": "column",
+        "spacing": [
+          8,
+          8
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "children": [
+          {
+            "slot": "dateRow",
+            "type": "row",
+            "spacing": [
+              "--space-sm"
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "hug"
+            },
+            "children": [
+              {
+                "slot": "dateRow.icon",
+                "type": "icon",
+                "name": "calendar",
+                "weight": "regular",
+                "size": 18,
+                "color": "--color-text-tertiary"
+              },
+              {
+                "slot": "dateRow.text",
+                "type": "text",
+                "content": "{dateLabel} · {timeLabel}",
+                "style": "--text-body",
+                "color": "--color-text-secondary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "hug"
+                }
+              }
+            ]
+          },
+          {
+            "slot": "partyRow",
+            "type": "row",
+            "spacing": [
+              "--space-sm"
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "hug"
+            },
+            "children": [
+              {
+                "slot": "partyRow.icon",
+                "type": "icon",
+                "name": "users",
+                "weight": "regular",
+                "size": 18,
+                "color": "--color-text-tertiary"
+              },
+              {
+                "slot": "partyRow.text",
+                "type": "text",
+                "content": "{partySize} guests",
+                "style": "--text-body",
+                "color": "--color-text-secondary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "hug"
+                }
+              }
+            ]
+          },
+          {
+            "slot": "codeRow",
+            "type": "row",
+            "spacing": [
+              "--space-sm"
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "hug"
+            },
+            "children": [
+              {
+                "slot": "codeRow.icon",
+                "type": "icon",
+                "name": "ticket",
+                "weight": "regular",
+                "size": 18,
+                "color": "--color-text-tertiary"
+              },
+              {
+                "slot": "codeRow.text",
+                "type": "text",
+                "content": "Code {confirmationCode}",
+                "style": "--text-body",
+                "color": "--color-text-secondary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "hug"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "codeRow": {
+      "prop": "confirmationCode",
+      "cases": {
+        "empty": {
+          "codeRow": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "successIcon.glyph is 28px, row icons are 18px — both off the --icon-* scale, kept as raw numbers. root vertical rhythm mixes token and raw-px gaps as authored (margins of 0/--space-md/4px/--space-md/8px between elements) — recorded as the closest single spacing list, itemized in this note rather than exactly reproduced per pair."
+}

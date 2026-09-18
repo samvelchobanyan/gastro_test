@@ -1,0 +1,64 @@
+{
+  "kind": "component",
+  "name": "Divider",
+  "version": "2026-09-12",
+  "description": "Thin hairline separating content sections or list groups, horizontal or vertical, with an optional centered label.",
+  "size": {
+    "width": "fill",
+    "height": 1
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      "fill",
+      1
+    ],
+    "background": "--color-border-muted",
+    "radius": null,
+    "border": null,
+    "padding": null,
+    "child": null
+  },
+  "variants": {
+    "vertical": {
+      "prop": "vertical",
+      "cases": {
+        "true": {
+          "root": {
+            "size": [
+              1,
+              "fill"
+            ]
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "set": {
+          "root": {
+            "visible": false
+          },
+          "labeled": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "inset": {
+      "prop": "inset",
+      "cases": {
+        "set": {
+          "root": {
+            "margin": "{inset}"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "When label is set, root is replaced by a row (slot 'labeled': line, text style --text-caption color --color-text-tertiary weight semibold, line) with --space-md gaps and --space-sm vertical margin — recorded here as a variant swap rather than a second tree since the schema has one default tree. inset is a raw pixel left-margin passed through by the caller, not a token."
+}

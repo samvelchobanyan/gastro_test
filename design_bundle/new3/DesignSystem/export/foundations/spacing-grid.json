@@ -1,0 +1,62 @@
+{
+  "kind": "foundation",
+  "name": "Spacing — Grid",
+  "version": "2026-09-18",
+  "description": "The mobile layout grid: 360px screen width, 16px side margins, 8px gutter, up to 4 columns — plus safe-area offsets for notches and home-indicator swipe zones.",
+  "tokens": [
+    {
+      "name": "--screen-width",
+      "value": "360px"
+    },
+    {
+      "name": "--layout-margin",
+      "value": "16px",
+      "usage": "Left & right screen margins"
+    },
+    {
+      "name": "--layout-gutter",
+      "value": "8px",
+      "usage": "Space between columns"
+    },
+    {
+      "name": "--content-width",
+      "value": "328px",
+      "usage": "Full column: 360 - (16*2)"
+    },
+    {
+      "name": "--col-quarter",
+      "value": "76px",
+      "usage": "4 equal columns"
+    },
+    {
+      "name": "--col-half",
+      "value": "160px",
+      "usage": "2 equal columns"
+    },
+    {
+      "name": "--col-three",
+      "value": "244px",
+      "usage": "3 combined columns (1+3)"
+    },
+    {
+      "name": "--col-full",
+      "value": "328px",
+      "usage": "1 full-width column"
+    },
+    {
+      "name": "--safe-top",
+      "value": "48px",
+      "usage": "Header text offset below notch"
+    },
+    {
+      "name": "--safe-top-ios",
+      "value": "52px"
+    },
+    {
+      "name": "--safe-bottom",
+      "value": "32px",
+      "usage": "Clears home-swipe indicator"
+    }
+  ],
+  "notes": ""
+}

@@ -1,0 +1,137 @@
+{
+  "kind": "component",
+  "name": "CartSummaryBar",
+  "version": "2026-09-12",
+  "description": "Persistent bottom bar showing cart item count and total, tappable to open the full cart.",
+  "size": {
+    "width": "fill",
+    "height": 56
+  },
+  "surface": {
+    "background": "--button-primary-bg",
+    "radius": "--radius-md",
+    "border": null,
+    "padding": {
+      "x": "--space-base",
+      "y": null
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [],
+    "padding": null,
+    "align": "center",
+    "justify": "between",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 56
+    },
+    "children": [
+      {
+        "slot": "left",
+        "type": "row",
+        "spacing": [
+          "--space-sm",
+          "--space-sm"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "children": [
+          {
+            "slot": "count",
+            "type": "box",
+            "size": [
+              24,
+              24
+            ],
+            "background": "--alpha-white-24",
+            "radius": "--radius-full",
+            "border": null,
+            "padding": null,
+            "child": {
+              "slot": "count.text",
+              "type": "text",
+              "content": "{itemCount}",
+              "style": "--text-caption",
+              "color": "--button-primary-text",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          },
+          {
+            "slot": "cartIcon",
+            "type": "icon",
+            "name": "shopping-cart-simple",
+            "weight": "regular",
+            "size": "--icon-md",
+            "color": "--button-primary-text"
+          },
+          {
+            "slot": "viewCart",
+            "type": "text",
+            "content": "View cart",
+            "style": "--text-body-lg",
+            "color": "--button-primary-text",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "total",
+        "type": "text",
+        "content": "${total}",
+        "style": "--text-body-lg",
+        "color": "--button-primary-text",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "end",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "background": "--button-primary-bg-active"
+          }
+        }
+      }
+    },
+    "visible": {
+      "prop": "itemCount",
+      "cases": {
+        "zero": {
+          "root": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "count.text font-size is 11px in source, off scale, approximated to --text-caption. viewCart weight is semibold, total weight is bold — both riding the --text-body-lg size/line-height token with their own weight override, since the token itself doesn't encode weight variants for this size. root carries --elevation-raised shadow. Hidden entirely when itemCount is 0."
+}

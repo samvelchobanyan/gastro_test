@@ -1,0 +1,71 @@
+{
+  "kind": "foundation",
+  "name": "Radius",
+  "version": "2026-09-18",
+  "description": "Corner-radius ramp scaling proportionally with element size, plus semantic aliases by component category. Part of the swappable brand layer — a customer can dial the whole app rounder or sharper by remapping this one file.",
+  "tokens": [
+    {
+      "name": "--radius-xs",
+      "value": "4px"
+    },
+    {
+      "name": "--radius-sm",
+      "value": "8px"
+    },
+    {
+      "name": "--radius-md",
+      "value": "12px"
+    },
+    {
+      "name": "--radius-lg",
+      "value": "16px"
+    },
+    {
+      "name": "--radius-xl",
+      "value": "24px"
+    },
+    {
+      "name": "--radius-2xl",
+      "value": "32px"
+    },
+    {
+      "name": "--radius-full",
+      "value": "9999px"
+    },
+    {
+      "name": "--radius-badge",
+      "value": "var(--radius-xs)",
+      "usage": "Badges, checkboxes"
+    },
+    {
+      "name": "--radius-tag",
+      "value": "var(--radius-sm)",
+      "usage": "Tags, small buttons, thumbs"
+    },
+    {
+      "name": "--radius-input",
+      "value": "var(--radius-md)",
+      "usage": "Inputs, dialogs, cards"
+    },
+    {
+      "name": "--radius-card",
+      "value": "var(--radius-lg)",
+      "usage": "Cards"
+    },
+    {
+      "name": "--radius-sheet",
+      "value": "var(--radius-xl)",
+      "usage": "Bottom sheets, modals"
+    },
+    {
+      "name": "--radius-modal",
+      "value": "var(--radius-2xl)"
+    },
+    {
+      "name": "--radius-pill",
+      "value": "var(--radius-full)",
+      "usage": "Pills, tabs, avatars"
+    }
+  ],
+  "notes": ""
+}

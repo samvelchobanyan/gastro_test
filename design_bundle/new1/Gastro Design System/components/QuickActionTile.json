@@ -1,0 +1,70 @@
+{
+  "kind": "component",
+  "name": "QuickActionTile",
+  "version": "2026-09-12",
+  "description": "Square tile with a centered icon and a label below, used in a row of shortcut actions (Rate, History, Favourites).",
+  "size": {
+    "width": "fill",
+    "height": "fill",
+    "aspectRatio": 1
+  },
+  "surface": {
+    "background": "--card-bg",
+    "radius": "--radius-card",
+    "border": null,
+    "padding": null
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "center",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": "fill"
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "{icon}",
+        "weight": "regular",
+        "size": 28,
+        "color": "--color-brand-primary"
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "scale": "--press-scale"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "icon size 28px is off the --icon-* scale, kept as a raw number. Root carries --elevation-card shadow."
+}

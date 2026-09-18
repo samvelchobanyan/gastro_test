@@ -1,0 +1,56 @@
+{
+  "kind": "component",
+  "name": "Spinner",
+  "version": "2026-09-12",
+  "description": "Circular indeterminate loading indicator, sized in pixels, with a dark-surface variant.",
+  "size": {
+    "width": 24,
+    "height": 24
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      24,
+      24
+    ],
+    "background": "transparent",
+    "radius": "--radius-full",
+    "border": {
+      "width": 2,
+      "color": "--color-border-default"
+    },
+    "padding": null,
+    "child": null
+  },
+  "variants": {
+    "onDark": {
+      "prop": "onDark",
+      "cases": {
+        "true": {
+          "root": {
+            "border": {
+              "color": "--alpha-white-24"
+            }
+          }
+        }
+      }
+    },
+    "size": {
+      "prop": "size",
+      "cases": {
+        "custom": {
+          "root": {
+            "size": [
+              "{size}",
+              "{size}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "border-top-color (the spinning 'head') is --color-brand-primary (or #fff literal when onDark — no on-dark accent token exists, kept as source's literal white). border thickness defaults to 2.5px, off the --border-width-* scale, kept as a raw number. Rotation is a continuous CSS animation, not a static field."
+}

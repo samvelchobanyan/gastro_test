@@ -1,0 +1,72 @@
+{
+  "kind": "component",
+  "name": "SimpleListItem",
+  "version": "2026-09-12",
+  "description": "Minimal navigational row: a text label and a trailing chevron.",
+  "size": {
+    "width": "fill",
+    "height": 56
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": {
+      "x": "--space-base",
+      "y": "--space-md"
+    },
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 56
+    },
+    "children": [
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-lg",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "ellipsis",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "chevron",
+        "type": "icon",
+        "name": "caret-right",
+        "weight": "regular",
+        "size": "--icon-sm",
+        "color": "--color-text-tertiary"
+      }
+    ]
+  },
+  "variants": {
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "background": "--overlay-hover-dark"
+          }
+        },
+        "disabled": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "label font-weight is medium over --text-body-lg."
+}

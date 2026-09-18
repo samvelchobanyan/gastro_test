@@ -1,0 +1,104 @@
+{
+  "kind": "component",
+  "name": "ProductHorizontalCard",
+  "version": "2026-09-12",
+  "description": "Horizontal product row: a small square photo on the left with product name and price stacked to its right.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{imageUrl}",
+        "size": [
+          80,
+          80
+        ],
+        "fit": "cover",
+        "radius": "--radius-card",
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--gray-100"
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          "--space-xxs"
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "name",
+            "type": "text",
+            "content": "{name}",
+            "style": "--text-body-sm",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "price",
+            "type": "text",
+            "content": "{price}",
+            "style": "--text-body-xs",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "imageSize": {
+      "prop": "imageSize",
+      "cases": {
+        "custom": {
+          "photo": {
+            "size": [
+              "{imageSize}",
+              "{imageSize}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "name weight is semibold over --text-body-sm. photo.fallback hatch pattern per BuyAgainCard's note."
+}

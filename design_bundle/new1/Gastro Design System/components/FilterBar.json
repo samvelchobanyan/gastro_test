@@ -1,0 +1,78 @@
+{
+  "kind": "component",
+  "name": "FilterBar",
+  "version": "2026-09-12",
+  "description": "Horizontal pill filter toggle (icon left, label right) — a denser alternative to Filter.",
+  "size": {
+    "width": "hug",
+    "height": 40
+  },
+  "surface": {
+    "background": "--color-bg-surface-sunken",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "x": "--space-md"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      8
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": 40
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "{icon}",
+        "weight": "regular",
+        "size": 18,
+        "color": "--color-text-secondary"
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body",
+        "color": "--color-text-secondary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "selected": {
+      "prop": "selected",
+      "cases": {
+        "true": {
+          "root": {
+            "background": "--color-brand-primary"
+          },
+          "icon": {
+            "color": "--color-text-on-brand"
+          },
+          "label": {
+            "color": "--color-text-on-brand",
+            "weight": "semibold"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "icon size 18px and row gap 8px are off their respective scales, kept as raw numbers per source."
+}

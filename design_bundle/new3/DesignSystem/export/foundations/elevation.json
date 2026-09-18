@@ -1,0 +1,29 @@
+{
+  "kind": "foundation",
+  "name": "Elevation",
+  "version": "2026-09-18",
+  "description": "A restrained 4-level shadow scale used only to separate true layers (cards, floating controls, detached overlays, bottom sheets); neutral/black-based so it survives re-branding.",
+  "tokens": [
+    {
+      "name": "--elevation-card",
+      "value": "0 1px 2px rgba(0,0,0,.05), 0 1px 1px rgba(0,0,0,.03)",
+      "usage": "Resting surfaces — cards, chips"
+    },
+    {
+      "name": "--elevation-raised",
+      "value": "0 2px 4px rgba(0,0,0,.05), 0 4px 12px rgba(0,0,0,.08)",
+      "usage": "Floating controls — FAB, cart bar, dropdown"
+    },
+    {
+      "name": "--elevation-overlay",
+      "value": "0 4px 8px rgba(0,0,0,.06), 0 12px 28px rgba(0,0,0,.12)",
+      "usage": "Detached overlays — dialog, popover, toast"
+    },
+    {
+      "name": "--elevation-sheet",
+      "value": "0 -2px 8px rgba(0,0,0,.06), 0 -8px 24px rgba(0,0,0,.10)",
+      "usage": "Bottom sheet, cast upward"
+    }
+  ],
+  "notes": ""
+}

@@ -1,0 +1,146 @@
+{
+  "kind": "component",
+  "name": "PaymentMethodCard",
+  "version": "2026-09-12",
+  "description": "Single payment method row (card or wallet) with a brand icon, masked number/label, and a selected radio indicator.",
+  "size": {
+    "width": "fill",
+    "height": 56
+  },
+  "surface": {
+    "background": "--color-bg-main",
+    "radius": "--radius-md",
+    "border": {
+      "width": 1,
+      "color": "--color-border-default"
+    },
+    "padding": {
+      "x": "--space-md"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 56
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "box",
+        "size": [
+          40,
+          28
+        ],
+        "background": "--color-bg-surface-sunken",
+        "radius": "--radius-xs",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "icon.glyph",
+          "type": "icon",
+          "name": "credit-card",
+          "weight": "regular",
+          "size": 18,
+          "color": "--color-text-secondary"
+        }
+      },
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "{title}",
+        "style": "--text-body-lg",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "radio",
+        "type": "box",
+        "size": [
+          20,
+          20
+        ],
+        "background": "transparent",
+        "radius": "--radius-full",
+        "border": {
+          "width": 2,
+          "color": "--color-border-strong"
+        },
+        "padding": null,
+        "child": {
+          "slot": "radio.dot",
+          "type": "box",
+          "size": [
+            10,
+            10
+          ],
+          "background": "transparent",
+          "radius": "--radius-full",
+          "border": null,
+          "padding": null,
+          "child": null
+        }
+      }
+    ]
+  },
+  "variants": {
+    "selected": {
+      "prop": "selected",
+      "cases": {
+        "true": {
+          "root": {
+            "background": "--color-brand-subtle",
+            "border": {
+              "color": "--color-brand-primary"
+            }
+          },
+          "radio": {
+            "border": {
+              "color": "--color-brand-primary"
+            }
+          },
+          "radio.dot": {
+            "visible": true,
+            "background": "--color-brand-primary"
+          }
+        }
+      }
+    },
+    "type": {
+      "prop": "type",
+      "cases": {
+        "apple-pay": {
+          "icon.glyph": {
+            "name": "apple-logo"
+          }
+        },
+        "google-pay": {
+          "icon.glyph": {
+            "name": "google-logo"
+          }
+        },
+        "cash": {
+          "icon.glyph": {
+            "name": "money"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "icon.glyph is 18px, off the --icon-* scale, kept as a raw number. title font-weight is medium over --text-body-lg."
+}

@@ -1,0 +1,110 @@
+{
+  "kind": "component",
+  "name": "Wallet",
+  "version": "2026-09-12",
+  "description": "Fixed-width 328px dark balance card showing a wallet icon, title, balance, and a 'Top Up' action.",
+  "size": {
+    "width": 328,
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--gray-900",
+    "radius": "--space-base",
+    "border": null,
+    "padding": {
+      "all": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "image",
+        "source": "{icon}",
+        "size": [
+          48,
+          48
+        ],
+        "fit": "cover",
+        "radius": "--radius-sm",
+        "fallback": {
+          "slot": "icon.fallback",
+          "type": "box",
+          "background": "--alpha-white-8"
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          0
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "title",
+            "type": "text",
+            "content": "{title}",
+            "style": "--text-body-sm",
+            "color": "--gray-500",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "balance",
+            "type": "text",
+            "content": "{balance}",
+            "style": "--text-h1",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "topUp",
+        "type": "component",
+        "component": "Button",
+        "shows": {
+          "size": "xs",
+          "radius": "full",
+          "iconLeft": "plus",
+          "children": "{topUpLabel}"
+        }
+      }
+    ]
+  },
+  "variants": {},
+  "uses": [
+    "Button"
+  ],
+  "notes": "Root radius authored as --space-base (16px); kept per the remapping rule, same 16px value as --radius-lg. icon fallback is a diagonal-hatch pattern over white-at-6%-opacity (--alpha-white-8, nearest existing token) — the hatch itself is generated artwork the schema cannot express."
+}

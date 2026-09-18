@@ -1,0 +1,77 @@
+{
+  "kind": "component",
+  "name": "DeliveryTimeEstimate",
+  "version": "2026-09-12",
+  "description": "Inline informational pill showing the estimated delivery or pickup time window, with a clock icon.",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--color-bg-surface-sunken",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "x": 12,
+      "y": 6
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      6
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug"
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "{icon}",
+        "weight": "regular",
+        "size": 14,
+        "color": "--color-text-secondary"
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{estimate}",
+        "style": "--text-caption",
+        "color": "--color-text-secondary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "tone": {
+      "prop": "tone",
+      "cases": {
+        "brand": {
+          "root": {
+            "background": "--color-brand-subtle"
+          },
+          "icon": {
+            "color": "--color-text-accent"
+          },
+          "label": {
+            "color": "--color-text-accent"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "label weight is semibold over --text-caption. icon is 14px, off the --icon-* scale, kept as a raw number."
+}

@@ -1,0 +1,196 @@
+{
+  "kind": "component",
+  "name": "AdvancedListItem",
+  "version": "2026-09-12",
+  "description": "Single list row with an optional leading icon/avatar, title, subtitle, and a trailing element or chevron.",
+  "size": {
+    "width": "fill",
+    "height": 56
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": {
+      "x": "--space-base",
+      "y": "--space-md"
+    },
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 56
+    },
+    "children": [
+      {
+        "slot": "leadingIcon",
+        "type": "box",
+        "size": [
+          40,
+          40
+        ],
+        "background": "--color-bg-surface-sunken",
+        "radius": "--radius-md",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "leadingIcon.glyph",
+          "type": "icon",
+          "name": "{leadingIcon}",
+          "weight": "regular",
+          "size": "--icon-sm",
+          "color": "--color-text-secondary"
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "title",
+            "type": "text",
+            "content": "{title}",
+            "style": "--text-body-lg",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "subtitle",
+            "type": "text",
+            "content": "{subtitle}",
+            "style": "--text-body",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "trailing",
+        "type": "box",
+        "size": [
+          "hug",
+          "hug"
+        ],
+        "background": null,
+        "radius": null,
+        "border": null,
+        "padding": null,
+        "child": null
+      },
+      {
+        "slot": "chevron",
+        "type": "icon",
+        "name": "caret-right",
+        "weight": "regular",
+        "size": "--icon-sm",
+        "color": "--color-text-tertiary"
+      }
+    ]
+  },
+  "variants": {
+    "twoLine": {
+      "prop": "subtitle",
+      "cases": {
+        "set": {
+          "root": {
+            "size": {
+              "height": 72
+            }
+          }
+        },
+        "null": {
+          "subtitle": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "leadingAvatar": {
+      "prop": "leadingAvatar",
+      "cases": {
+        "set": {
+          "leadingIcon": {
+            "visible": false
+          },
+          "avatarSlot": {
+            "visible": true,
+            "component": "Avatar"
+          }
+        }
+      }
+    },
+    "leadingIcon": {
+      "prop": "leadingIcon",
+      "cases": {
+        "null": {
+          "leadingIcon": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "trailing": {
+      "prop": "trailing",
+      "cases": {
+        "null": {
+          "trailing": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "chevron": {
+      "prop": "chevron",
+      "cases": {
+        "false": {
+          "chevron": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "background": "--overlay-hover-dark"
+          }
+        },
+        "disabled": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "Avatar"
+  ],
+  "notes": "title font-weight is medium over --text-body-lg. When leadingAvatar is supplied it replaces leadingIcon in the same slot position (an Avatar component instance)."
+}

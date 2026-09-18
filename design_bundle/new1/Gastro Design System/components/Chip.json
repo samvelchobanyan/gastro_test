@@ -1,0 +1,121 @@
+{
+  "kind": "component",
+  "name": "Chip",
+  "version": "2026-09-12",
+  "description": "Interactive filter/selection chip, optionally removable, with a leading icon or a check mark when selected.",
+  "size": {
+    "width": "hug",
+    "height": 32
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-xxs",
+      "--space-xxs"
+    ],
+    "padding": {
+      "x": 12,
+      "y": null
+    },
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": 32
+    },
+    "children": [
+      {
+        "slot": "check",
+        "type": "icon",
+        "name": "check",
+        "weight": "bold",
+        "size": "--icon-xs",
+        "color": "--chip-text-selected"
+      },
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "{icon}",
+        "weight": "regular",
+        "size": "--icon-xs",
+        "color": "--chip-text"
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-semibold",
+        "color": "--chip-text",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      },
+      {
+        "slot": "remove",
+        "type": "icon",
+        "name": "x",
+        "weight": "regular",
+        "size": "--icon-xs",
+        "color": "--chip-text"
+      }
+    ]
+  },
+  "variants": {
+    "selected": {
+      "prop": "selected",
+      "cases": {
+        "true": {
+          "root": {
+            "background": "--chip-bg-selected"
+          },
+          "label": {
+            "color": "--chip-text-selected"
+          },
+          "check": {
+            "visible": true
+          },
+          "icon": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "size": {
+      "prop": "size",
+      "cases": {
+        "sm": {
+          "root": {
+            "size": {
+              "height": 24
+            },
+            "padding": {
+              "x": 10
+            }
+          },
+          "label": {
+            "style": "--text-caption"
+          }
+        }
+      }
+    },
+    "removable": {
+      "prop": "onRemove",
+      "cases": {
+        "set": {
+          "remove": {
+            "visible": true
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "check is shown instead of icon when selected; icon is shown only when unselected and an icon prop is given; remove (x) only when onRemove is passed. Gap between children is 6px in source, approximated to --space-xxs (2px, off-scale — nearest available). sm label font-size is 12px, off scale, approximated to --text-caption."
+}

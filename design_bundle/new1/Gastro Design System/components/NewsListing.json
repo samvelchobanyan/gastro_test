@@ -1,0 +1,90 @@
+{
+  "kind": "component",
+  "name": "NewsListing",
+  "version": "2026-09-12",
+  "description": "Image + title + publish-date row for restaurant news, announcements, or blog posts, in a horizontal list feed layout.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "thumb",
+        "type": "image",
+        "source": "{image}",
+        "size": [
+          96,
+          96
+        ],
+        "fit": "cover",
+        "radius": "--radius-md",
+        "fallback": {
+          "slot": "thumb.fallback",
+          "type": "box",
+          "background": "--color-bg-surface-sunken"
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          4
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "title",
+            "type": "text",
+            "content": "{title}",
+            "style": "--text-body",
+            "color": "--color-text-primary",
+            "lines": 2,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "publishedAt",
+            "type": "text",
+            "content": "{publishedAt}",
+            "style": "--text-caption",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {},
+  "uses": [],
+  "notes": "title weight is semibold over --text-body. Readme mentions a vertical layout variant for NewsListing, but the current source (this file) implements only the horizontal layout shown here — no vertical variant exists in code to export."
+}

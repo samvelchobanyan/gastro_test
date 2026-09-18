@@ -1,0 +1,167 @@
+{
+  "kind": "component",
+  "name": "SearchFiltersPanel",
+  "version": "2026-09-12",
+  "description": "Grouped filter controls for search results: max price slider, dietary tag chips, and Reset/Apply actions.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-lg",
+      "--space-lg"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "priceSection",
+        "type": "column",
+        "spacing": [
+          "--space-md"
+        ],
+        "padding": null,
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "priceSection.heading",
+            "type": "text",
+            "content": "Max price",
+            "style": "--text-h3",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "priceSection.slider",
+            "type": "component",
+            "component": "Slider",
+            "shows": {
+              "min": 5,
+              "max": 50,
+              "step": 5,
+              "value": 30
+            }
+          }
+        ]
+      },
+      {
+        "slot": "dietarySection",
+        "type": "column",
+        "spacing": [
+          "--space-md"
+        ],
+        "padding": null,
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "dietarySection.heading",
+            "type": "text",
+            "content": "Dietary",
+            "style": "--text-h3",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "dietarySection.chips",
+            "type": "row",
+            "spacing": [
+              8,
+              8
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "dietaryChip",
+                "type": "component",
+                "component": "Chip",
+                "shows": {
+                  "label": "Vegetarian",
+                  "selected": false
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slot": "actions",
+        "type": "row",
+        "spacing": [
+          "--space-md"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "reset",
+            "type": "component",
+            "component": "Button",
+            "shows": {
+              "variant": "secondary",
+              "fullWidth": true,
+              "children": "Reset"
+            }
+          },
+          {
+            "slot": "apply",
+            "type": "component",
+            "component": "Button",
+            "shows": {
+              "fullWidth": true,
+              "children": "Apply filters"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {},
+  "uses": [
+    "Slider",
+    "Chip",
+    "Button"
+  ],
+  "notes": "'dietaryChip' repeats once per entry in dietaryOptions."
+}

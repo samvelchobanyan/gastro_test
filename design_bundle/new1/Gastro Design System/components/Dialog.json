@@ -1,0 +1,219 @@
+{
+  "kind": "component",
+  "name": "Dialog",
+  "version": "2026-09-12",
+  "description": "Centered overlay dialog for critical confirmations, with an optional icon, description, and cancel/confirm actions.",
+  "size": {
+    "width": 320,
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--color-bg-surface",
+    "radius": "--radius-dialog",
+    "border": null,
+    "padding": {
+      "all": "--space-lg"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-md",
+      "--space-lg"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": 320
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "box",
+        "size": [
+          48,
+          48
+        ],
+        "background": "--color-brand-subtle",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "icon.glyph",
+          "type": "icon",
+          "name": "{icon}",
+          "weight": "regular",
+          "size": 26,
+          "color": "--color-text-accent"
+        }
+      },
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "{title}",
+        "style": "--text-h2",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "description",
+        "type": "text",
+        "content": "{description}",
+        "style": "--text-body-lg",
+        "color": "--color-text-secondary",
+        "lines": 0,
+        "overflow": "wrap",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "actions",
+        "type": "row",
+        "spacing": [
+          "--space-md"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "cancel",
+            "type": "box",
+            "size": [
+              "fill",
+              48
+            ],
+            "background": "transparent",
+            "radius": "--radius-md",
+            "border": {
+              "width": 1,
+              "color": "--color-border-default"
+            },
+            "padding": null,
+            "child": {
+              "slot": "cancel.label",
+              "type": "text",
+              "content": "{cancelLabel}",
+              "style": "--text-body-lg",
+              "color": "--color-text-primary",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          },
+          {
+            "slot": "confirm",
+            "type": "box",
+            "size": [
+              "fill",
+              48
+            ],
+            "background": "--color-brand-primary",
+            "radius": "--radius-md",
+            "border": null,
+            "padding": null,
+            "child": {
+              "slot": "confirm.label",
+              "type": "text",
+              "content": "{confirmLabel}",
+              "style": "--text-body-lg",
+              "color": "--color-text-on-brand",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "icon": {
+      "prop": "icon",
+      "cases": {
+        "null": {
+          "icon": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "description": {
+      "prop": "description",
+      "cases": {
+        "null": {
+          "description": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "destructive": {
+      "prop": "tone",
+      "cases": {
+        "destructive": {
+          "icon": {
+            "background": "--color-bg-error"
+          },
+          "icon.glyph": {
+            "color": "--color-status-error"
+          },
+          "confirm": {
+            "background": "--color-status-error"
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "confirmPressed": {
+          "confirm": {
+            "background": "--button-primary-bg-active"
+          }
+        },
+        "cancelPressed": {
+          "cancel": {
+            "background": "--color-bg-surface-sunken"
+          }
+        }
+      }
+    },
+    "open": {
+      "prop": "open",
+      "cases": {
+        "false": {
+          "root": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "A full-screen scrim (--color-bg-scrim) sits behind the dialog, not part of its own tree. icon.glyph is 26px, off the --icon-* scale, kept as a raw number. destructive confirm pressed state uses --red-600 (no separate destructive-active token exists in the manifest)."
+}

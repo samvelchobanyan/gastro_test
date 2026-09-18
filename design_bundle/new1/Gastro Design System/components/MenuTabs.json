@@ -1,0 +1,96 @@
+{
+  "kind": "component",
+  "name": "MenuTabs",
+  "version": "2026-09-12",
+  "description": "Horizontally scrolling row of pill tabs pairing a small category image with a category name; active pill fills with brand color.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": "--space-xs",
+    "align": "center",
+    "justify": "start",
+    "scroll": "horizontal",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "pill",
+        "type": "row",
+        "spacing": [
+          "--space-sm"
+        ],
+        "padding": {
+          "left": "--space-xs",
+          "right": "--space-md",
+          "y": "--space-xs"
+        },
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "background": "--gray-900",
+        "radius": "--radius-full",
+        "children": [
+          {
+            "slot": "pill.image",
+            "type": "image",
+            "source": "{c.image}",
+            "size": [
+              36,
+              36
+            ],
+            "fit": "cover",
+            "radius": "--radius-full",
+            "fallback": {
+              "slot": "pill.image.fallback",
+              "type": "box",
+              "background": "--color-bg-surface-sunken"
+            }
+          },
+          {
+            "slot": "pill.label",
+            "type": "text",
+            "content": "{c.label}",
+            "style": "--text-body-sm",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "active": {
+      "prop": "value",
+      "cases": {
+        "match": {
+          "pill": {
+            "background": "--color-brand-primary"
+          },
+          "pill.label": {
+            "color": "--color-text-on-brand"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "pill.label weight is semibold over --text-body-sm."
+}

@@ -1,0 +1,123 @@
+{
+  "kind": "component",
+  "name": "Accordion",
+  "version": "2026-09-12",
+  "description": "Collapsible list of sections that reveal content on tap; single-open by default or multi-open.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "item",
+        "type": "column",
+        "spacing": [],
+        "padding": null,
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "border": {
+          "width": 1,
+          "color": "--color-border-muted"
+        },
+        "children": [
+          {
+            "slot": "item.header",
+            "type": "row",
+            "spacing": [
+              "--space-md"
+            ],
+            "padding": {
+              "y": "--space-md"
+            },
+            "align": "center",
+            "justify": "between",
+            "scroll": "none",
+            "size": {
+              "width": "fill",
+              "height": 56
+            },
+            "children": [
+              {
+                "slot": "item.title",
+                "type": "text",
+                "content": "{it.title}",
+                "style": "--text-body-lg",
+                "color": "--color-text-primary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              },
+              {
+                "slot": "item.caret",
+                "type": "icon",
+                "name": "caret-down",
+                "weight": "regular",
+                "size": "--icon-sm",
+                "color": "--color-text-tertiary"
+              }
+            ]
+          },
+          {
+            "slot": "item.body",
+            "type": "text",
+            "content": "{it.content}",
+            "style": "--text-body",
+            "color": "--color-text-secondary",
+            "lines": 0,
+            "overflow": "wrap",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "open": {
+      "prop": "interaction",
+      "cases": {
+        "true": {
+          "item.caret": {
+            "rotate": 180
+          },
+          "item.body": {
+            "visible": true,
+            "padding": {
+              "bottom": "--space-base"
+            }
+          }
+        },
+        "false": {
+          "item.body": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "item.title weight is semibold over --text-body-lg. item.body height animates via max-height in source (capped at 400px) — modeled here as a plain visibility toggle since the schema has no animation-curve field; header weight/caret rotation are the state-carrying fields."
+}

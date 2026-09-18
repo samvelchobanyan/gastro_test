@@ -1,0 +1,248 @@
+{
+  "kind": "component",
+  "name": "BranchCard",
+  "version": "2026-09-18",
+  "description": "Row for a restaurant's physical location: photo, name, address, and today's hours with an open/closed pill.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md",
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{image}",
+        "size": [
+          72,
+          72
+        ],
+        "fit": "cover",
+        "radius": "--radius-md",
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--color-bg-surface-sunken"
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          "--space-xs",
+          "--space-xs"
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "nameRow",
+            "type": "row",
+            "spacing": [
+              "--space-sm"
+            ],
+            "padding": null,
+            "align": "baseline",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "name",
+                "type": "text",
+                "content": "{name}",
+                "style": "--text-body",
+                "color": "--color-text-primary",
+                "lines": 1,
+                "overflow": "ellipsis",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              },
+              {
+                "slot": "distance",
+                "type": "text",
+                "content": "{distance}",
+                "style": "--text-caption",
+                "color": "--color-text-tertiary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "end",
+                "transform": "none",
+                "size": {
+                  "width": "hug"
+                }
+              }
+            ]
+          },
+          {
+            "slot": "addressRow",
+            "type": "row",
+            "spacing": [
+              "--space-xs"
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "addressRow.icon",
+                "type": "icon",
+                "name": "map-pin",
+                "weight": "regular",
+                "size": "--icon-xs",
+                "color": "--color-text-tertiary"
+              },
+              {
+                "slot": "addressRow.text",
+                "type": "text",
+                "content": "{address}",
+                "style": "--text-body-sm",
+                "color": "--color-text-secondary",
+                "lines": 1,
+                "overflow": "ellipsis",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              }
+            ]
+          },
+          {
+            "slot": "hoursRow",
+            "type": "row",
+            "spacing": [
+              "--space-xs",
+              "--space-xs"
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "hug"
+            },
+            "children": [
+              {
+                "slot": "hoursRow.icon",
+                "type": "icon",
+                "name": "clock",
+                "weight": "regular",
+                "size": "--icon-xs",
+                "color": "--color-text-tertiary"
+              },
+              {
+                "slot": "hoursRow.text",
+                "type": "text",
+                "content": "{hours}",
+                "style": "--text-body-xs",
+                "color": "--color-text-tertiary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "hug"
+                }
+              },
+              {
+                "slot": "hoursRow.status",
+                "type": "component",
+                "component": "StatusPill",
+                "shows": {
+                  "label": "Open",
+                  "tone": "success"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slot": "chevron",
+        "type": "icon",
+        "name": "caret-right",
+        "weight": "regular",
+        "size": "--icon-sm",
+        "color": "--color-text-tertiary"
+      }
+    ]
+  },
+  "variants": {
+    "distance": {
+      "prop": "distance",
+      "cases": {
+        "null": {
+          "distance": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "isOpenNow": {
+      "prop": "isOpenNow",
+      "cases": {
+        "false": {
+          "hoursRow.status": {
+            "shows": {
+              "label": "Closed",
+              "tone": "error"
+            }
+          }
+        }
+      }
+    },
+    "interactive": {
+      "prop": "onClick",
+      "cases": {
+        "null": {
+          "chevron": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "scale": "--press-scale"
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "StatusPill"
+  ],
+  "notes": ""
+}

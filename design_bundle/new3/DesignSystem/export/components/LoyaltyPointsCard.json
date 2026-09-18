@@ -1,0 +1,120 @@
+{
+  "kind": "component",
+  "name": "LoyaltyPointsCard",
+  "version": "2026-09-18",
+  "description": "Fixed 328×116 dark membership card showing points balance, tier pill, and a scannable QR code image, with an optional per-brand background image.",
+  "size": {
+    "width": 328,
+    "height": 116
+  },
+  "surface": {
+    "background": "--gray-900",
+    "radius": "--radius-lg",
+    "border": null,
+    "padding": {
+      "top": "--space-base",
+      "right": "--space-lg",
+      "bottom": "--space-base",
+      "left": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-base"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "between",
+    "scroll": "none",
+    "size": {
+      "width": 328,
+      "height": 116
+    },
+    "children": [
+      {
+        "slot": "left",
+        "type": "column",
+        "spacing": [
+          0,
+          "--space-xs"
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "children": [
+          {
+            "slot": "label",
+            "type": "text",
+            "content": "Loyalty points",
+            "style": "--text-body-sm",
+            "color": "--gray-500",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "points",
+            "type": "text",
+            "content": "{points}",
+            "style": "--text-h1",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "tier",
+            "type": "component",
+            "component": "MembershipTierPill",
+            "shows": {
+              "membership": "Regular",
+              "discountLabel": null
+            }
+          }
+        ]
+      },
+      {
+        "slot": "qr",
+        "type": "image",
+        "source": "./qr-code.svg",
+        "size": [
+          68,
+          68
+        ],
+        "fit": "contain",
+        "radius": null,
+        "fallback": null
+      }
+    ]
+  },
+  "variants": {
+    "backgroundImage": {
+      "prop": "backgroundImage",
+      "cases": {
+        "set": {
+          "root": {
+            "overlayImage": "{backgroundImage}"
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "MembershipTierPill"
+  ],
+  "notes": "points weight is bold over --text-h1, via --font-weight-bold. qr is a static asset image file (qr-code.svg, bundled alongside this export), not generated artwork — swap the file per-member/brand as needed. Without backgroundImage the card is a flat --gray-900 fill with no overlay."
+}

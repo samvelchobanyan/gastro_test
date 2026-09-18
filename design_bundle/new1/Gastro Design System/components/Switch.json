@@ -1,0 +1,106 @@
+{
+  "kind": "component",
+  "name": "Switch",
+  "version": "2026-09-12",
+  "description": "On/off toggle for settings and binary preferences, with an animated sliding thumb.",
+  "size": {
+    "width": "hug",
+    "height": "--touch-target-min"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": "--touch-target-min"
+    },
+    "children": [
+      {
+        "slot": "track",
+        "type": "box",
+        "size": [
+          44,
+          26
+        ],
+        "background": "--color-border-strong",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "track.thumb",
+          "type": "box",
+          "size": [
+            20,
+            20
+          ],
+          "background": "--color-bg-main",
+          "radius": "--radius-full",
+          "border": null,
+          "padding": null,
+          "child": null
+        }
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-lg",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "checked": {
+      "prop": "checked",
+      "cases": {
+        "true": {
+          "track": {
+            "background": "--control-on-bg"
+          },
+          "track.thumb": {
+            "position": {
+              "left": 21
+            }
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "disabled": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "track.thumb sits 3px inset from the track edge and slides 18px on check (both raw numbers in source, not tokens). thumb carries --elevation-card shadow."
+}

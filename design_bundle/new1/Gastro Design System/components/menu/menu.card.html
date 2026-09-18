@@ -1,0 +1,59 @@
+<!-- @dsCard group="Organisms" viewport="700x620" name="Menu" subtitle="MenuItemCard · ItemCustomizationSheet · CartLineItem" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-family-base); background: var(--color-bg-canvas); color: var(--color-text-primary); }
+  .frame { position: relative; width: 360px; margin: 0 auto; background: var(--color-bg-main); border: 1px solid var(--color-border-default); border-radius: 20px; overflow: hidden; padding: 16px; box-sizing: border-box; }
+  .stack { display: flex; flex-direction: column; gap: 16px; }
+  .btn { width: 100%; height: 44px; border: 1px solid var(--color-border-default); background: var(--color-bg-main); border-radius: 10px; font-family: var(--font-family-base); font-weight: 600; font-size: 14px; cursor: pointer; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel">
+    const { MenuItemCard, ItemCustomizationSheet, CartLineItem } = window.GastroDesignSystem_472aed;
+    function Demo() {
+      const [qA, setQA] = React.useState(2);
+      const [qB, setQB] = React.useState(0);
+      const [qC, setQC] = React.useState(1);
+      const [open, setOpen] = React.useState(false);
+      return (
+        <div className="frame">
+          <div className="stack">
+            <MenuItemCard
+              name="Margherita"
+              description="San Marzano tomato, fior di latte, fresh basil, cold-pressed olive oil."
+              price={12.5} tag="Popular"
+              quantity={qA} onAdd={() => setQA(1)} onQuantityChange={setQA}
+            />
+            <MenuItemCard
+              name="Truffle Tagliatelle"
+              description="Hand-cut pasta, black truffle, aged parmesan, butter emulsion."
+              price={18} tag="Chef's pick"
+              quantity={qB} onAdd={() => setQB(1)} onQuantityChange={setQB}
+            />
+            <button className="btn" onClick={() => setOpen(true)}>Customize Margherita</button>
+          </div>
+          <div className="stack" style={{marginTop:16}}>
+            <CartLineItem name="Margherita Pizza" modifiers="Large, extra cheese" price={16} qty={qC} onQtyChange={setQC} onRemove={()=>{}} />
+            <CartLineItem name="Caesar Salad" price={9} qty={1} onQtyChange={()=>{}} />
+          </div>
+          <ItemCustomizationSheet open={open} onClose={() => setOpen(false)} itemName="Margherita Pizza" basePrice={12}
+            sizeOptions={[{label:'Regular',value:'r',priceDelta:0},{label:'Large',value:'l',priceDelta:4}]}
+            addOns={[{key:'cheese',label:'Extra cheese',price:2},{key:'olives',label:'Add olives',price:1.5}]}
+            onAddToCart={() => setOpen(false)} />
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+  </script>
+</body>
+</html>

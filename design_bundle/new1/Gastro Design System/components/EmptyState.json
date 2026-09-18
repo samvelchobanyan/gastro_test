@@ -1,0 +1,147 @@
+{
+  "kind": "component",
+  "name": "EmptyState",
+  "version": "2026-09-12",
+  "description": "Icon and message shown when a list or section has no content, with an optional primary action.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": null,
+    "radius": null,
+    "border": null,
+    "padding": {
+      "x": "--space-lg",
+      "y": "--space-xxl"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-base",
+      "--space-sm",
+      "--space-lg"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "box",
+        "size": [
+          72,
+          72
+        ],
+        "background": "--color-bg-surface-sunken",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "icon.glyph",
+          "type": "icon",
+          "name": "{icon}",
+          "weight": "regular",
+          "size": 36,
+          "color": "--color-text-tertiary"
+        }
+      },
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "{title}",
+        "style": "--text-h3",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "description",
+        "type": "text",
+        "content": "{description}",
+        "style": "--text-body",
+        "color": "--color-text-tertiary",
+        "lines": 0,
+        "overflow": "wrap",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": 260
+        }
+      },
+      {
+        "slot": "action",
+        "type": "box",
+        "size": [
+          "hug",
+          48
+        ],
+        "background": "--button-primary-bg",
+        "radius": "--radius-md",
+        "border": null,
+        "padding": {
+          "x": "--space-lg"
+        },
+        "child": {
+          "slot": "action.label",
+          "type": "text",
+          "content": "{actionLabel}",
+          "style": "--text-body-lg",
+          "color": "--button-primary-text",
+          "lines": 1,
+          "overflow": "clip",
+          "align": "center",
+          "transform": "none",
+          "size": {
+            "width": "hug"
+          }
+        }
+      }
+    ]
+  },
+  "variants": {
+    "description": {
+      "prop": "description",
+      "cases": {
+        "null": {
+          "description": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "action": {
+      "prop": "actionLabel",
+      "cases": {
+        "null": {
+          "action": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "action": {
+            "background": "--button-primary-bg-active"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "icon.glyph is 36px, off the --icon-* scale, kept as a raw number."
+}

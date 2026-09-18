@@ -1,0 +1,94 @@
+{
+  "kind": "component",
+  "name": "ProductVerticalCard",
+  "version": "2026-09-18",
+  "description": "Vertical product card mirroring BuyAgainCard, with a price line instead of a location.",
+  "size": {
+    "width": 128,
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm",
+      "--space-xxs"
+    ],
+    "padding": null,
+    "align": "start",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": 128
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{imageUrl}",
+        "size": [
+          128,
+          128
+        ],
+        "fit": "cover",
+        "radius": "--radius-card",
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--gray-100"
+        }
+      },
+      {
+        "slot": "name",
+        "type": "text",
+        "content": "{name}",
+        "style": "--text-body-sm-semibold",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "ellipsis",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "price",
+        "type": "text",
+        "content": "{price}",
+        "style": "--text-body-xs",
+        "color": "--color-text-secondary",
+        "lines": 1,
+        "overflow": "ellipsis",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "width": {
+      "prop": "width",
+      "cases": {
+        "custom": {
+          "root": {
+            "size": {
+              "width": "{width}"
+            }
+          },
+          "photo": {
+            "size": [
+              "{width}",
+              "{width}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "photo.fallback hatch pattern per BuyAgainCard's note."
+}

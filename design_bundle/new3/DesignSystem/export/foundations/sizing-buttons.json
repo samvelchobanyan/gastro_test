@@ -1,0 +1,103 @@
+{
+  "kind": "foundation",
+  "name": "Sizing — Buttons",
+  "version": "2026-09-18",
+  "description": "Fixed button/control heights and input field dimensions, all landing on the 4px grid.",
+  "tokens": [
+    {
+      "name": "--touch-target-min",
+      "value": "48px",
+      "usage": "Absolute minimum interactive size"
+    },
+    {
+      "name": "--button-height-lg",
+      "value": "56px",
+      "usage": "Primary CTA"
+    },
+    {
+      "name": "--button-height-md",
+      "value": "48px"
+    },
+    {
+      "name": "--button-height-sm",
+      "value": "40px",
+      "usage": "Secondary / filter"
+    },
+    {
+      "name": "--button-height-xs",
+      "value": "36px",
+      "usage": "Tertiary / inline card action"
+    },
+    {
+      "name": "--button-height-xxs",
+      "value": "32px",
+      "usage": "Icon-only, compact"
+    },
+    {
+      "name": "--button-height-2xs",
+      "value": "24px",
+      "usage": "Icon-only, dense inline"
+    },
+    {
+      "name": "--input-height-floating",
+      "value": "56px"
+    },
+    {
+      "name": "--input-height-fixed",
+      "value": "48px"
+    },
+    {
+      "name": "--input-padding-x",
+      "value": "16px"
+    },
+    {
+      "name": "--input-padding-y",
+      "value": "12px"
+    },
+    {
+      "name": "--appbar-height",
+      "value": "56px"
+    },
+    {
+      "name": "--appbar-height-ios",
+      "value": "44px"
+    },
+    {
+      "name": "--bottomnav-height",
+      "value": "48px"
+    },
+    {
+      "name": "--bottomnav-height-labeled",
+      "value": "48px"
+    },
+    {
+      "name": "--row-height-compact",
+      "value": "48px"
+    },
+    {
+      "name": "--row-height-icon",
+      "value": "56px"
+    },
+    {
+      "name": "--row-height-two-line",
+      "value": "72px"
+    },
+    {
+      "name": "--row-height-multi",
+      "value": "88px"
+    },
+    {
+      "name": "--border-width-default",
+      "value": "1px"
+    },
+    {
+      "name": "--border-width-focus",
+      "value": "2px"
+    },
+    {
+      "name": "--focus-ring-offset",
+      "value": "2px"
+    }
+  ],
+  "notes": ""
+}

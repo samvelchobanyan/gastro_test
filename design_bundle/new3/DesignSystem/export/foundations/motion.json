@@ -1,0 +1,59 @@
+{
+  "kind": "foundation",
+  "name": "Motion",
+  "version": "2026-09-18",
+  "description": "Duration and easing scale. Feedback resolves fast (under 100ms for press states); motion is subtle and functional, never decorative, and both durations and easing are swappable per brand.",
+  "tokens": [
+    {
+      "name": "--duration-instant",
+      "value": "100ms",
+      "usage": "Press / tap feedback"
+    },
+    {
+      "name": "--duration-fast",
+      "value": "150ms",
+      "usage": "Toggles, checkboxes"
+    },
+    {
+      "name": "--duration-base",
+      "value": "200ms",
+      "usage": "Default transitions"
+    },
+    {
+      "name": "--duration-slow",
+      "value": "300ms",
+      "usage": "Sheets, dialogs"
+    },
+    {
+      "name": "--duration-slower",
+      "value": "400ms",
+      "usage": "Full-screen transitions"
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.2,0,0,1)",
+      "usage": "Default — enters and settles"
+    },
+    {
+      "name": "--ease-decelerate",
+      "value": "cubic-bezier(0,0,0,1)",
+      "usage": "Entering the screen"
+    },
+    {
+      "name": "--ease-accelerate",
+      "value": "cubic-bezier(0.3,0,1,1)",
+      "usage": "Leaving the screen"
+    },
+    {
+      "name": "--ease-emphasized",
+      "value": "cubic-bezier(0.2,0.8,0.2,1.05)",
+      "usage": "Selection/confirmation overshoot"
+    },
+    {
+      "name": "--press-scale",
+      "value": "0.97",
+      "usage": "Subtle shrink on active press"
+    }
+  ],
+  "notes": ""
+}

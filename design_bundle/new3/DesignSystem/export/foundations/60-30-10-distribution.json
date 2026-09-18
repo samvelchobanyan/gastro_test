@@ -1,0 +1,24 @@
+{
+  "kind": "foundation",
+  "name": "60 · 30 · 10 Distribution",
+  "version": "2026-09-18",
+  "description": "The system's color-usage ratio: neutral canvas dominates the screen, structural neutrals support it, and the brand accent is reserved for calls-to-action, active states and focus rings.",
+  "tokens": [
+    {
+      "name": "--color-bg-canvas",
+      "value": "#F7F7F7",
+      "usage": "60% — dominant neutral canvas"
+    },
+    {
+      "name": "--gray-200",
+      "value": "#EAEAEA",
+      "usage": "30% — structural fills/dividers"
+    },
+    {
+      "name": "--color-brand-primary",
+      "value": "var(--accent-500)",
+      "usage": "10% — accent, reserved for CTAs/active/focus"
+    }
+  ],
+  "notes": "Ratio is a usage guideline, not an enforced rule — no token encodes the percentages themselves."
+}

@@ -1,0 +1,116 @@
+{
+  "kind": "component",
+  "name": "ProductMenuCard",
+  "version": "2026-09-18",
+  "description": "Self-contained dark menu card: full-bleed square photo on top, product name and price in a padded footer.",
+  "size": {
+    "width": 160,
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--gray-900",
+    "radius": "--radius-md",
+    "border": null,
+    "padding": null
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      0
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": 160
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{imageUrl}",
+        "size": [
+          160,
+          160
+        ],
+        "fit": "cover",
+        "radius": null,
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--gray-100"
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          "--space-xxs"
+        ],
+        "padding": {
+          "all": "--space-sm"
+        },
+        "align": "start",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "name",
+            "type": "text",
+            "content": "{name}",
+            "style": "--text-body-sm-semibold",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "price",
+            "type": "text",
+            "content": "{price}",
+            "style": "--text-body-xs",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "width": {
+      "prop": "width",
+      "cases": {
+        "custom": {
+          "root": {
+            "size": {
+              "width": "{width}"
+            }
+          },
+          "photo": {
+            "size": [
+              "{width}",
+              "{width}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "photo.fallback hatch pattern per BuyAgainCard's note."
+}

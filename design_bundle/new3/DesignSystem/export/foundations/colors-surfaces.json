@@ -1,0 +1,73 @@
+{
+  "kind": "foundation",
+  "name": "Colors — Surfaces",
+  "version": "2026-09-18",
+  "description": "Background layer tokens (canvas, main, card/modal surface, sunken wells, dark inverse surfaces, modal scrim) and the primary text-color ramp paired to them.",
+  "tokens": [
+    {
+      "name": "--color-bg-canvas",
+      "value": "var(--gray-50)",
+      "usage": "App-level backdrop"
+    },
+    {
+      "name": "--color-bg-main",
+      "value": "var(--gray-0)",
+      "usage": "Primary screen background"
+    },
+    {
+      "name": "--color-bg-surface",
+      "value": "var(--gray-0)",
+      "usage": "Cards / modals"
+    },
+    {
+      "name": "--color-bg-surface-sunken",
+      "value": "var(--gray-100)",
+      "usage": "Wells / input backgrounds"
+    },
+    {
+      "name": "--color-bg-inverse",
+      "value": "var(--gray-900)",
+      "usage": "Dark surfaces"
+    },
+    {
+      "name": "--color-bg-scrim",
+      "value": "rgba(0,0,0,0.40)",
+      "usage": "Modal/sheet backdrop"
+    },
+    {
+      "name": "--color-text-primary",
+      "value": "var(--gray-900)",
+      "usage": "AAA on white"
+    },
+    {
+      "name": "--color-text-secondary",
+      "value": "var(--gray-700)",
+      "usage": "AA on white"
+    },
+    {
+      "name": "--color-text-tertiary",
+      "value": "var(--gray-600)",
+      "usage": "Captions / hints"
+    },
+    {
+      "name": "--color-text-disabled",
+      "value": "var(--gray-500)"
+    },
+    {
+      "name": "--color-text-accent",
+      "value": "var(--accent-600)",
+      "usage": "Accent text on surface"
+    },
+    {
+      "name": "--color-text-on-brand",
+      "value": "var(--accent-contrast)",
+      "usage": "Text on CTA fill"
+    },
+    {
+      "name": "--color-text-inverse",
+      "value": "var(--gray-0)",
+      "usage": "Text on dark backgrounds"
+    }
+  ],
+  "notes": "Encodes the Surface & Contrast Layering Matrix — which text tokens are legally paired to which background tokens."
+}

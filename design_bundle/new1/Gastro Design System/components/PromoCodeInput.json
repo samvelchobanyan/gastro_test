@@ -1,0 +1,131 @@
+{
+  "kind": "component",
+  "name": "PromoCodeInput",
+  "version": "2026-09-12",
+  "description": "Inline field and apply button for entering a discount code, with an applied confirmation state and inline error.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "field",
+        "type": "box",
+        "size": [
+          "fill",
+          48
+        ],
+        "background": "--input-bg",
+        "radius": "--radius-input",
+        "border": {
+          "width": 1,
+          "color": "--input-border"
+        },
+        "padding": {
+          "x": "--input-padding-x"
+        },
+        "child": {
+          "slot": "field.text",
+          "type": "text",
+          "content": "{value}",
+          "style": "--text-body",
+          "color": "--input-text",
+          "lines": 1,
+          "overflow": "clip",
+          "align": "start",
+          "transform": "uppercase",
+          "size": {
+            "width": "fill"
+          }
+        }
+      },
+      {
+        "slot": "apply",
+        "type": "box",
+        "size": [
+          "hug",
+          48
+        ],
+        "background": "--button-secondary-bg",
+        "radius": "--radius-md",
+        "border": {
+          "width": 1,
+          "color": "--button-secondary-border"
+        },
+        "padding": {
+          "x": "--space-lg"
+        },
+        "child": {
+          "slot": "apply.label",
+          "type": "text",
+          "content": "Apply",
+          "style": "--text-body",
+          "color": "--button-secondary-text",
+          "lines": 1,
+          "overflow": "clip",
+          "align": "center",
+          "transform": "none",
+          "size": {
+            "width": "hug"
+          }
+        }
+      }
+    ]
+  },
+  "variants": {
+    "applied": {
+      "prop": "applied",
+      "cases": {
+        "set": {
+          "root": {
+            "visible": false
+          },
+          "appliedRow": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "error": {
+      "prop": "error",
+      "cases": {
+        "set": {
+          "field": {
+            "border": {
+              "color": "--input-border-error"
+            }
+          },
+          "errorText": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "empty": {
+      "prop": "value",
+      "cases": {
+        "empty": {
+          "apply": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "appliedRow (shown instead of root when applied is set): row on --color-bg-success background, --radius-md, --space-md padding, with a check-circle icon + '{applied.code} applied · -${applied.amount}' text in --color-text-success (--text-body semibold), and a remove (x) icon button. errorText: row with a warning icon (14px, off --icon-* scale, kept raw) + message in --text-caption --color-text-error, spaced --space-xs, margin-top --space-sm."
+}

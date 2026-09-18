@@ -1,0 +1,135 @@
+{
+  "kind": "component",
+  "name": "RatingStars",
+  "version": "2026-09-12",
+  "description": "Star rating display or input, supporting half-stars in read-only mode and an optional review-count label.",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-xxs"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug"
+    },
+    "children": [
+      {
+        "slot": "stars",
+        "type": "row",
+        "spacing": [
+          "--space-xxs",
+          "--space-xxs",
+          "--space-xxs",
+          "--space-xxs"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "children": [
+          {
+            "slot": "star",
+            "type": "icon",
+            "name": "star",
+            "weight": "fill",
+            "size": 20,
+            "color": "--amber-500"
+          }
+        ]
+      },
+      {
+        "slot": "count",
+        "type": "text",
+        "content": "({count})",
+        "style": "--text-body",
+        "color": "--color-text-tertiary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "readOnly": {
+      "prop": "readOnly",
+      "cases": {
+        "false": {
+          "stars": {
+            "children": [
+              {
+                "slot": "star",
+                "type": "box",
+                "size": [
+                  24,
+                  24
+                ],
+                "background": null,
+                "radius": null,
+                "border": null,
+                "padding": [
+                  2,
+                  2
+                ],
+                "child": {
+                  "slot": "star.icon",
+                  "type": "icon",
+                  "name": "star",
+                  "weight": "regular",
+                  "size": 20,
+                  "color": "--color-border-strong"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "filled": {
+      "prop": "star.state",
+      "cases": {
+        "empty": {
+          "star": {
+            "name": "star",
+            "weight": "regular",
+            "color": "--color-border-strong"
+          }
+        },
+        "half": {
+          "star": {
+            "name": "star-half",
+            "weight": "fill",
+            "color": "--amber-500"
+          }
+        }
+      }
+    },
+    "count": {
+      "prop": "count",
+      "cases": {
+        "null": {
+          "count": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "The 5 stars in 'stars' are repeated instances of the single 'star' template node (icon size defaults to a 20px number prop, not tokenized); each star's fill/half/empty state is driven by comparing its index to value, listed under the 'filled' variant axis rather than as 5 separate nodes. In interactive (readOnly:false) mode each star is wrapped in a 24x24 tappable box with 2px padding."
+}

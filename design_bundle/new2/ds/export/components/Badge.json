@@ -1,0 +1,84 @@
+{
+  "kind": "component",
+  "name": "Badge (count)",
+  "version": "2026-09-16",
+  "description": "Number-in-a-circle indicator, shown standalone or overlaid on a child element (e.g. an icon); the system's only Badge variant besides a tonal 'empty' look.",
+  "size": {
+    "width": "hug",
+    "height": 18
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      "hug",
+      18
+    ],
+    "background": "--color-status-error",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "x": 5,
+      "y": null
+    },
+    "child": {
+      "slot": "count",
+      "type": "text",
+      "content": "{label}",
+      "style": "--text-body-xs",
+      "color": "--color-text-on-brand",
+      "lines": 1,
+      "overflow": "clip",
+      "align": "center",
+      "transform": "none",
+      "size": {
+        "width": "hug"
+      }
+    }
+  },
+  "variants": {
+    "empty": {
+      "prop": "variant",
+      "cases": {
+        "empty": {
+          "root": {
+            "background": "--color-brand-subtle",
+            "border": {
+              "width": 1,
+              "color": "--color-brand-primary"
+            }
+          },
+          "count": {
+            "color": "--color-text-accent"
+          }
+        }
+      }
+    },
+    "overlay": {
+      "prop": "children",
+      "cases": {
+        "set": {
+          "root": {
+            "position": {
+              "top": -4,
+              "right": -4
+            }
+          }
+        }
+      }
+    },
+    "max": {
+      "prop": "count",
+      "cases": {
+        "exceedsMax": {
+          "count": {
+            "content": "{max}+"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "count text weight is semibold over --text-body-xs (--font-weight-semibold). Root minWidth is 18 (hug otherwise, growing with digit count); horizontal padding 5px is off the --space scale, kept as a raw number per source. When overlaid on a child (children prop set), root is absolutely positioned at top:-4/right:-4 with no ring/border around it — this system removed the ring present in earlier iterations. A `style` prop lets a consumer (e.g. Cart) nudge the overlay position per instance; not part of the default tree."
+}

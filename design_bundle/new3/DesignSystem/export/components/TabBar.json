@@ -1,0 +1,165 @@
+{
+  "kind": "component",
+  "name": "TabBar",
+  "version": "2026-09-18",
+  "description": "Horizontal set of tabs for switching views within a screen, with a sliding accent indicator; also used for two-option toggles.",
+  "size": {
+    "width": "fill",
+    "height": 48
+  },
+  "surface": {
+    "background": "--color-bg-surface-sunken",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "all": "--space-xs"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 48
+    },
+    "children": [
+      {
+        "slot": "indicator",
+        "type": "box",
+        "size": [
+          "{1/n}",
+          "fill"
+        ],
+        "background": "--color-bg-main",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": null
+      },
+      {
+        "slot": "tab",
+        "type": "row",
+        "spacing": [
+          "--space-xs"
+        ],
+        "padding": {
+          "x": "--space-base"
+        },
+        "align": "center",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill",
+          "height": "--button-height-sm"
+        },
+        "children": [
+          {
+            "slot": "tab.icon",
+            "type": "icon",
+            "name": "{o.icon}",
+            "weight": "regular",
+            "size": "--icon-xs",
+            "color": "--color-text-tertiary"
+          },
+          {
+            "slot": "tab.label",
+            "type": "text",
+            "content": "{o.label}",
+            "style": "--text-body",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "active": {
+      "prop": "value",
+      "cases": {
+        "match": {
+          "tab.label": {
+            "color": "--color-text-primary",
+            "weight": "semibold"
+          }
+        }
+      }
+    },
+    "small": {
+      "prop": "size",
+      "cases": {
+        "small": {
+          "root": {
+            "background": null,
+            "padding": null,
+            "spacing": []
+          },
+          "indicator": {
+            "visible": false
+          },
+          "tab": {
+            "size": {
+              "height": "--button-height-xs"
+            },
+            "background": "--gray-100",
+            "radius": "--radius-full",
+            "border": null
+          }
+        },
+        "xs": {
+          "root": {
+            "background": null,
+            "padding": null,
+            "spacing": []
+          },
+          "indicator": {
+            "visible": false
+          },
+          "tab": {
+            "size": {
+              "height": "--button-height-xs"
+            },
+            "background": "--gray-100",
+            "radius": "--radius-full"
+          },
+          "tab.icon": {
+            "visible": false
+          },
+          "tab.label": {
+            "style": "--text-body-sm"
+          }
+        }
+      }
+    },
+    "smallActive": {
+      "prop": "state",
+      "cases": {
+        "active": {
+          "tab": {
+            "background": "--gray-0",
+            "border": {
+              "width": 1,
+              "color": "--color-brand-primary"
+            }
+          },
+          "tab.label": {
+            "color": "--color-text-accent"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "indicator width is 1/n of the track (n = option count) minus the --space-xs inset on both sides — recorded symbolically as {1/n} since it is a computed runtime fraction, not a fixed number or token. smallActive applies only when size is small/xs AND this tab is the active one — each tab becomes its own pill instead of sharing one sliding indicator."
+}

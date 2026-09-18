@@ -1,0 +1,45 @@
+{
+  "kind": "foundation",
+  "name": "Spacing — Scale",
+  "version": "2026-09-16",
+  "description": "The core spacing scale for gaps, padding and margins across every component, built on a 4px grid unit.",
+  "tokens": [
+    {
+      "name": "--grid-unit",
+      "value": "4px"
+    },
+    {
+      "name": "--space-xxs",
+      "value": "2px"
+    },
+    {
+      "name": "--space-xs",
+      "value": "4px"
+    },
+    {
+      "name": "--space-sm",
+      "value": "8px"
+    },
+    {
+      "name": "--space-md",
+      "value": "12px"
+    },
+    {
+      "name": "--space-base",
+      "value": "16px"
+    },
+    {
+      "name": "--space-lg",
+      "value": "24px"
+    },
+    {
+      "name": "--space-xl",
+      "value": "32px"
+    },
+    {
+      "name": "--space-xxl",
+      "value": "48px"
+    }
+  ],
+  "notes": ""
+}

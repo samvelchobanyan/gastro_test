@@ -1,0 +1,127 @@
+{
+  "kind": "component",
+  "name": "Checkbox",
+  "version": "2026-09-12",
+  "description": "Binary selection control for multi-select lists and agreements, showing a check or indeterminate mark.",
+  "size": {
+    "width": "hug",
+    "height": "--touch-target-min"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": "--touch-target-min"
+    },
+    "children": [
+      {
+        "slot": "box",
+        "type": "box",
+        "size": [
+          22,
+          22
+        ],
+        "background": "--control-off-bg",
+        "radius": "--radius-checkbox",
+        "border": {
+          "width": 2,
+          "color": "--control-off-border"
+        },
+        "padding": null,
+        "child": {
+          "slot": "box.check",
+          "type": "icon",
+          "name": "check",
+          "weight": "bold",
+          "size": 15,
+          "color": "--control-on-mark"
+        }
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-lg",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "checked": {
+      "prop": "checked",
+      "cases": {
+        "true": {
+          "box": {
+            "background": "--control-on-bg",
+            "border": {
+              "color": "--control-on-bg"
+            }
+          },
+          "box.check": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "indeterminate": {
+      "prop": "indeterminate",
+      "cases": {
+        "true": {
+          "box": {
+            "background": "--control-on-bg",
+            "border": {
+              "color": "--control-on-bg"
+            }
+          },
+          "box.check": {
+            "name": "minus",
+            "visible": true
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "box": {
+            "ring": "--control-glow"
+          }
+        },
+        "disabled": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "box.check icon is 15px in source, off the --icon-* scale, kept as a raw number. label is hidden when not provided."
+}

@@ -1,0 +1,192 @@
+{
+  "kind": "component",
+  "name": "RestaurantHeader",
+  "version": "2026-09-12",
+  "description": "Full-width hero header for a restaurant's own screen: cover photo with name, description and rating overlaid on a bottom-up gradient scrim.",
+  "size": {
+    "width": "fill",
+    "height": 260
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "image",
+    "source": "{coverImage}",
+    "size": [
+      "fill",
+      260
+    ],
+    "fit": "cover",
+    "radius": null,
+    "fallback": {
+      "slot": "root.fallback",
+      "type": "box",
+      "background": "--color-bg-surface-sunken"
+    },
+    "overlay": [
+      {
+        "slot": "backButton",
+        "type": "box",
+        "size": [
+          40,
+          40
+        ],
+        "radius": "--radius-full",
+        "background": "--alpha-white-24",
+        "border": null,
+        "position": {
+          "top": 12,
+          "left": 12
+        },
+        "child": {
+          "slot": "backButton.icon",
+          "type": "icon",
+          "name": "arrow-left",
+          "weight": "regular",
+          "size": 20,
+          "color": "--gray-0"
+        }
+      },
+      {
+        "slot": "textOverlay",
+        "type": "column",
+        "spacing": [
+          6,
+          10
+        ],
+        "padding": "--space-base",
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "position": {
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "children": [
+          {
+            "slot": "name",
+            "type": "text",
+            "content": "{name}",
+            "style": "--text-h1",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "center",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "description",
+            "type": "text",
+            "content": "{description}",
+            "style": "--text-body",
+            "color": "--gray-0",
+            "lines": 0,
+            "overflow": "wrap",
+            "align": "center",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "ratingRow",
+            "type": "row",
+            "spacing": [
+              6
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "center",
+            "scroll": "none",
+            "size": {
+              "width": "hug"
+            },
+            "children": [
+              {
+                "slot": "ratingRow.stars",
+                "type": "component",
+                "component": "RatingStars",
+                "shows": {
+                  "value": 0,
+                  "size": 15,
+                  "readOnly": true
+                }
+              },
+              {
+                "slot": "ratingRow.value",
+                "type": "text",
+                "content": "{rating}",
+                "style": "--text-body",
+                "color": "--gray-0",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "hug"
+                }
+              },
+              {
+                "slot": "ratingRow.count",
+                "type": "text",
+                "content": "({reviewCount})",
+                "style": "--text-body",
+                "color": "--gray-0",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "hug"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "onBack": {
+      "prop": "onBack",
+      "cases": {
+        "null": {
+          "backButton": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "description": {
+      "prop": "description",
+      "cases": {
+        "empty": {
+          "description": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "reviewCount": {
+      "prop": "reviewCount",
+      "cases": {
+        "null": {
+          "ratingRow.count": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "RatingStars"
+  ],
+  "notes": "name weight is semibold over --text-h1, ratingRow.value weight is semibold. description/count colors use a lower-opacity white (0.85/0.8 literal rgba) — no matching semantic token exists on a photo scrim, kept as the literal source values. backButton.icon is 20px, off the --icon-* scale; backButton also applies a 6px backdrop blur, unexpressed by the schema. The gradient scrim itself (black 0%→78%→0% opacity sweep) is generated artwork, not part of the tree."
+}

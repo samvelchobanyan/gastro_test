@@ -1,0 +1,121 @@
+{
+  "kind": "component",
+  "name": "LoyaltyPointsCard",
+  "version": "2026-09-12",
+  "description": "Fixed 328×116 dark membership card showing points balance, tier pill, and a scannable QR code, with an optional per-brand background image.",
+  "size": {
+    "width": 328,
+    "height": 116
+  },
+  "surface": {
+    "background": "--gray-900",
+    "radius": "--space-base",
+    "border": null,
+    "padding": {
+      "top": "--space-base",
+      "right": "--space-lg",
+      "bottom": "--space-base",
+      "left": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-base"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "between",
+    "scroll": "none",
+    "size": {
+      "width": 328,
+      "height": 116
+    },
+    "children": [
+      {
+        "slot": "left",
+        "type": "column",
+        "spacing": [
+          0,
+          0
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "children": [
+          {
+            "slot": "label",
+            "type": "text",
+            "content": "Loyalty points",
+            "style": "--text-body-sm",
+            "color": "--gray-500",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "points",
+            "type": "text",
+            "content": "{points}",
+            "style": "--text-h1",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "tier",
+            "type": "component",
+            "component": "MembershipTierPill",
+            "shows": {
+              "membership": "Regular",
+              "discountLabel": null
+            }
+          }
+        ]
+      },
+      {
+        "slot": "qr",
+        "type": "box",
+        "size": [
+          64,
+          64
+        ],
+        "background": "--gray-0",
+        "radius": "--radius-sm",
+        "border": null,
+        "padding": "--space-xs",
+        "child": null
+      }
+    ]
+  },
+  "variants": {
+    "backgroundImage": {
+      "prop": "backgroundImage",
+      "cases": {
+        "set": {
+          "root": {
+            "overlayImage": "{backgroundImage}"
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "MembershipTierPill"
+  ],
+  "notes": "Root radius is authored as --space-base (16px) in source; kept as this token per the remapping rule (nearest correct-kind token is --radius-lg, same 16px value — either reads identically). The QR module grid is deterministically generated pixel artwork (seeded from qrValue) the schema cannot express; recorded as an opaque box. Without backgroundImage, an outer diagonal-hatch overlay (white at 4% opacity) fills the card behind the content — also generated artwork, omitted from the tree."
+}

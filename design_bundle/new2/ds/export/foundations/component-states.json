@@ -1,0 +1,49 @@
+{
+  "kind": "foundation",
+  "name": "Component States",
+  "version": "2026-09-16",
+  "description": "The seven interaction states every interactive component must support: Enabled, Pressed, Focused, Disabled, Loading, Error, and InActive (background/foreground swapped).",
+  "tokens": [
+    {
+      "name": "--button-primary-bg",
+      "value": "var(--color-brand-primary)",
+      "usage": "Enabled background"
+    },
+    {
+      "name": "--button-primary-text",
+      "value": "var(--accent-contrast)",
+      "usage": "Enabled foreground"
+    },
+    {
+      "name": "--overlay-press-light",
+      "value": "rgba(255,255,255,0.12)",
+      "usage": "Pressed overlay on dark/filled surfaces"
+    },
+    {
+      "name": "--color-focus-ring",
+      "value": "var(--accent-500)",
+      "usage": "Focused outline"
+    },
+    {
+      "name": "--state-disabled-opacity",
+      "value": "0.35",
+      "usage": "Disabled opacity reduction"
+    },
+    {
+      "name": "--alpha-white-24",
+      "value": "rgba(255,255,255,0.24)",
+      "usage": "Loading spinner track"
+    },
+    {
+      "name": "--color-status-error",
+      "value": "var(--red-500)",
+      "usage": "Error border/foreground"
+    },
+    {
+      "name": "--color-bg-error",
+      "value": "var(--red-50)",
+      "usage": "Error background"
+    }
+  ],
+  "notes": "InActive is a custom state added to this system: it swaps --button-primary-bg and --button-primary-text (background becomes foreground and vice versa) rather than using a dedicated pair of tokens."
+}

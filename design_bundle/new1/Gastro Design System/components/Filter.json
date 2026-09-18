@@ -1,0 +1,84 @@
+{
+  "kind": "component",
+  "name": "Filter",
+  "version": "2026-09-12",
+  "description": "Round icon-over-label filter toggle for discovery/search screens (cuisine, category, dietary).",
+  "size": {
+    "width": 64,
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      6
+    ],
+    "padding": [
+      4,
+      4
+    ],
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": 64
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "box",
+        "size": [
+          48,
+          48
+        ],
+        "background": "--color-bg-surface-sunken",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "icon.glyph",
+          "type": "icon",
+          "name": "{icon}",
+          "weight": "regular",
+          "size": 22,
+          "color": "--color-text-secondary"
+        }
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-caption",
+        "color": "--color-text-tertiary",
+        "lines": 1,
+        "overflow": "wrap",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "selected": {
+      "prop": "selected",
+      "cases": {
+        "true": {
+          "icon": {
+            "background": "--color-brand-primary"
+          },
+          "icon.glyph": {
+            "color": "--color-text-on-brand"
+          },
+          "label": {
+            "color": "--color-text-primary"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "icon.glyph size 22px and column gap 6px/padding 4px are off their respective scales, kept as raw numbers per source. label font-weight is semibold when selected, medium otherwise, both over --text-caption."
+}

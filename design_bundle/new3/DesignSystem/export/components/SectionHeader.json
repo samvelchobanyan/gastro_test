@@ -1,0 +1,69 @@
+{
+  "kind": "component",
+  "name": "SectionHeader",
+  "version": "2026-09-18",
+  "description": "Heading label introducing a page section, with an optional trailing text action (e.g. 'See all').",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "between",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "{title}",
+        "style": "--text-h3",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "action",
+        "type": "text",
+        "content": "{action}",
+        "style": "--text-body-semibold",
+        "color": "--color-brand-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "end",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "action": {
+      "prop": "action",
+      "cases": {
+        "null": {
+          "action": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": ""
+}

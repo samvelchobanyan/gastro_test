@@ -1,0 +1,84 @@
+{
+  "kind": "foundation",
+  "name": "Component Aliases — Nav, Input & Overlay",
+  "version": "2026-09-18",
+  "description": "Tier-3 component-alias tokens referenced by exported components but not covered by the other foundation files: bottom navigation, input fields, and interactive overlays.",
+  "tokens": [
+    {
+      "name": "--bottomnav-bg",
+      "value": "var(--color-bg-main)",
+      "usage": "BottomNavigation surface"
+    },
+    {
+      "name": "--bottomnav-icon",
+      "value": "var(--color-text-tertiary)",
+      "usage": "BottomNavigation inactive icon/label"
+    },
+    {
+      "name": "--bottomnav-icon-active",
+      "value": "var(--color-brand-primary)",
+      "usage": "BottomNavigation active icon/label"
+    },
+    {
+      "name": "--badge-bg",
+      "value": "var(--color-status-error)",
+      "usage": "BottomNavigation item badge"
+    },
+    {
+      "name": "--alpha-white-8",
+      "value": "rgba(255,255,255,0.08)",
+      "usage": "MembershipTierPill tonal fill on dark surfaces"
+    },
+    {
+      "name": "--input-bg",
+      "value": "var(--color-bg-main)",
+      "usage": "Dropdown field background"
+    },
+    {
+      "name": "--input-border",
+      "value": "var(--color-border-default)",
+      "usage": "Dropdown field border"
+    },
+    {
+      "name": "--input-border-focus",
+      "value": "var(--color-border-interactive)",
+      "usage": "Dropdown field border, open state"
+    },
+    {
+      "name": "--input-label",
+      "value": "var(--color-text-secondary)",
+      "usage": "Dropdown label text"
+    },
+    {
+      "name": "--input-placeholder",
+      "value": "var(--color-text-tertiary)",
+      "usage": "Dropdown placeholder text"
+    },
+    {
+      "name": "--input-text",
+      "value": "var(--color-text-primary)",
+      "usage": "Dropdown selected value text"
+    },
+    {
+      "name": "--input-helper",
+      "value": "var(--color-text-tertiary)",
+      "usage": "Dropdown helper text"
+    },
+    {
+      "name": "--color-brand-subtle",
+      "value": "var(--accent-50)",
+      "usage": "Tonal brand fill — IconButton tonal, Badge empty, Dropdown selected option row"
+    },
+    {
+      "name": "--overlay-press-dark",
+      "value": "var(--alpha-black-12)",
+      "usage": "Press-state overlay on light surfaces — IconButton"
+    },
+    {
+      "name": "--button-primary-bg-active",
+      "value": "var(--color-brand-interactive)",
+      "usage": "Button primary, pressed state"
+    }
+  ],
+  "notes": ""
+}

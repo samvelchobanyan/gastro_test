@@ -1,0 +1,86 @@
+{
+  "kind": "component",
+  "name": "MembershipTierPill",
+  "version": "2026-09-18",
+  "description": "Pill showing a loyalty membership tier with a crown icon and an optional discount amount, for dark loyalty surfaces (LoyaltyPointsCard, Wallet).",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--alpha-white-8",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "x": "--space-md",
+      "y": "--space-xs"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-xs",
+      "--space-xs"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug"
+    },
+    "children": [
+      {
+        "slot": "crown",
+        "type": "icon",
+        "name": "crown",
+        "weight": "fill",
+        "size": "--icon-xs",
+        "color": "--gray-0"
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{membership}",
+        "style": "--text-body-xs",
+        "color": "--gray-0",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      },
+      {
+        "slot": "discount",
+        "type": "text",
+        "content": "· {discountLabel} off",
+        "style": "--text-body-xs",
+        "color": "--gray-0",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "discountLabel": {
+      "prop": "discountLabel",
+      "cases": {
+        "null": {
+          "discount": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": ""
+}

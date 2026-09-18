@@ -1,0 +1,126 @@
+{
+  "kind": "component",
+  "name": "Avatar",
+  "version": "2026-09-12",
+  "description": "Circular (or rounded) image or initials representing a user, with an optional presence status dot.",
+  "size": {
+    "width": 40,
+    "height": 40
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      40,
+      40
+    ],
+    "background": "--accent-100",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": null,
+    "child": {
+      "slot": "initials",
+      "type": "text",
+      "content": "{initials}",
+      "style": "--text-body-sm",
+      "color": "--color-text-accent",
+      "lines": 1,
+      "overflow": "clip",
+      "align": "center",
+      "transform": "uppercase",
+      "size": {
+        "width": "hug"
+      }
+    }
+  },
+  "variants": {
+    "size": {
+      "prop": "size",
+      "cases": {
+        "xs": {
+          "root": {
+            "size": [
+              24,
+              24
+            ]
+          }
+        },
+        "sm": {
+          "root": {
+            "size": [
+              32,
+              32
+            ]
+          }
+        },
+        "md": {
+          "root": {
+            "size": [
+              40,
+              40
+            ]
+          }
+        },
+        "lg": {
+          "root": {
+            "size": [
+              56,
+              56
+            ]
+          }
+        },
+        "xl": {
+          "root": {
+            "size": [
+              72,
+              72
+            ]
+          }
+        }
+      }
+    },
+    "shape": {
+      "prop": "shape",
+      "cases": {
+        "rounded": {
+          "root": {
+            "radius": "--radius-md"
+          }
+        }
+      }
+    },
+    "src": {
+      "prop": "src",
+      "cases": {
+        "set": {
+          "root": {
+            "background": "--color-bg-surface-sunken"
+          },
+          "initials": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "status": {
+      "prop": "status",
+      "cases": {
+        "online": {
+          "statusDot": {
+            "visible": true,
+            "background": "--color-status-success"
+          }
+        },
+        "busy": {
+          "statusDot": {
+            "visible": true,
+            "background": "--color-status-warning"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Initials font-size is computed as 38% of the avatar diameter in source (not a fixed token) — approximated to --text-body-sm at the md (40px) default; other sizes scale the same way visually but are not separately tokenized. When src is set, the image fills the root box (cover) in place of the accent fill/initials — image node omitted from the default tree since default has no src. statusDot is an overlay box, size max(8, 24% of diameter) rounded to 10px at md, with a 2px --color-bg-main ring; hidden when status is null."
+}

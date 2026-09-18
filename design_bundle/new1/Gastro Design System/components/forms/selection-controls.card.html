@@ -1,0 +1,56 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Selection controls" subtitle="Checkbox · Radio · Switch · Slider" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-family-base); background: var(--color-bg-canvas); color: var(--color-text-primary); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; max-width: 620px; }
+  .stack { display: flex; flex-direction: column; gap: 8px; }
+  .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--color-text-tertiary); margin: 0 0 10px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel">
+    const { Checkbox, RadioGroup, Switch, Slider } = window.GastroDesignSystem_472aed;
+    function Demo() {
+      const [c1, setC1] = React.useState(true);
+      const [c2, setC2] = React.useState(false);
+      const [tip, setTip] = React.useState(20);
+      const [sw, setSw] = React.useState(true);
+      const [price, setPrice] = React.useState(25);
+      return (
+        <div className="grid">
+          <div>
+            <p className="eyebrow">Checkbox · Radio</p>
+            <div className="stack">
+              <Checkbox checked={c1} onChange={setC1} label="Save this address" />
+              <Checkbox checked={c2} indeterminate onChange={setC2} label="Add cutlery" />
+              <div style={{height:8}} />
+              <RadioGroup name="tip" value={tip} onChange={setTip}
+                options={[{label:'15%',value:15},{label:'20%',value:20},{label:'No tip',value:0}]} />
+            </div>
+          </div>
+          <div>
+            <p className="eyebrow">Switch · Slider</p>
+            <div className="stack">
+              <Switch checked={sw} onChange={setSw} label="Order notifications" />
+              <Switch checked={false} onChange={()=>{}} label="Contactless delivery" />
+              <div style={{height:12}} />
+              <Slider min={0} max={50} value={price} onChange={setPrice} formatValue={v => 'Max $' + v} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+  </script>
+</body>
+</html>

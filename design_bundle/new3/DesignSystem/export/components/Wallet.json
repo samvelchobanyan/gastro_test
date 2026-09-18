@@ -1,0 +1,122 @@
+{
+  "kind": "component",
+  "name": "Wallet",
+  "version": "2026-09-18",
+  "description": "Fixed-width 328px dark balance card showing an optional icon/image, title, balance, and a 'Top up' action button.",
+  "size": {
+    "width": 328,
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--gray-900",
+    "radius": "--radius-lg",
+    "border": null,
+    "padding": {
+      "all": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md",
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "image",
+        "source": "{icon}",
+        "size": [
+          48,
+          48
+        ],
+        "fit": "cover",
+        "radius": "--radius-sm",
+        "fallback": {
+          "slot": "icon.fallback",
+          "type": "box",
+          "background": null
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          0
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "title",
+            "type": "text",
+            "content": "{title}",
+            "style": "--text-body-sm",
+            "color": "--gray-500",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "balance",
+            "type": "text",
+            "content": "{balance}",
+            "style": "--text-h1",
+            "color": "--gray-0",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "topUp",
+        "type": "component",
+        "component": "Button",
+        "shows": {
+          "size": "xs",
+          "radius": "full",
+          "iconLeft": "plus",
+          "label": "{topUpLabel}"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "icon": {
+      "prop": "icon",
+      "cases": {
+        "null": {
+          "icon": {
+            "visible": true
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "Button"
+  ],
+  "notes": "balance weight is bold over --text-h1. icon box is always present at 48x48 with --radius-sm; it shows the given image, or renders empty (no fill/pattern) when icon is null — this differs from other components' hatch-pattern image fallback."
+}

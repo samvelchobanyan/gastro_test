@@ -1,0 +1,88 @@
+{
+  "kind": "component",
+  "name": "MenuTabsVertical",
+  "version": "2026-09-12",
+  "description": "Horizontally scrolling row of category items stacking a round image with a label beneath, container-free (no pill).",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": "--space-xs",
+    "align": "start",
+    "justify": "start",
+    "scroll": "horizontal",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "item",
+        "type": "column",
+        "spacing": [
+          "--space-xs"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": 64
+        },
+        "children": [
+          {
+            "slot": "item.image",
+            "type": "image",
+            "source": "{c.image}",
+            "size": [
+              56,
+              56
+            ],
+            "fit": "cover",
+            "radius": null,
+            "fallback": {
+              "slot": "item.image.fallback",
+              "type": "box",
+              "background": "--color-bg-surface-sunken"
+            }
+          },
+          {
+            "slot": "item.label",
+            "type": "text",
+            "content": "{c.label}",
+            "style": "--text-body-sm",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "center",
+            "transform": "none",
+            "size": {
+              "width": 64
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "active": {
+      "prop": "value",
+      "cases": {
+        "match": {
+          "item.label": {
+            "color": "--color-text-accent",
+            "weight": "semibold"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Component description mentions a brand-color ring on the active item's image, but the current source (this file) does not implement that ring — only the label color/weight change is present in code, so only that is recorded."
+}

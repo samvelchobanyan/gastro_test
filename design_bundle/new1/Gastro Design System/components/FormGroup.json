@@ -1,0 +1,95 @@
+{
+  "kind": "component",
+  "name": "FormGroup",
+  "version": "2026-09-12",
+  "description": "Layout container grouping related fields under a shared legend, with consistent vertical spacing and optional helper text.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-md",
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "legend",
+        "type": "text",
+        "content": "{legend}",
+        "style": "--text-h3",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "fields",
+        "type": "column",
+        "spacing": [
+          "--space-base"
+        ],
+        "padding": null,
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": []
+      },
+      {
+        "slot": "helperText",
+        "type": "text",
+        "content": "{helperText}",
+        "style": "--text-caption",
+        "color": "--color-text-tertiary",
+        "lines": 1,
+        "overflow": "wrap",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "legend": {
+      "prop": "legend",
+      "cases": {
+        "null": {
+          "legend": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "helperText": {
+      "prop": "helperText",
+      "cases": {
+        "null": {
+          "helperText": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "'fields' holds consumer-supplied children (form controls) — shown empty since FormGroup itself only defines the legend/spacing/helper chrome."
+}

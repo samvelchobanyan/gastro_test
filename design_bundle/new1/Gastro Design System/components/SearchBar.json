@@ -1,0 +1,121 @@
+{
+  "kind": "component",
+  "name": "SearchBar",
+  "version": "2026-09-12",
+  "description": "Search-optimized text field with a leading magnifier, clear button, and an optional live-suggestions dropdown.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": {
+      "x": "--space-base"
+    },
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 48
+    },
+    "background": "--color-bg-surface-sunken",
+    "radius": "--radius-full",
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "magnifying-glass",
+        "weight": "regular",
+        "size": "--icon-sm",
+        "color": "--color-text-tertiary"
+      },
+      {
+        "slot": "field",
+        "type": "text",
+        "content": "{value}",
+        "style": "--text-body",
+        "color": "--input-text",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "clear",
+        "type": "box",
+        "size": [
+          24,
+          24
+        ],
+        "background": "--color-border-default",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "clear.icon",
+          "type": "icon",
+          "name": "x",
+          "weight": "regular",
+          "size": 14,
+          "color": "--color-text-secondary"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "focused": {
+      "prop": "interaction",
+      "cases": {
+        "true": {
+          "root": {
+            "border": {
+              "width": 1,
+              "color": "--input-border-focus"
+            }
+          }
+        }
+      }
+    },
+    "clear": {
+      "prop": "value",
+      "cases": {
+        "empty": {
+          "clear": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "disabled",
+      "cases": {
+        "true": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "suggestions": {
+      "prop": "suggestions",
+      "cases": {
+        "set": {
+          "menu": {
+            "visible": true
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "root's own background/radius are recorded directly on the row (no separate surface object) since SearchBar is a single filled pill control. menu (overlay below root, shown only when focused with matching suggestions): column on --color-bg-surface, 1px --color-border-muted border, --radius-input, --elevation-overlay shadow, --space-xs padding; each suggestion row is 44px min-height with a 16px magnifier icon (off scale) and --text-body label."
+}

@@ -1,0 +1,187 @@
+{
+  "kind": "component",
+  "name": "TipSelector",
+  "version": "2026-09-12",
+  "description": "Segmented preset tip percentages plus a 'No tip' and optional custom-amount action, showing the computed amount per preset.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "presets",
+        "type": "row",
+        "spacing": [
+          8,
+          8,
+          8
+        ],
+        "padding": null,
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "preset",
+            "type": "box",
+            "size": [
+              "fill",
+              56
+            ],
+            "background": "--color-bg-main",
+            "radius": "--radius-md",
+            "border": {
+              "width": 1,
+              "color": "--color-border-default"
+            },
+            "padding": null,
+            "child": {
+              "slot": "preset.col",
+              "type": "column",
+              "spacing": [
+                0
+              ],
+              "padding": null,
+              "align": "center",
+              "justify": "center",
+              "scroll": "none",
+              "size": {
+                "width": "fill"
+              },
+              "children": [
+                {
+                  "slot": "preset.pct",
+                  "type": "text",
+                  "content": "{p}%",
+                  "style": "--text-body-lg",
+                  "color": "--color-text-primary",
+                  "lines": 1,
+                  "overflow": "clip",
+                  "align": "center",
+                  "transform": "none",
+                  "size": {
+                    "width": "hug"
+                  }
+                },
+                {
+                  "slot": "preset.amount",
+                  "type": "text",
+                  "content": "${amount}",
+                  "style": "--text-caption",
+                  "color": "--color-text-primary",
+                  "lines": 1,
+                  "overflow": "clip",
+                  "align": "center",
+                  "transform": "none",
+                  "size": {
+                    "width": "hug"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "slot": "noTip",
+            "type": "box",
+            "size": [
+              "fill",
+              56
+            ],
+            "background": "--color-bg-main",
+            "radius": "--radius-md",
+            "border": {
+              "width": 1,
+              "color": "--color-border-default"
+            },
+            "padding": null,
+            "child": {
+              "slot": "noTip.label",
+              "type": "text",
+              "content": "No tip",
+              "style": "--text-body",
+              "color": "--color-text-primary",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "slot": "custom",
+        "type": "text",
+        "content": "Custom amount",
+        "style": "--text-body",
+        "color": "--color-text-accent",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "active": {
+      "prop": "value",
+      "cases": {
+        "matchesPreset": {
+          "preset": {
+            "background": "--color-brand-primary",
+            "border": null
+          },
+          "preset.pct": {
+            "color": "--color-text-on-brand"
+          },
+          "preset.amount": {
+            "color": "--color-text-on-brand"
+          }
+        },
+        "zero": {
+          "noTip": {
+            "background": "--color-brand-primary",
+            "border": null
+          },
+          "noTip.label": {
+            "color": "--color-text-on-brand"
+          }
+        }
+      }
+    },
+    "allowCustom": {
+      "prop": "allowCustom",
+      "cases": {
+        "false": {
+          "custom": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "preset.amount font-size is 11px in source, off scale, approximated to --text-caption; its opacity (0.85) is dropped since color tokens already carry the needed contrast. gap between preset tiles is 8px, off the --space scale (nearest is --space-sm), kept as a raw number per source."
+}

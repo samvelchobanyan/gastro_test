@@ -1,0 +1,94 @@
+{
+  "kind": "component",
+  "name": "LoyaltyRewardsBadge",
+  "version": "2026-09-12",
+  "description": "Compact points/tier badge for the app bar or profile, with an optional progress ring to the next tier.",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--color-brand-subtle",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "x": 12,
+      "y": 6
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug"
+    },
+    "children": [
+      {
+        "slot": "ring",
+        "type": "box",
+        "size": [
+          22,
+          22
+        ],
+        "background": "transparent",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "ring.icon",
+          "type": "icon",
+          "name": "crown",
+          "weight": "fill",
+          "size": 12,
+          "color": "--color-text-accent"
+        }
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{points} pts · {tier}",
+        "style": "--text-caption",
+        "color": "--color-text-accent",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "progress": {
+      "prop": "progress",
+      "cases": {
+        "set": {
+          "ring": {
+            "ringIndicator": "{progress}",
+            "background": "--accent-200"
+          }
+        }
+      }
+    },
+    "tier": {
+      "prop": "tier",
+      "cases": {
+        "null": {
+          "label": {
+            "content": "{points} pts"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "ring's progress arc is an SVG stroke-dashoffset sweep (a runtime percentage) the schema cannot express as a token; recorded as a generic ringIndicator field carrying the live progress value. label font-weight is bold over --text-caption. ring.icon size 12px is off the --icon-* scale, kept as a raw number."
+}

@@ -1,0 +1,204 @@
+{
+  "kind": "component",
+  "name": "OrderStatusTimeline",
+  "version": "2026-09-12",
+  "description": "Vertical stepper showing order progress (e.g. Placed → Preparing → Out for delivery → Delivered), with a connecting line between steps.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "step",
+        "type": "row",
+        "spacing": [
+          "--space-md"
+        ],
+        "padding": {
+          "bottom": "--space-lg"
+        },
+        "align": "start",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "step.rail",
+            "type": "column",
+            "spacing": [
+              0
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "hug"
+            },
+            "children": [
+              {
+                "slot": "step.dot",
+                "type": "box",
+                "size": [
+                  28,
+                  28
+                ],
+                "background": "--color-bg-surface-sunken",
+                "radius": "--radius-full",
+                "border": null,
+                "padding": null,
+                "child": {
+                  "slot": "step.dot.icon",
+                  "type": "icon",
+                  "name": "{s.icon}",
+                  "weight": "regular",
+                  "size": 14,
+                  "color": "--color-text-tertiary"
+                }
+              },
+              {
+                "slot": "step.line",
+                "type": "box",
+                "size": [
+                  2,
+                  "fill"
+                ],
+                "background": "--color-border-muted",
+                "radius": null,
+                "border": null,
+                "padding": null,
+                "child": null
+              }
+            ]
+          },
+          {
+            "slot": "step.text",
+            "type": "column",
+            "spacing": [
+              0
+            ],
+            "padding": null,
+            "align": "start",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "step.label",
+                "type": "text",
+                "content": "{s.label}",
+                "style": "--text-body-lg",
+                "color": "--color-text-tertiary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              },
+              {
+                "slot": "step.time",
+                "type": "text",
+                "content": "{s.time}",
+                "style": "--text-caption",
+                "color": "--color-text-tertiary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "done": {
+      "prop": "step.state",
+      "cases": {
+        "done": {
+          "step.dot": {
+            "background": "--color-brand-primary"
+          },
+          "step.dot.icon": {
+            "name": "check",
+            "weight": "bold",
+            "color": "--color-text-on-brand"
+          },
+          "step.line": {
+            "background": "--color-brand-primary"
+          },
+          "step.label": {
+            "color": "--color-text-primary"
+          }
+        }
+      }
+    },
+    "active": {
+      "prop": "step.state",
+      "cases": {
+        "active": {
+          "step.dot": {
+            "background": "--color-brand-primary"
+          },
+          "step.dot.icon": {
+            "color": "--color-text-on-brand"
+          },
+          "step.label": {
+            "color": "--color-text-primary",
+            "weight": "semibold"
+          },
+          "step.dot.ring": "--accent-100"
+        }
+      }
+    },
+    "last": {
+      "prop": "step.isLast",
+      "cases": {
+        "true": {
+          "step.line": {
+            "visible": false
+          },
+          "step": {
+            "padding": {
+              "bottom": 0
+            }
+          }
+        }
+      }
+    },
+    "time": {
+      "prop": "s.time",
+      "cases": {
+        "null": {
+          "step.time": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "step.dot.icon is 14px, step.line is 2px wide — both off scale, kept as raw numbers. active step's ring is a 4px --accent-100 box-shadow, recorded as a 'ring' field since the schema has no dedicated glow field."
+}

@@ -1,0 +1,127 @@
+{
+  "kind": "component",
+  "name": "TimePicker",
+  "version": "2026-09-12",
+  "description": "Chip grid of available time slots for reservations or pickup scheduling; disabled chips represent unavailable times.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body",
+        "color": "--input-label",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "slots",
+        "type": "row",
+        "spacing": [
+          8,
+          8
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "slot",
+            "type": "box",
+            "size": [
+              "hug",
+              40
+            ],
+            "background": "--color-bg-main",
+            "radius": "--radius-full",
+            "border": {
+              "width": 1,
+              "color": "--color-border-default"
+            },
+            "padding": {
+              "x": "--space-md"
+            },
+            "child": {
+              "slot": "slot.text",
+              "type": "text",
+              "content": "{time.time}",
+              "style": "--text-body",
+              "color": "--color-text-primary",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "active": {
+      "prop": "slot.state",
+      "cases": {
+        "active": {
+          "slot": {
+            "background": "--color-brand-primary",
+            "border": null
+          },
+          "slot.text": {
+            "color": "--color-text-on-brand"
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "slot.state",
+      "cases": {
+        "disabled": {
+          "slot": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "slot.text weight is semibold over --text-body."
+}

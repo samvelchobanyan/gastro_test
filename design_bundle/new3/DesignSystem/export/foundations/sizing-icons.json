@@ -1,0 +1,34 @@
+{
+  "kind": "foundation",
+  "name": "Sizing — Icons",
+  "version": "2026-09-18",
+  "description": "Icon bounding-box scale, all multiples of 4px, each with a recommended touch-padding allowance.",
+  "tokens": [
+    {
+      "name": "--icon-xs",
+      "value": "16px",
+      "usage": "Status/inline chevrons; +16 padding for touch"
+    },
+    {
+      "name": "--icon-sm",
+      "value": "20px",
+      "usage": "List items, input icons; +12 padding"
+    },
+    {
+      "name": "--icon-md",
+      "value": "24px",
+      "usage": "DEFAULT: nav bar, header actions; +12 padding"
+    },
+    {
+      "name": "--icon-lg",
+      "value": "32px",
+      "usage": "FAB, primary quick actions; +8 padding"
+    },
+    {
+      "name": "--icon-xl",
+      "value": "40px",
+      "usage": "Grid menus, onboarding; native target"
+    }
+  ],
+  "notes": ""
+}

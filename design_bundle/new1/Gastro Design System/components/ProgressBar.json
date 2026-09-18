@@ -1,0 +1,144 @@
+{
+  "kind": "component",
+  "name": "ProgressBar",
+  "version": "2026-09-12",
+  "description": "Horizontal linear progress bar, determinate or indeterminate, with an optional label and percentage.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "header",
+        "type": "row",
+        "spacing": [],
+        "padding": null,
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "label",
+            "type": "text",
+            "content": "{label}",
+            "style": "--text-caption",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "value",
+            "type": "text",
+            "content": "{pct}%",
+            "style": "--text-caption",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "end",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "track",
+        "type": "box",
+        "size": [
+          "fill",
+          6
+        ],
+        "background": "--color-bg-surface-sunken",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "track.fill",
+          "type": "box",
+          "size": [
+            "{pct}%",
+            6
+          ],
+          "background": "--color-brand-primary",
+          "radius": "--radius-full",
+          "border": null,
+          "padding": null,
+          "child": null
+        }
+      }
+    ]
+  },
+  "variants": {
+    "header": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "header": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "showValue": {
+      "prop": "showValue",
+      "cases": {
+        "false": {
+          "value": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "tone": {
+      "prop": "tone",
+      "cases": {
+        "success": {
+          "track.fill": {
+            "background": "--color-status-success"
+          }
+        }
+      }
+    },
+    "indeterminate": {
+      "prop": "indeterminate",
+      "cases": {
+        "true": {
+          "track.fill": {
+            "size": [
+              "40%",
+              6
+            ]
+          },
+          "value": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "indeterminate mode sweeps track.fill left-to-right on a 1.3s loop (CSS keyframe animation) the schema cannot express as a static field; recorded as its resting 40%-width state."
+}

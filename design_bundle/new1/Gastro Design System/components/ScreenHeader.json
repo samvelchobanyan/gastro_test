@@ -1,0 +1,105 @@
+{
+  "kind": "component",
+  "name": "ScreenHeader",
+  "version": "2026-09-12",
+  "description": "Top-of-screen page title with an optional back button and a trailing action slot.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--color-bg-surface",
+    "radius": null,
+    "border": null,
+    "padding": {
+      "all": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "back",
+        "type": "box",
+        "size": [
+          44,
+          44
+        ],
+        "background": "transparent",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "back.icon",
+          "type": "icon",
+          "name": "arrow-left",
+          "weight": "regular",
+          "size": "--icon-md",
+          "color": "--color-text-primary"
+        }
+      },
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "{title}",
+        "style": "--text-h1",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "ellipsis",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "action",
+        "type": "box",
+        "size": [
+          "hug",
+          "hug"
+        ],
+        "background": null,
+        "radius": null,
+        "border": null,
+        "padding": null,
+        "child": null
+      }
+    ]
+  },
+  "variants": {
+    "back": {
+      "prop": "onBack",
+      "cases": {
+        "null": {
+          "back": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "action": {
+      "prop": "action",
+      "cases": {
+        "null": {
+          "action": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "title weight is bold over --text-h1."
+}

@@ -1,0 +1,97 @@
+{
+  "kind": "component",
+  "name": "PaymentMethodPicker",
+  "version": "2026-09-12",
+  "description": "Vertical list of PaymentMethodCards plus an 'Add payment method' action, managing the selected id.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "method",
+        "type": "component",
+        "component": "PaymentMethodCard",
+        "shows": {
+          "type": "card",
+          "last4": "4242",
+          "selected": false
+        }
+      },
+      {
+        "slot": "addNew",
+        "type": "box",
+        "size": [
+          "fill",
+          56
+        ],
+        "background": "transparent",
+        "radius": "--radius-md",
+        "border": {
+          "width": 1,
+          "color": "--color-border-default"
+        },
+        "padding": {
+          "x": "--space-md"
+        },
+        "child": {
+          "slot": "addNew.row",
+          "type": "row",
+          "spacing": [
+            "--space-md"
+          ],
+          "padding": null,
+          "align": "center",
+          "justify": "start",
+          "scroll": "none",
+          "size": {
+            "width": "fill"
+          },
+          "children": [
+            {
+              "slot": "addNew.icon",
+              "type": "icon",
+              "name": "plus-circle",
+              "weight": "regular",
+              "size": 20,
+              "color": "--color-text-accent"
+            },
+            {
+              "slot": "addNew.label",
+              "type": "text",
+              "content": "Add payment method",
+              "style": "--text-body-lg",
+              "color": "--color-text-accent",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "start",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "variants": {},
+  "uses": [
+    "PaymentMethodCard"
+  ],
+  "notes": "addNew's border is dashed in source — the schema's border object has no dash field; recorded here as a solid --color-border-default border with the dash style noted as unexpressed styling."
+}

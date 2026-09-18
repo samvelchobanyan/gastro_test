@@ -1,0 +1,29 @@
+{
+  "kind": "foundation",
+  "name": "Colors — Borders",
+  "version": "2026-09-18",
+  "description": "Border/divider colors, from subtle dividers to emphasized outlines and the interactive/focus border color.",
+  "tokens": [
+    {
+      "name": "--color-border-muted",
+      "value": "var(--gray-200)",
+      "usage": "Subtle dividers"
+    },
+    {
+      "name": "--color-border-default",
+      "value": "var(--gray-300)",
+      "usage": "Default outlines"
+    },
+    {
+      "name": "--color-border-strong",
+      "value": "var(--gray-400)",
+      "usage": "Emphasized borders"
+    },
+    {
+      "name": "--color-border-interactive",
+      "value": "var(--accent-500)",
+      "usage": "Focused input border"
+    }
+  ],
+  "notes": ""
+}

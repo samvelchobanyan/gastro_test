@@ -1,0 +1,74 @@
+{
+  "kind": "component",
+  "name": "ReorderButton",
+  "version": "2026-09-12",
+  "description": "Compact secondary pill action to repeat a past order, used as a trailing action inside OrderHistoryCard or similar rows.",
+  "size": {
+    "width": "hug",
+    "height": 36
+  },
+  "surface": {
+    "background": "transparent",
+    "radius": "--radius-full",
+    "border": {
+      "width": 1,
+      "color": "--color-border-default"
+    },
+    "padding": {
+      "x": "--space-md"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      6
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": 36
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "arrow-clockwise",
+        "weight": "regular",
+        "size": 16,
+        "color": "--color-text-primary"
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "background": "--color-bg-surface-sunken"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "label weight is semibold over --text-body. icon is 16px, off the --icon-* scale, kept as a raw number."
+}

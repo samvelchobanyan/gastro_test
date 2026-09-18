@@ -1,0 +1,39 @@
+{
+  "kind": "foundation",
+  "name": "Iconography — Phosphor",
+  "version": "2026-09-18",
+  "description": "The Phosphor icon set (CDN-loaded, regular weight by default) at a 24px default size, with a defined size ramp and a 48px minimum touch target for tappable icons.",
+  "tokens": [
+    {
+      "name": "--icon-xs",
+      "value": "16px",
+      "usage": "Status/inline chevrons"
+    },
+    {
+      "name": "--icon-sm",
+      "value": "20px",
+      "usage": "List items, input icons"
+    },
+    {
+      "name": "--icon-md",
+      "value": "24px",
+      "usage": "DEFAULT — nav bar, header actions"
+    },
+    {
+      "name": "--icon-lg",
+      "value": "32px",
+      "usage": "FAB, primary quick actions"
+    },
+    {
+      "name": "--icon-xl",
+      "value": "40px",
+      "usage": "Grid menus, onboarding"
+    },
+    {
+      "name": "--touch-target-min",
+      "value": "48px",
+      "usage": "Minimum tappable icon hit area"
+    }
+  ],
+  "notes": "Icon set: house, magnifying-glass, fork-knife, shopping-cart-simple, heart, star, storefront, motorcycle, map-pin, clock, receipt, credit-card, bell, sliders-horizontal, user (Phosphor, ph-* classes). A 24px glyph sits centered in a 48px tap target with 12px padding on each side."
+}

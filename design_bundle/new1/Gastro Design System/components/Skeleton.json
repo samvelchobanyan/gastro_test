@@ -1,0 +1,97 @@
+{
+  "kind": "component",
+  "name": "Skeleton",
+  "version": "2026-09-12",
+  "description": "Shimmering placeholder shapes (text lines, block, or circle) shown while content loads.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm",
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "line",
+        "type": "box",
+        "size": [
+          "fill",
+          12
+        ],
+        "background": "--gray-100",
+        "radius": "--radius-xs",
+        "border": null,
+        "padding": null,
+        "child": null
+      }
+    ]
+  },
+  "variants": {
+    "lastLine": {
+      "prop": "line.isLast",
+      "cases": {
+        "true": {
+          "line": {
+            "size": [
+              "60%",
+              12
+            ]
+          }
+        }
+      }
+    },
+    "variant": {
+      "prop": "variant",
+      "cases": {
+        "circle": {
+          "root": {
+            "children": "circle"
+          },
+          "line": {
+            "visible": false
+          },
+          "circleShape": {
+            "visible": true,
+            "size": [
+              "{width}",
+              "{width}"
+            ],
+            "radius": "--radius-full",
+            "background": "--gray-100"
+          }
+        },
+        "block": {
+          "root": {
+            "children": "block"
+          },
+          "line": {
+            "visible": false
+          },
+          "blockShape": {
+            "visible": true,
+            "size": [
+              "{width}",
+              96
+            ],
+            "radius": "--radius-md",
+            "background": "--gray-100"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Fill uses an animated shimmer gradient sweeping --gray-100 → --gray-200 → --gray-100 (CSS keyframe), not a static token color — recorded as the base --gray-100 fill. text variant repeats 'line' per the lines prop (default 3), the last one at 60% width."
+}

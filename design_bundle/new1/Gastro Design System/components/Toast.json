@@ -1,0 +1,135 @@
+{
+  "kind": "component",
+  "name": "Toast",
+  "version": "2026-09-12",
+  "description": "Brief, non-blocking bottom-anchored message confirming an action, with an optional status icon, action, and dismiss control.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--toast-bg",
+    "radius": "--radius-md",
+    "border": null,
+    "padding": {
+      "x": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 48
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "{icon}",
+        "weight": "fill",
+        "size": "--icon-sm",
+        "color": "{toneColor}"
+      },
+      {
+        "slot": "message",
+        "type": "text",
+        "content": "{message}",
+        "style": "--text-body",
+        "color": "--toast-text",
+        "lines": 0,
+        "overflow": "wrap",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "action",
+        "type": "text",
+        "content": "{actionLabel}",
+        "style": "--text-body",
+        "color": "--accent-300",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "end",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      },
+      {
+        "slot": "dismiss",
+        "type": "icon",
+        "name": "x",
+        "weight": "regular",
+        "size": 18,
+        "color": "--alpha-white-24"
+      }
+    ]
+  },
+  "variants": {
+    "tone": {
+      "prop": "tone",
+      "cases": {
+        "success": {
+          "icon": {
+            "visible": true,
+            "color": "--color-status-success"
+          }
+        },
+        "error": {
+          "icon": {
+            "visible": true,
+            "color": "--color-status-error"
+          }
+        },
+        "default": {
+          "icon": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "action": {
+      "prop": "actionLabel",
+      "cases": {
+        "null": {
+          "action": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "dismiss": {
+      "prop": "onDismiss",
+      "cases": {
+        "null": {
+          "dismiss": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "open": {
+      "prop": "open",
+      "cases": {
+        "false": {
+          "root": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "action label weight is semibold over --text-body. dismiss icon is 18px, off the --icon-* scale, kept as a raw number."
+}

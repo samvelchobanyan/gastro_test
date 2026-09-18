@@ -1,0 +1,64 @@
+{
+  "kind": "foundation",
+  "name": "Colors — Accent",
+  "version": "2026-09-18",
+  "description": "The swappable brand accent ramp — the one palette a white-label customer overrides to re-skin the whole app; every semantic/component color resolves through it.",
+  "tokens": [
+    {
+      "name": "--accent-50",
+      "value": "#EDF0FE",
+      "usage": "Tinted/subtle brand surfaces"
+    },
+    {
+      "name": "--accent-100",
+      "value": "#DBE1FD",
+      "usage": "Light accent fills"
+    },
+    {
+      "name": "--accent-200",
+      "value": "#B7C3FB",
+      "usage": "Accent fills"
+    },
+    {
+      "name": "--accent-300",
+      "value": "#93A5F9",
+      "usage": "Accent fills"
+    },
+    {
+      "name": "--accent-400",
+      "value": "#6F87F7",
+      "usage": "Accent fills"
+    },
+    {
+      "name": "--accent-500",
+      "value": "#4C6EF5",
+      "usage": "Base accent / primary brand color"
+    },
+    {
+      "name": "--accent-600",
+      "value": "#3B5BDB",
+      "usage": "Pressed / hover-equivalent accent"
+    },
+    {
+      "name": "--accent-700",
+      "value": "#2F49AF",
+      "usage": "Accent text on light surfaces"
+    },
+    {
+      "name": "--accent-800",
+      "value": "#243884",
+      "usage": "Deep accent"
+    },
+    {
+      "name": "--accent-900",
+      "value": "#1A275E",
+      "usage": "Deepest accent"
+    },
+    {
+      "name": "--accent-contrast",
+      "value": "#FFFFFF",
+      "usage": "Foreground guaranteed AA on the accent fill"
+    }
+  ],
+  "notes": "Placeholder accent (neutral indigo) — no brand colors are finalized; replace this one file per customer."
+}

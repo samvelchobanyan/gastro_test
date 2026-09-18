@@ -1,0 +1,36 @@
+{
+  "kind": "component",
+  "name": "DeliveryPickupToggle",
+  "version": "2026-09-12",
+  "description": "Preset Delivery/Pickup switch built on TabBar, used at the top of ordering screens.",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "component",
+    "component": "TabBar",
+    "shows": {
+      "value": "delivery",
+      "options": [
+        {
+          "label": "Delivery",
+          "value": "delivery",
+          "icon": "motorcycle"
+        },
+        {
+          "label": "Pickup",
+          "value": "pickup",
+          "icon": "storefront"
+        }
+      ]
+    }
+  },
+  "variants": {},
+  "uses": [
+    "TabBar"
+  ],
+  "notes": "Thin preset composition over TabBar with fixed Delivery/Pickup options; no styling of its own."
+}

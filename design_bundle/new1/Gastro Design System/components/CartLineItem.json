@@ -1,0 +1,184 @@
+{
+  "kind": "component",
+  "name": "CartLineItem",
+  "version": "2026-09-12",
+  "description": "Single cart/order row: thumbnail, name, modifiers summary, price, and a quantity control or read-only quantity.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": {
+      "y": "--space-md"
+    },
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{image}",
+        "size": [
+          56,
+          56
+        ],
+        "fit": "cover",
+        "radius": "--radius-sm",
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--color-bg-surface-sunken"
+        }
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          0,
+          0,
+          4
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "name",
+            "type": "text",
+            "content": "{name}",
+            "style": "--text-body-lg",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "modifiers",
+            "type": "text",
+            "content": "{modifiers}",
+            "style": "--text-caption",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "price",
+            "type": "text",
+            "content": "${price}",
+            "style": "--text-body",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "trailing",
+        "type": "column",
+        "spacing": [
+          6
+        ],
+        "padding": null,
+        "align": "end",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "children": [
+          {
+            "slot": "qty",
+            "type": "component",
+            "component": "Stepper",
+            "shows": {
+              "size": "sm",
+              "value": 1
+            }
+          },
+          {
+            "slot": "remove",
+            "type": "text",
+            "content": "Remove",
+            "style": "--text-caption",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "end",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "readOnly": {
+      "prop": "onQtyChange",
+      "cases": {
+        "null": {
+          "qty": {
+            "visible": false
+          },
+          "qtyText": {
+            "visible": true,
+            "content": "×{qty}"
+          }
+        }
+      }
+    },
+    "modifiers": {
+      "prop": "modifiers",
+      "cases": {
+        "null": {
+          "modifiers": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "removable": {
+      "prop": "onRemove",
+      "cases": {
+        "null": {
+          "remove": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "Stepper"
+  ],
+  "notes": "name/price weight are semibold over --text-body-lg/--text-body respectively. qtyText (read-only fallback, e.g. '×2') uses --text-body color --color-text-tertiary. remove label font-size is 12px in source, off scale, approximated to --text-caption."
+}

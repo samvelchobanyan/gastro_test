@@ -1,0 +1,112 @@
+{
+  "kind": "component",
+  "name": "Tag",
+  "version": "2026-09-12",
+  "description": "Static, non-interactive label for categories or attributes, optionally with a leading icon.",
+  "size": {
+    "width": "hug",
+    "height": 32
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-xxs"
+    ],
+    "padding": {
+      "x": 12,
+      "y": null
+    },
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": 32
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "{icon}",
+        "weight": "regular",
+        "size": "--icon-xs",
+        "color": "--chip-text"
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-semibold",
+        "color": "--chip-text",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "tone": {
+      "prop": "tone",
+      "cases": {
+        "brand": {
+          "root": {
+            "background": "--color-brand-subtle"
+          },
+          "label": {
+            "color": "--color-text-accent"
+          }
+        },
+        "success": {
+          "root": {
+            "background": "--color-bg-success"
+          },
+          "label": {
+            "color": "--color-text-success"
+          }
+        },
+        "warning": {
+          "root": {
+            "background": "--color-bg-warning"
+          },
+          "label": {
+            "color": "--color-text-warning"
+          }
+        },
+        "error": {
+          "root": {
+            "background": "--color-bg-error"
+          },
+          "label": {
+            "color": "--color-text-error"
+          }
+        }
+      }
+    },
+    "size": {
+      "prop": "size",
+      "cases": {
+        "sm": {
+          "root": {
+            "size": {
+              "height": 24
+            },
+            "padding": {
+              "x": 10
+            }
+          },
+          "label": {
+            "style": "--text-caption"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Root background (--chip-bg default, neutral tone) and radius (--radius-full) live on the row since Tag's whole surface is the filled pill. sm label font-size is 12px, off scale, approximated to --text-caption. icon hidden when not set."
+}

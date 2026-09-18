@@ -1,0 +1,39 @@
+{
+  "kind": "component",
+  "name": "LiveOrderTrackingMap",
+  "version": "2026-09-12",
+  "description": "MapView preset showing a live courier position with an ETA caption, for order-tracking screens.",
+  "size": {
+    "width": "fill",
+    "height": 220
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "component",
+    "component": "MapView",
+    "shows": {
+      "height": 220,
+      "showCourier": true,
+      "markerLabel": "Arriving in {eta}"
+    }
+  },
+  "variants": {
+    "eta": {
+      "prop": "eta",
+      "cases": {
+        "empty": {
+          "root": {
+            "shows": {
+              "markerLabel": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "MapView"
+  ],
+  "notes": "Thin preset composition over MapView with showCourier always on; no styling of its own."
+}

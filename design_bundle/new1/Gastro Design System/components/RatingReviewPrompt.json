@@ -1,0 +1,147 @@
+{
+  "kind": "component",
+  "name": "RatingReviewPrompt",
+  "version": "2026-09-12",
+  "description": "Post-delivery card asking the user to rate their order and optionally leave a written review, with Skip/Submit actions.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--card-bg",
+    "radius": "--radius-card",
+    "border": {
+      "width": 1,
+      "color": "--card-border"
+    },
+    "padding": {
+      "all": "--space-lg"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-md",
+      "--space-md",
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "How was {restaurantName}?",
+        "style": "--text-h3",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "stars",
+        "type": "component",
+        "component": "RatingStars",
+        "shows": {
+          "value": 0,
+          "readOnly": false,
+          "size": 30
+        }
+      },
+      {
+        "slot": "review",
+        "type": "box",
+        "size": [
+          "fill",
+          "hug"
+        ],
+        "background": "--color-bg-main",
+        "radius": "--radius-input",
+        "border": {
+          "width": 1,
+          "color": "--color-border-default"
+        },
+        "padding": "--space-md",
+        "child": {
+          "slot": "review.text",
+          "type": "text",
+          "content": "{review}",
+          "style": "--text-body",
+          "color": "--color-text-primary",
+          "lines": 2,
+          "overflow": "wrap",
+          "align": "start",
+          "transform": "none",
+          "size": {
+            "width": "fill"
+          }
+        }
+      },
+      {
+        "slot": "actions",
+        "type": "row",
+        "spacing": [
+          "--space-md"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "skip",
+            "type": "component",
+            "component": "Button",
+            "shows": {
+              "variant": "tertiary",
+              "fullWidth": true,
+              "children": "Skip"
+            }
+          },
+          {
+            "slot": "submit",
+            "type": "component",
+            "component": "Button",
+            "shows": {
+              "fullWidth": true,
+              "disabled": true,
+              "children": "Submit"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "submit": {
+      "prop": "rating",
+      "cases": {
+        "positive": {
+          "submit": {
+            "shows": {
+              "disabled": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "RatingStars",
+    "Button"
+  ],
+  "notes": ""
+}

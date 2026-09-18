@@ -1,0 +1,61 @@
+{
+  "kind": "foundation",
+  "name": "Colors — Neutral",
+  "version": "2026-09-18",
+  "description": "The 13-step gray ramp underlying every neutral surface, text and border token in the system.",
+  "tokens": [
+    {
+      "name": "--gray-0",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "--gray-50",
+      "value": "#F7F7F7"
+    },
+    {
+      "name": "--gray-100",
+      "value": "#F1F1F1"
+    },
+    {
+      "name": "--gray-200",
+      "value": "#EAEAEA"
+    },
+    {
+      "name": "--gray-300",
+      "value": "#E0E0E0"
+    },
+    {
+      "name": "--gray-400",
+      "value": "#D1D1D1"
+    },
+    {
+      "name": "--gray-500",
+      "value": "#B3B3B3"
+    },
+    {
+      "name": "--gray-600",
+      "value": "#8C8C8C"
+    },
+    {
+      "name": "--gray-700",
+      "value": "#4F4F4F"
+    },
+    {
+      "name": "--gray-800",
+      "value": "#383838"
+    },
+    {
+      "name": "--gray-900",
+      "value": "#232323"
+    },
+    {
+      "name": "--gray-950",
+      "value": "#171717"
+    },
+    {
+      "name": "--gray-1000",
+      "value": "#000000"
+    }
+  ],
+  "notes": "Never referenced directly by components — components go through the Tier-2 semantic layer (colors-surfaces / colors-borders / text tokens)."
+}

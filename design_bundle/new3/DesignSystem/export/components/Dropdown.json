@@ -1,0 +1,289 @@
+{
+  "kind": "component",
+  "name": "Dropdown",
+  "version": "2026-09-18",
+  "description": "Tappable field opening a list of selectable options below it, with label, helper/error text, and a caret indicator. Part of the Controls group.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-xs",
+      "--space-xs"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-sm",
+        "color": "--input-label",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "field",
+        "type": "box",
+        "size": [
+          "fill",
+          40
+        ],
+        "background": "--input-bg",
+        "radius": "--radius-input",
+        "border": {
+          "width": 1,
+          "color": "--input-border"
+        },
+        "padding": {
+          "left": "--space-base",
+          "right": "--space-sm"
+        },
+        "child": {
+          "slot": "field.row",
+          "type": "row",
+          "spacing": [
+            "--space-sm"
+          ],
+          "padding": null,
+          "align": "center",
+          "justify": "between",
+          "scroll": "none",
+          "size": {
+            "width": "fill"
+          },
+          "children": [
+            {
+              "slot": "field.text",
+              "type": "text",
+              "content": "{selected.label}",
+              "style": "--text-body-sm",
+              "color": "--input-placeholder",
+              "lines": 1,
+              "overflow": "ellipsis",
+              "align": "start",
+              "transform": "none",
+              "size": {
+                "width": "fill"
+              }
+            },
+            {
+              "slot": "field.caret",
+              "type": "icon",
+              "name": "caret-down",
+              "weight": "regular",
+              "size": "--icon-sm",
+              "color": "--color-text-tertiary"
+            }
+          ]
+        },
+        "overlay": [
+          {
+            "slot": "menu",
+            "type": "column",
+            "visible": false,
+            "background": "--color-bg-surface",
+            "radius": "--radius-input",
+            "border": {
+              "width": 1,
+              "color": "--color-border-muted"
+            },
+            "shadow": "--elevation-overlay",
+            "padding": {
+              "all": "--space-xs"
+            },
+            "position": {
+              "top": "100%",
+              "left": 0,
+              "right": 0
+            },
+            "children": [
+              {
+                "slot": "option",
+                "type": "row",
+                "spacing": [
+                  "--space-sm"
+                ],
+                "padding": {
+                  "all": "--space-sm"
+                },
+                "align": "center",
+                "justify": "between",
+                "scroll": "none",
+                "size": {
+                  "width": "fill",
+                  "height": 44
+                },
+                "children": [
+                  {
+                    "slot": "option.label",
+                    "type": "text",
+                    "content": "{o.label}",
+                    "style": "--text-body",
+                    "color": "--color-text-primary",
+                    "lines": 1,
+                    "overflow": "clip",
+                    "align": "start",
+                    "transform": "none",
+                    "size": {
+                      "width": "fill"
+                    }
+                  },
+                  {
+                    "slot": "option.check",
+                    "type": "icon",
+                    "name": "check",
+                    "weight": "regular",
+                    "size": "--icon-xs",
+                    "color": "--color-text-accent"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slot": "helperText",
+        "type": "text",
+        "content": "{helperText}",
+        "style": "--text-caption",
+        "color": "--input-helper",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "open": {
+      "prop": "interaction",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-focus"
+            }
+          },
+          "field.caret": {
+            "rotate": 180
+          },
+          "menu": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "error": {
+      "prop": "error",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-error"
+            }
+          },
+          "helperText": {
+            "color": "--color-text-error"
+          }
+        }
+      }
+    },
+    "selected": {
+      "prop": "value",
+      "cases": {
+        "set": {
+          "field.text": {
+            "color": "--input-text"
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "disabled",
+      "cases": {
+        "true": {
+          "field": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "helperText": {
+      "prop": "helperText",
+      "cases": {
+        "null": {
+          "helperText": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "size": {
+      "prop": "size",
+      "cases": {
+        "floating": {
+          "field": {
+            "size": {
+              "height": 56
+            }
+          }
+        }
+      }
+    },
+    "selected2": {
+      "prop": "o.value",
+      "cases": {
+        "match": {
+          "option": {
+            "background": "--color-brand-subtle"
+          },
+          "option.label": {
+            "color": "--color-text-accent"
+          },
+          "option.check": {
+            "visible": true
+          }
+        },
+        "unmatched": {
+          "option.check": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Field height defaults to 40 (not the 48px --input-height-fixed token) per this component's own spec. Left padding (--space-base) is one step larger than right (--space-sm), an intentional asymmetry. menu radius --radius-input, --radius-sm on option rows omitted since options share the panel's own radius."
+}

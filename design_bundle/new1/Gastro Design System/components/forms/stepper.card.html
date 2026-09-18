@@ -1,0 +1,44 @@
+<!-- @dsCard group="Components" viewport="700x220" name="Stepper" subtitle="Quantity stepper — sizes, bounds, disabled" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  body { margin: 0; padding: 24px; font-family: var(--font-family-base); background: var(--color-bg-canvas); color: var(--color-text-primary); }
+  .col { display: flex; flex-direction: column; gap: 24px; }
+  .row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .lbl { font-size: 11px; color: var(--color-text-tertiary); margin-top: 6px; text-align: center; }
+  .cell { text-align: center; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel">
+    const { Stepper } = window.GastroDesignSystem_472aed;
+    function Demo() {
+      const [q1, setQ1] = React.useState(2);
+      const [q2, setQ2] = React.useState(1);
+      return (
+        <div className="col">
+          <div className="row">
+            <div className="cell"><Stepper value={q1} min={0} max={10} onChange={setQ1} /><div className="lbl">md · default</div></div>
+            <div className="cell"><Stepper size="sm" value={q2} min={0} onChange={setQ2} /><div className="lbl">sm</div></div>
+          </div>
+          <div className="row">
+            <div className="cell"><Stepper value={0} min={0} onChange={()=>{}} /><div className="lbl">at min</div></div>
+            <div className="cell"><Stepper value={10} max={10} onChange={()=>{}} /><div className="lbl">at max</div></div>
+            <div className="cell"><Stepper value={3} disabled onChange={()=>{}} /><div className="lbl">disabled</div></div>
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+  </script>
+</body>
+</html>

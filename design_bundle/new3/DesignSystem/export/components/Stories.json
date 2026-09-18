@@ -1,0 +1,119 @@
+{
+  "kind": "component",
+  "name": "Stories",
+  "version": "2026-09-18",
+  "description": "Instagram-style story ring: circular thumbnail with a seen/unseen ring and an optional label beneath.",
+  "size": {
+    "width": 72,
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-xs"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": 72
+    },
+    "children": [
+      {
+        "slot": "ring",
+        "type": "box",
+        "size": [
+          64,
+          64
+        ],
+        "background": "--color-brand-primary",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": 2,
+        "child": {
+          "slot": "photo",
+          "type": "image",
+          "source": "{imageUrl}",
+          "size": [
+            "fill",
+            "fill"
+          ],
+          "fit": "cover",
+          "radius": "--radius-full",
+          "fallback": {
+            "slot": "photo.fallback",
+            "type": "box",
+            "background": "--color-bg-surface-sunken"
+          },
+          "border": {
+            "width": 2,
+            "color": "--color-bg-surface"
+          }
+        }
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-sm",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "ellipsis",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": 72
+        }
+      }
+    ]
+  },
+  "variants": {
+    "seen": {
+      "prop": "seen",
+      "cases": {
+        "true": {
+          "ring": {
+            "background": "--color-border-default"
+          },
+          "label": {
+            "color": "--color-text-tertiary"
+          }
+        }
+      }
+    },
+    "size": {
+      "prop": "size",
+      "cases": {
+        "custom": {
+          "ring": {
+            "size": [
+              "{size}",
+              "{size}"
+            ]
+          },
+          "root": {
+            "size": [
+              "{size+8}",
+              "hug"
+            ]
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "empty": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "photo.fallback shows an image glyph at 40% of the inner diameter when no imageUrl. Source's photo.fallback background is authored as --color-bg-muted, which does not exist in the manifest — remapped to --color-bg-surface-sunken per the remapping rule."
+}

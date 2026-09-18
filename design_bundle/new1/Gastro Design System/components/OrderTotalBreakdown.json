@@ -1,0 +1,251 @@
+{
+  "kind": "component",
+  "name": "OrderTotalBreakdown",
+  "version": "2026-09-12",
+  "description": "Itemized price summary (subtotal, delivery, fees, discount, tax) with an emphasized total row.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      0,
+      0,
+      0,
+      0,
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "subtotalRow",
+        "type": "row",
+        "spacing": [],
+        "padding": {
+          "y": 4
+        },
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "subtotalRow.label",
+            "type": "text",
+            "content": "Subtotal",
+            "style": "--text-body",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "subtotalRow.value",
+            "type": "text",
+            "content": "${subtotal}",
+            "style": "--text-body",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "end",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "deliveryRow",
+        "type": "row",
+        "spacing": [],
+        "padding": {
+          "y": 4
+        },
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "deliveryRow.label",
+            "type": "text",
+            "content": "Delivery fee",
+            "style": "--text-body",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "deliveryRow.value",
+            "type": "text",
+            "content": "${deliveryFee}",
+            "style": "--text-body",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "end",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "taxRow",
+        "type": "row",
+        "spacing": [],
+        "padding": {
+          "y": 4
+        },
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "taxRow.label",
+            "type": "text",
+            "content": "Tax",
+            "style": "--text-body",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "taxRow.value",
+            "type": "text",
+            "content": "${tax}",
+            "style": "--text-body",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "end",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "totalRow",
+        "type": "row",
+        "spacing": [],
+        "padding": {
+          "top": "--space-md"
+        },
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "border": {
+          "width": 1,
+          "color": "--color-border-muted"
+        },
+        "children": [
+          {
+            "slot": "totalRow.label",
+            "type": "text",
+            "content": "Total",
+            "style": "--text-h3",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "totalRow.value",
+            "type": "text",
+            "content": "${total}",
+            "style": "--text-h3",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "end",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "serviceFeeRow": {
+      "prop": "serviceFee",
+      "cases": {
+        "positive": {
+          "root": {
+            "children": "+serviceFeeRow"
+          }
+        }
+      }
+    },
+    "discountRow": {
+      "prop": "discount",
+      "cases": {
+        "positive": {
+          "root": {
+            "children": "+discountRow"
+          },
+          "discountRow.value": {
+            "color": "--color-status-success"
+          }
+        }
+      }
+    },
+    "deliveryZero": {
+      "prop": "deliveryFee",
+      "cases": {
+        "zero": {
+          "deliveryRow.label": {
+            "content": "Delivery"
+          },
+          "deliveryRow.value": {
+            "color": "--color-text-tertiary"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "serviceFeeRow / discountRow follow the same row shape as subtotalRow, inserted between delivery and tax; hidden (and their spacing entry dropped) when their amount is 0. Row vertical padding is 4px in source, off the --space scale, kept as a raw number. totalRow's top border and margin-top use --space-md/--border-width-default; totalRow.label/value weight is semibold/bold respectively over the shared --text-h3 token."
+}

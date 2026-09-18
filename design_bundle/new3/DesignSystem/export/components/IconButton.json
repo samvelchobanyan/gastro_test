@@ -1,0 +1,131 @@
+{
+  "kind": "component",
+  "name": "IconButton",
+  "version": "2026-09-18",
+  "description": "Tappable icon-only control (favorite, share, close, back) rendered inside a sized hit target.",
+  "size": {
+    "width": 48,
+    "height": 48
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      48,
+      48
+    ],
+    "background": null,
+    "radius": "--radius-full",
+    "border": null,
+    "padding": null,
+    "child": {
+      "slot": "icon",
+      "type": "icon",
+      "name": "{icon}",
+      "weight": "regular",
+      "size": "--icon-md",
+      "color": "--color-text-primary"
+    }
+  },
+  "variants": {
+    "size": {
+      "prop": "size",
+      "cases": {
+        "xxs": {
+          "root": {
+            "size": [
+              32,
+              32
+            ]
+          },
+          "icon": {
+            "size": "--icon-xs"
+          }
+        },
+        "xs": {
+          "root": {
+            "size": [
+              36,
+              36
+            ]
+          },
+          "icon": {
+            "size": "--icon-xs"
+          }
+        },
+        "sm": {
+          "root": {
+            "size": [
+              40,
+              40
+            ]
+          },
+          "icon": {
+            "size": "--icon-sm"
+          }
+        },
+        "lg": {
+          "root": {
+            "size": [
+              56,
+              56
+            ]
+          },
+          "icon": {
+            "size": "--icon-md"
+          }
+        }
+      }
+    },
+    "variant": {
+      "prop": "variant",
+      "cases": {
+        "filled": {
+          "root": {
+            "background": "--button-primary-bg"
+          },
+          "icon": {
+            "color": "--button-primary-text"
+          }
+        },
+        "tonal": {
+          "root": {
+            "background": "--color-brand-subtle"
+          },
+          "icon": {
+            "color": "--color-text-accent"
+          }
+        }
+      }
+    },
+    "active": {
+      "prop": "active",
+      "cases": {
+        "true": {
+          "icon": {
+            "color": "--color-brand-primary",
+            "weight": "fill"
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "background": "--overlay-press-dark"
+          }
+        },
+        "disabled": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "root size at md (default) equals --touch-target-min (48px); other sizes equal --button-height-xxs/xs/sm/lg (32/36/40/56) — written as numbers per the own-dimension rule even though each also matches a named token. active + ghost variant switches the icon glyph to its filled (ph-fill) weight."
+}

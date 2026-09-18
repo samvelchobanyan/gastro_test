@@ -1,0 +1,338 @@
+{
+  "kind": "component",
+  "name": "RestaurantCard",
+  "version": "2026-09-12",
+  "description": "Discovery card for a restaurant: photo, name, cuisine, rating, delivery time/fee, used in lists, carousels and search results.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--card-bg",
+    "radius": "--radius-card",
+    "border": {
+      "width": 1,
+      "color": "--card-border"
+    },
+    "padding": null
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      0
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{image}",
+        "size": [
+          "fill",
+          140
+        ],
+        "fit": "cover",
+        "radius": null,
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--color-bg-surface-sunken"
+        },
+        "overlay": [
+          {
+            "slot": "promo",
+            "type": "box",
+            "size": [
+              "hug",
+              "hug"
+            ],
+            "radius": "--radius-full",
+            "background": "--color-brand-primary",
+            "border": null,
+            "position": {
+              "top": 10,
+              "left": 10
+            },
+            "child": {
+              "slot": "promo.text",
+              "type": "text",
+              "content": "{promoLabel}",
+              "style": "--text-caption",
+              "color": "--color-text-on-brand",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          },
+          {
+            "slot": "closedOverlay",
+            "type": "box",
+            "size": [
+              "fill",
+              "fill"
+            ],
+            "radius": null,
+            "background": "--alpha-black-60",
+            "border": null,
+            "position": {
+              "top": 0,
+              "left": 0
+            },
+            "child": {
+              "slot": "closedOverlay.text",
+              "type": "text",
+              "content": "Closed",
+              "style": "--text-caption",
+              "color": "--gray-0",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "fill"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "slot": "body",
+        "type": "column",
+        "spacing": [
+          2,
+          "--space-sm"
+        ],
+        "padding": {
+          "x": "--space-base",
+          "y": "--space-md"
+        },
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "headerRow",
+            "type": "row",
+            "spacing": [
+              8
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "between",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "name",
+                "type": "text",
+                "content": "{name}",
+                "style": "--text-h3",
+                "color": "--color-text-primary",
+                "lines": 1,
+                "overflow": "ellipsis",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              },
+              {
+                "slot": "rating",
+                "type": "component",
+                "component": "RatingStars",
+                "shows": {
+                  "value": 0,
+                  "size": 14,
+                  "readOnly": true
+                }
+              }
+            ]
+          },
+          {
+            "slot": "cuisineRow",
+            "type": "text",
+            "content": "{cuisine} · {reviewCount} reviews",
+            "style": "--text-caption",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "metaRow",
+            "type": "row",
+            "spacing": [
+              "--space-md"
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "timeRow",
+                "type": "row",
+                "spacing": [
+                  4
+                ],
+                "padding": null,
+                "align": "center",
+                "justify": "start",
+                "scroll": "none",
+                "size": {
+                  "width": "hug"
+                },
+                "children": [
+                  {
+                    "slot": "timeRow.icon",
+                    "type": "icon",
+                    "name": "clock",
+                    "weight": "regular",
+                    "size": 12,
+                    "color": "--color-text-secondary"
+                  },
+                  {
+                    "slot": "timeRow.text",
+                    "type": "text",
+                    "content": "{deliveryTime}",
+                    "style": "--text-caption",
+                    "color": "--color-text-secondary",
+                    "lines": 1,
+                    "overflow": "clip",
+                    "align": "start",
+                    "transform": "none",
+                    "size": {
+                      "width": "hug"
+                    }
+                  }
+                ]
+              },
+              {
+                "slot": "feeRow",
+                "type": "row",
+                "spacing": [
+                  4
+                ],
+                "padding": null,
+                "align": "center",
+                "justify": "start",
+                "scroll": "none",
+                "size": {
+                  "width": "hug"
+                },
+                "children": [
+                  {
+                    "slot": "feeRow.icon",
+                    "type": "icon",
+                    "name": "motorcycle",
+                    "weight": "regular",
+                    "size": 12,
+                    "color": "--color-text-secondary"
+                  },
+                  {
+                    "slot": "feeRow.text",
+                    "type": "text",
+                    "content": "${deliveryFee}",
+                    "style": "--text-caption",
+                    "color": "--color-text-secondary",
+                    "lines": 1,
+                    "overflow": "clip",
+                    "align": "start",
+                    "transform": "none",
+                    "size": {
+                      "width": "hug"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "promo": {
+      "prop": "promoLabel",
+      "cases": {
+        "null": {
+          "promo": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "closed": {
+      "prop": "closed",
+      "cases": {
+        "false": {
+          "closedOverlay": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "reviewCount": {
+      "prop": "reviewCount",
+      "cases": {
+        "null": {
+          "cuisineRow": {
+            "content": "{cuisine}"
+          }
+        }
+      }
+    },
+    "deliveryFee": {
+      "prop": "deliveryFee",
+      "cases": {
+        "null": {
+          "feeRow": {
+            "visible": false
+          }
+        },
+        "zero": {
+          "feeRow.text": {
+            "content": "Free delivery"
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "scale": "--press-scale"
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "RatingStars"
+  ],
+  "notes": "name weight is semibold over --text-h3, promo.text weight is bold over --text-caption. photo/timeRow/feeRow icon sizes (12-14px) are off the --icon-* scale, kept as raw numbers."
+}

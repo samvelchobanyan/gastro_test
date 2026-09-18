@@ -1,0 +1,93 @@
+{
+  "kind": "component",
+  "name": "AddressSelector",
+  "version": "2026-09-12",
+  "description": "Compact tappable field showing the current delivery address with a pin icon and chevron, opening an address picker.",
+  "size": {
+    "width": "fill",
+    "height": 48
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": {
+      "x": "--space-md"
+    },
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": 48
+    },
+    "children": [
+      {
+        "slot": "pin",
+        "type": "icon",
+        "name": "map-pin",
+        "weight": "fill",
+        "size": "--icon-md",
+        "color": "--color-brand-primary"
+      },
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          0
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "label",
+            "type": "text",
+            "content": "{label}",
+            "style": "--text-overline",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "uppercase",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "address",
+            "type": "text",
+            "content": "{address}",
+            "style": "--text-body-lg",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "chevron",
+        "type": "icon",
+        "name": "caret-down",
+        "weight": "regular",
+        "size": 16,
+        "color": "--color-text-tertiary"
+      }
+    ]
+  },
+  "variants": {},
+  "uses": [],
+  "notes": "address weight is semibold over --text-body-lg. chevron is 16px, off the --icon-* scale, kept as a raw number."
+}

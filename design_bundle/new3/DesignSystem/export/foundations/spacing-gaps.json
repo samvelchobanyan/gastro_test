@@ -1,0 +1,19 @@
+{
+  "kind": "foundation",
+  "name": "Spacing — Gaps",
+  "version": "2026-09-18",
+  "description": "Fixed auto-layout stacking gaps for common content pairings, distinct from the general spacing scale.",
+  "tokens": [
+    {
+      "name": "--gap-text",
+      "value": "8px",
+      "usage": "Headline <-> description"
+    },
+    {
+      "name": "--gap-block",
+      "value": "16px",
+      "usage": "Independent content blocks"
+    }
+  ],
+  "notes": ""
+}

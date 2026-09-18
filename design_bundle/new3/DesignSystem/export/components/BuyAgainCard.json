@@ -1,0 +1,118 @@
+{
+  "kind": "component",
+  "name": "BuyAgainCard",
+  "version": "2026-09-18",
+  "description": "Compact vertical product card for re-order rails: photo, product name, and a location line, sized for horizontal scroll rows.",
+  "size": {
+    "width": 128,
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm",
+      "--space-xxs"
+    ],
+    "padding": null,
+    "align": "start",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": 128
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{imageUrl}",
+        "size": [
+          128,
+          128
+        ],
+        "fit": "cover",
+        "radius": "--radius-card",
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--gray-100"
+        }
+      },
+      {
+        "slot": "name",
+        "type": "text",
+        "content": "{name}",
+        "style": "--text-body-sm-semibold",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "ellipsis",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "locationRow",
+        "type": "row",
+        "spacing": [
+          "--space-xs"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "locationRow.icon",
+            "type": "icon",
+            "name": "map-pin",
+            "weight": "regular",
+            "size": "--icon-xs",
+            "color": "--color-text-secondary"
+          },
+          {
+            "slot": "locationRow.text",
+            "type": "text",
+            "content": "{location}",
+            "style": "--text-body-xs",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "width": {
+      "prop": "width",
+      "cases": {
+        "custom": {
+          "root": {
+            "size": {
+              "width": "{width}"
+            }
+          },
+          "photo": {
+            "size": [
+              "{width}",
+              "{width}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "photo.fallback is a diagonal two-tone (--gray-100/--gray-200) hatch pattern, generated artwork the schema cannot express — recorded as its base --gray-100 fill."
+}

@@ -1,0 +1,167 @@
+{
+  "kind": "component",
+  "name": "BottomSheet",
+  "version": "2026-09-12",
+  "description": "Overlay sheet sliding up from the bottom for focused tasks or confirmations, with a scrim, drag handle, optional title and footer.",
+  "size": {
+    "width": "fill",
+    "height": "hug",
+    "maxHeight": "88%"
+  },
+  "surface": {
+    "background": "--color-bg-surface",
+    "radius": "--radius-sheet",
+    "border": null,
+    "padding": null
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "vertical",
+    "size": {
+      "width": "fill",
+      "height": "hug"
+    },
+    "children": [
+      {
+        "slot": "handle",
+        "type": "box",
+        "size": [
+          36,
+          4
+        ],
+        "background": "--color-border-strong",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": null
+      },
+      {
+        "slot": "header",
+        "type": "row",
+        "spacing": [],
+        "padding": {
+          "x": "--space-lg",
+          "y": "--space-md"
+        },
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "title",
+            "type": "text",
+            "content": "{title}",
+            "style": "--text-h2",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "close",
+            "type": "box",
+            "size": [
+              40,
+              40
+            ],
+            "background": "transparent",
+            "radius": "--radius-full",
+            "border": null,
+            "padding": null,
+            "child": {
+              "slot": "close.icon",
+              "type": "icon",
+              "name": "x",
+              "weight": "regular",
+              "size": 22,
+              "color": "--color-text-secondary"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "body",
+        "type": "column",
+        "spacing": [],
+        "padding": {
+          "x": "--space-lg",
+          "bottom": "--space-lg"
+        },
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "vertical",
+        "size": {
+          "width": "fill"
+        },
+        "children": []
+      },
+      {
+        "slot": "footer",
+        "type": "row",
+        "spacing": [],
+        "padding": {
+          "x": "--space-lg",
+          "top": "--space-base",
+          "bottom": "--space-lg"
+        },
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "border": {
+          "width": 1,
+          "color": "--color-border-muted"
+        },
+        "children": []
+      }
+    ]
+  },
+  "variants": {
+    "open": {
+      "prop": "open",
+      "cases": {
+        "false": {
+          "root": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "title": {
+      "prop": "title",
+      "cases": {
+        "null": {
+          "header": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "footer": {
+      "prop": "footer",
+      "cases": {
+        "null": {
+          "footer": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "An inset scrim (--color-bg-scrim) fills the surrounding screen behind the sheet, not part of the sheet's own tree. close.icon is 22px, off the --icon-* scale, kept as a raw number. body/footer children are consumer-supplied content, shown empty."
+}

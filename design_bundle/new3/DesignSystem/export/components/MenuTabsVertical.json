@@ -1,0 +1,88 @@
+{
+  "kind": "component",
+  "name": "MenuTabsVertical",
+  "version": "2026-09-18",
+  "description": "Horizontally scrolling row of category items stacking a round image with a label beneath, container-free (no pill).",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [],
+    "padding": {
+      "all": "--space-xs"
+    },
+    "align": "start",
+    "justify": "start",
+    "scroll": "horizontal",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "item",
+        "type": "column",
+        "spacing": [
+          "--space-xs"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": 64
+        },
+        "children": [
+          {
+            "slot": "item.image",
+            "type": "image",
+            "source": "{c.image}",
+            "size": [
+              56,
+              56
+            ],
+            "fit": "cover",
+            "radius": null,
+            "fallback": {
+              "slot": "item.image.fallback",
+              "type": "box",
+              "background": "--color-bg-surface-sunken"
+            }
+          },
+          {
+            "slot": "item.label",
+            "type": "text",
+            "content": "{c.label}",
+            "style": "--text-body-sm",
+            "color": "--color-text-secondary",
+            "lines": 1,
+            "overflow": "ellipsis",
+            "align": "center",
+            "transform": "none",
+            "size": {
+              "width": 64
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "active": {
+      "prop": "value",
+      "cases": {
+        "match": {
+          "item.label": {
+            "color": "--color-text-accent",
+            "weight": "semibold"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "root row repeats a single 'item' template per category — spacing is recorded as [] since there is one templated child, not a fixed list; the runtime applies a --space-md gap between repeated instances. Component description mentions a brand-color ring on the active item's image, but the current source does not implement that ring — only the label color/weight change is present, so only that is recorded."
+}

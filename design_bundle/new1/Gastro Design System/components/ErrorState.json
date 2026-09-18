@@ -1,0 +1,144 @@
+{
+  "kind": "component",
+  "name": "ErrorState",
+  "version": "2026-09-12",
+  "description": "Message with a retry action shown when content fails to load, distinguished by a warning glyph, not color alone.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": null,
+    "radius": null,
+    "border": null,
+    "padding": {
+      "x": "--space-lg",
+      "y": "--space-xxl"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-base",
+      "--space-sm",
+      "--space-lg"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "box",
+        "size": [
+          72,
+          72
+        ],
+        "background": "--color-bg-error",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "icon.glyph",
+          "type": "icon",
+          "name": "warning",
+          "weight": "regular",
+          "size": 36,
+          "color": "--color-status-error"
+        }
+      },
+      {
+        "slot": "title",
+        "type": "text",
+        "content": "{title}",
+        "style": "--text-h3",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "description",
+        "type": "text",
+        "content": "{description}",
+        "style": "--text-body",
+        "color": "--color-text-tertiary",
+        "lines": 0,
+        "overflow": "wrap",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": 260
+        }
+      },
+      {
+        "slot": "retry",
+        "type": "row",
+        "spacing": [
+          "--space-sm"
+        ],
+        "padding": {
+          "x": "--space-lg"
+        },
+        "align": "center",
+        "justify": "center",
+        "scroll": "none",
+        "size": {
+          "width": "hug",
+          "height": 48
+        },
+        "border": {
+          "width": 1,
+          "color": "--color-border-default"
+        },
+        "children": [
+          {
+            "slot": "retry.icon",
+            "type": "icon",
+            "name": "arrow-clockwise",
+            "weight": "regular",
+            "size": 18,
+            "color": "--color-text-primary"
+          },
+          {
+            "slot": "retry.label",
+            "type": "text",
+            "content": "{retryLabel}",
+            "style": "--text-body-lg",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "center",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "retry": {
+            "background": "--color-bg-surface-sunken"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "icon.glyph is 36px, retry.icon is 18px — both off the --icon-* scale, kept as raw numbers. retry's radius is --radius-md (mirrors EmptyState's action button shape but ghost-styled)."
+}

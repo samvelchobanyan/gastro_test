@@ -1,0 +1,202 @@
+{
+  "kind": "component",
+  "name": "Dropdown",
+  "version": "2026-09-16",
+  "description": "Tappable field opening a list of selectable options below it, with label, helper/error text, and a caret indicator. Part of the Controls group.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-xs"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-sm",
+        "color": "--input-label",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "field",
+        "type": "box",
+        "size": [
+          "fill",
+          40
+        ],
+        "background": "--input-bg",
+        "radius": "--radius-input",
+        "border": {
+          "width": 1,
+          "color": "--input-border"
+        },
+        "padding": {
+          "left": "--space-base",
+          "right": "--space-sm"
+        },
+        "child": {
+          "slot": "field.row",
+          "type": "row",
+          "spacing": [
+            "--space-sm"
+          ],
+          "padding": null,
+          "align": "center",
+          "justify": "between",
+          "scroll": "none",
+          "size": {
+            "width": "fill"
+          },
+          "children": [
+            {
+              "slot": "field.text",
+              "type": "text",
+              "content": "{selected.label}",
+              "style": "--text-body-sm",
+              "color": "--input-placeholder",
+              "lines": 1,
+              "overflow": "ellipsis",
+              "align": "start",
+              "transform": "none",
+              "size": {
+                "width": "fill"
+              }
+            },
+            {
+              "slot": "field.caret",
+              "type": "icon",
+              "name": "caret-down",
+              "weight": "regular",
+              "size": "--icon-sm",
+              "color": "--color-text-tertiary"
+            }
+          ]
+        }
+      },
+      {
+        "slot": "helperText",
+        "type": "text",
+        "content": "{helperText}",
+        "style": "--text-caption",
+        "color": "--input-helper",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "open": {
+      "prop": "interaction",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-focus"
+            }
+          },
+          "field.caret": {
+            "rotate": 180
+          },
+          "menu": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "error": {
+      "prop": "error",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-error"
+            }
+          },
+          "helperText": {
+            "color": "--color-text-error"
+          }
+        }
+      }
+    },
+    "selected": {
+      "prop": "value",
+      "cases": {
+        "set": {
+          "field.text": {
+            "color": "--input-text"
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "disabled",
+      "cases": {
+        "true": {
+          "field": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "helperText": {
+      "prop": "helperText",
+      "cases": {
+        "null": {
+          "helperText": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "size": {
+      "prop": "size",
+      "cases": {
+        "floating": {
+          "field": {
+            "size": {
+              "height": 56
+            }
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Field height defaults to 40 (not the 48px --input-height-fixed token) per this component's own spec. Left padding (--space-base) is one step larger than right (--space-sm), an intentional asymmetry. menu (overlay below field, hidden by default): column on --color-bg-surface, --radius-input, 1px --color-border-muted border, --elevation-overlay shadow, --space-xs padding; option rows are 44px min-height with --space-sm padding, --radius-sm, --text-body labels (regular weight throughout — selected option has no distinct weight), selected row on --color-brand-subtle with --color-text-accent and a trailing check icon."
+}

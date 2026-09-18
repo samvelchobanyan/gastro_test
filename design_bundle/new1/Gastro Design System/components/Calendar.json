@@ -1,0 +1,329 @@
+{
+  "kind": "component",
+  "name": "Calendar",
+  "version": "2026-09-12",
+  "description": "Full month-grid date picker combined with time-slot selection, for choosing a date and time in one surface.",
+  "size": {
+    "width": 300,
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--color-bg-surface",
+    "radius": "--radius-card",
+    "border": {
+      "width": 1,
+      "color": "--color-border-muted"
+    },
+    "padding": {
+      "all": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm",
+      4,
+      0,
+      "--space-base"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": 300
+    },
+    "children": [
+      {
+        "slot": "monthHeader",
+        "type": "row",
+        "spacing": [],
+        "padding": null,
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "monthHeader.prev",
+            "type": "box",
+            "size": [
+              36,
+              36
+            ],
+            "background": "transparent",
+            "radius": "--radius-full",
+            "border": null,
+            "padding": null,
+            "child": {
+              "slot": "monthHeader.prev.icon",
+              "type": "icon",
+              "name": "caret-left",
+              "weight": "regular",
+              "size": 18,
+              "color": "--color-text-secondary"
+            }
+          },
+          {
+            "slot": "monthHeader.label",
+            "type": "text",
+            "content": "{monthLabel}",
+            "style": "--text-body-lg",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "center",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "monthHeader.next",
+            "type": "box",
+            "size": [
+              36,
+              36
+            ],
+            "background": "transparent",
+            "radius": "--radius-full",
+            "border": null,
+            "padding": null,
+            "child": {
+              "slot": "monthHeader.next.icon",
+              "type": "icon",
+              "name": "caret-right",
+              "weight": "regular",
+              "size": 18,
+              "color": "--color-text-secondary"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "weekdayRow",
+        "type": "row",
+        "spacing": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "weekday",
+            "type": "text",
+            "content": "{w}",
+            "style": "--text-overline",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "center",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "dayGrid",
+        "type": "row",
+        "spacing": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "day",
+            "type": "box",
+            "size": [
+              "fill",
+              36
+            ],
+            "background": "transparent",
+            "radius": "--radius-full",
+            "border": null,
+            "padding": null,
+            "child": {
+              "slot": "day.text",
+              "type": "text",
+              "content": "{d}",
+              "style": "--text-body",
+              "color": "--color-text-primary",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "center",
+              "transform": "none",
+              "size": {
+                "width": "hug"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "slot": "timeSection",
+        "type": "column",
+        "spacing": [
+          "--space-sm"
+        ],
+        "padding": {
+          "top": "--space-md"
+        },
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "border": {
+          "width": 1,
+          "color": "--color-border-muted"
+        },
+        "children": [
+          {
+            "slot": "timeSection.heading",
+            "type": "text",
+            "content": "Time",
+            "style": "--text-overline",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "uppercase",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "timeSlots",
+            "type": "row",
+            "spacing": [
+              6,
+              6,
+              6
+            ],
+            "padding": null,
+            "align": "center",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "timeSlot",
+                "type": "box",
+                "size": [
+                  60,
+                  34
+                ],
+                "background": "--color-bg-main",
+                "radius": "--radius-full",
+                "border": {
+                  "width": 1,
+                  "color": "--color-border-default"
+                },
+                "padding": {
+                  "x": "--space-sm"
+                },
+                "child": {
+                  "slot": "timeSlot.text",
+                  "type": "text",
+                  "content": "{slot.time}",
+                  "style": "--text-caption",
+                  "color": "--color-text-primary",
+                  "lines": 1,
+                  "overflow": "clip",
+                  "align": "center",
+                  "transform": "none",
+                  "size": {
+                    "width": "hug"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "selectedDay": {
+      "prop": "day.state",
+      "cases": {
+        "selected": {
+          "day": {
+            "background": "--color-brand-primary"
+          },
+          "day.text": {
+            "color": "--color-text-on-brand",
+            "weight": "semibold"
+          }
+        },
+        "disabled": {
+          "day.text": {
+            "color": "--color-text-disabled"
+          },
+          "day": {
+            "opacity": 0.5
+          }
+        },
+        "today": {
+          "day.text": {
+            "weight": "semibold"
+          },
+          "dayDot": {
+            "visible": true,
+            "background": "--color-brand-primary"
+          }
+        }
+      }
+    },
+    "selectedSlot": {
+      "prop": "slot.state",
+      "cases": {
+        "selected": {
+          "timeSlot": {
+            "background": "--color-brand-primary",
+            "border": null
+          },
+          "timeSlot.text": {
+            "color": "--color-text-on-brand"
+          }
+        },
+        "disabled": {
+          "timeSlot": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "monthHeader/day icon sizes (18px) and gaps (2/4/6px) are off their respective scales, kept as raw numbers per source. today (unselected) shows a 4px dot below the date, also a raw-number size."
+}

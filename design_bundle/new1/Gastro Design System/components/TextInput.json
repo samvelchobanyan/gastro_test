@@ -1,0 +1,215 @@
+{
+  "kind": "component",
+  "name": "TextInput",
+  "version": "2026-09-12",
+  "description": "Single-line text field with label, placeholder, helper/error text, and optional leading/trailing icons.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm",
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body",
+        "color": "--input-label",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "field",
+        "type": "box",
+        "size": [
+          "fill",
+          48
+        ],
+        "background": "--input-bg",
+        "radius": "--radius-input",
+        "border": {
+          "width": 1,
+          "color": "--input-border"
+        },
+        "padding": {
+          "x": "--input-padding-x"
+        },
+        "child": {
+          "slot": "field.row",
+          "type": "row",
+          "spacing": [
+            "--space-sm",
+            "--space-sm"
+          ],
+          "padding": null,
+          "align": "center",
+          "justify": "start",
+          "scroll": "none",
+          "size": {
+            "width": "fill"
+          },
+          "children": [
+            {
+              "slot": "iconLeft",
+              "type": "icon",
+              "name": "{iconLeft}",
+              "weight": "regular",
+              "size": "--icon-sm",
+              "color": "--color-text-tertiary"
+            },
+            {
+              "slot": "field.text",
+              "type": "text",
+              "content": "{value}",
+              "style": "--text-body",
+              "color": "--input-text",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "start",
+              "transform": "none",
+              "size": {
+                "width": "fill"
+              }
+            },
+            {
+              "slot": "iconRight",
+              "type": "icon",
+              "name": "{iconRight}",
+              "weight": "regular",
+              "size": "--icon-sm",
+              "color": "--color-text-tertiary"
+            }
+          ]
+        }
+      },
+      {
+        "slot": "helperText",
+        "type": "text",
+        "content": "{helperText}",
+        "style": "--text-caption",
+        "color": "--input-helper",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "error": {
+      "prop": "error",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-error"
+            }
+          },
+          "helperText": {
+            "color": "--color-text-error"
+          }
+        }
+      }
+    },
+    "focused": {
+      "prop": "interaction",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-focus"
+            }
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "disabled",
+      "cases": {
+        "true": {
+          "field": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "size": {
+      "prop": "size",
+      "cases": {
+        "floating": {
+          "field": {
+            "size": {
+              "height": 56
+            }
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "helperText": {
+      "prop": "helperText",
+      "cases": {
+        "null": {
+          "helperText": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "iconLeft": {
+      "prop": "iconLeft",
+      "cases": {
+        "null": {
+          "iconLeft": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "iconRight": {
+      "prop": "iconRight",
+      "cases": {
+        "null": {
+          "iconRight": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": ""
+}

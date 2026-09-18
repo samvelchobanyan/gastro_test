@@ -1,0 +1,86 @@
+{
+  "kind": "component",
+  "name": "Fab",
+  "version": "2026-09-12",
+  "description": "Floating action button: circular by default, or an extended pill with a label, anchored to a screen edge for one key persistent action.",
+  "size": {
+    "width": 56,
+    "height": 56
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "center",
+    "scroll": "none",
+    "size": {
+      "width": 56,
+      "height": 56
+    },
+    "children": [
+      {
+        "slot": "icon",
+        "type": "icon",
+        "name": "{icon}",
+        "weight": "regular",
+        "size": "--icon-lg",
+        "color": "--fab-icon"
+      }
+    ]
+  },
+  "variants": {
+    "size": {
+      "prop": "size",
+      "cases": {
+        "lg": {
+          "root": {
+            "size": [
+              64,
+              64
+            ]
+          }
+        }
+      }
+    },
+    "extended": {
+      "prop": "label",
+      "cases": {
+        "set": {
+          "root": {
+            "size": {
+              "width": "hug"
+            },
+            "padding": {
+              "x": "--space-lg"
+            }
+          },
+          "label": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "background": "--fab-bg-active"
+          }
+        },
+        "disabled": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "root background is --fab-bg (default) and radius is --radius-full, carried on the row since Fab's whole surface is the filled circle/pill; boxShadow is --elevation-raised. A 'label' text node (--text-body-lg semibold, --fab-icon color) appears after icon only in extended mode (label prop set)."
+}

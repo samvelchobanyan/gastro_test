@@ -1,0 +1,64 @@
+{
+  "kind": "component",
+  "name": "Tooltip",
+  "version": "2026-09-12",
+  "description": "Small contextual hint shown on hover/focus of its trigger, positioned above or below.",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug"
+    },
+    "children": [
+      {
+        "slot": "trigger",
+        "type": "box",
+        "size": [
+          "hug",
+          "hug"
+        ],
+        "background": null,
+        "radius": null,
+        "border": null,
+        "padding": null,
+        "child": null
+      }
+    ]
+  },
+  "variants": {
+    "open": {
+      "prop": "interaction",
+      "cases": {
+        "hover": {
+          "bubble": {
+            "visible": true
+          }
+        }
+      }
+    },
+    "placement": {
+      "prop": "placement",
+      "cases": {
+        "bottom": {
+          "bubble": {
+            "position": {
+              "top": 8
+            }
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "bubble (slot 'bubble', overlay on trigger): type text, content '{content}', style --text-caption, color --tooltip-text, on a box background --tooltip-bg radius --radius-tooltip padding 6px/10px (6px is off the --space scale, nearest is --space-xxs=2 or --space-sm=8 — kept as raw numbers per source since not authored as a token) with --elevation-overlay shadow; hidden until hover/focus."
+}

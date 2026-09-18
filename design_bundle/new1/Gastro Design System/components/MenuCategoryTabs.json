@@ -1,0 +1,74 @@
+{
+  "kind": "component",
+  "name": "MenuCategoryTabs",
+  "version": "2026-09-12",
+  "description": "Sticky horizontal tab strip for jumping between menu sections, with a sliding accent underline.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": null,
+    "radius": null,
+    "border": {
+      "width": 1,
+      "color": "--color-border-muted"
+    },
+    "padding": null
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-lg"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "horizontal",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "tab",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body",
+        "color": "--color-text-tertiary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        },
+        "padding": {
+          "y": "--space-md",
+          "x": "--space-xxs"
+        },
+        "border": {
+          "width": 1,
+          "color": "transparent"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "active": {
+      "prop": "activeKey",
+      "cases": {
+        "match": {
+          "tab": {
+            "color": "--color-text-primary",
+            "border": {
+              "color": "--color-brand-primary"
+            }
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "tab weight is semibold over --text-body. The active tab's underline border is drawn with a -1px margin-bottom to overlap the strip's own bottom border, not separately modeled."
+}

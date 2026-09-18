@@ -1,0 +1,24 @@
+{
+  "kind": "foundation",
+  "name": "Glass Effect",
+  "version": "2026-09-18",
+  "description": "An applyable frosted/blurred overlay treatment — a translucent tinted fill plus a backdrop blur — for surfacing a component over a photo, gradient or brand-color background.",
+  "tokens": [
+    {
+      "name": "--glass-bg",
+      "value": "var(--alpha-white-24)",
+      "usage": "Frosted surface fill"
+    },
+    {
+      "name": "--glass-border",
+      "value": "var(--alpha-white-24)",
+      "usage": "Frosted surface edge"
+    },
+    {
+      "name": "--glass-blur",
+      "value": "16px",
+      "usage": "backdrop-filter blur radius"
+    }
+  ],
+  "notes": "Apply via background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(var(--glass-blur))."
+}

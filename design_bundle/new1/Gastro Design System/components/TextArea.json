@@ -1,0 +1,181 @@
+{
+  "kind": "component",
+  "name": "TextArea",
+  "version": "2026-09-12",
+  "description": "Multi-line text field for longer free text (instructions, reviews), with label, helper/error text, and an optional character counter.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm",
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body",
+        "color": "--input-label",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "fill"
+        }
+      },
+      {
+        "slot": "field",
+        "type": "box",
+        "size": [
+          "fill",
+          "hug"
+        ],
+        "background": "--input-bg",
+        "radius": "--radius-input",
+        "border": {
+          "width": 1,
+          "color": "--input-border"
+        },
+        "padding": {
+          "x": "--input-padding-x",
+          "y": "--space-md"
+        },
+        "child": {
+          "slot": "field.text",
+          "type": "text",
+          "content": "{value}",
+          "style": "--text-body",
+          "color": "--input-text",
+          "lines": 4,
+          "overflow": "wrap",
+          "align": "start",
+          "transform": "none",
+          "size": {
+            "width": "fill"
+          }
+        }
+      },
+      {
+        "slot": "footer",
+        "type": "row",
+        "spacing": [
+          "--space-sm"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "between",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "helperText",
+            "type": "text",
+            "content": "{helperText}",
+            "style": "--text-caption",
+            "color": "--input-helper",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "counter",
+            "type": "text",
+            "content": "{value.length}/{maxLength}",
+            "style": "--text-caption",
+            "color": "--input-helper",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "end",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "error": {
+      "prop": "error",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-error"
+            }
+          },
+          "helperText": {
+            "color": "--color-text-error"
+          }
+        }
+      }
+    },
+    "focused": {
+      "prop": "interaction",
+      "cases": {
+        "true": {
+          "field": {
+            "border": {
+              "width": 2,
+              "color": "--input-border-focus"
+            }
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "disabled",
+      "cases": {
+        "true": {
+          "field": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "counter": {
+      "prop": "maxLength",
+      "cases": {
+        "null": {
+          "counter": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "field.text lines defaults to the rows prop (4); resize is vertical per source, not modeled (no resize field in schema)."
+}

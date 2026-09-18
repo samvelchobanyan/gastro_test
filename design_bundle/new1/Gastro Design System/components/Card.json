@@ -1,0 +1,102 @@
+{
+  "kind": "component",
+  "name": "Card",
+  "version": "2026-09-12",
+  "description": "Generic container grouping related content with consistent padding, radius and subtle elevation.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--card-bg",
+    "radius": "--radius-card",
+    "border": {
+      "width": 1,
+      "color": "--card-border"
+    },
+    "padding": {
+      "all": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill",
+      "height": "hug"
+    },
+    "children": [
+      {
+        "slot": "content",
+        "type": "column",
+        "spacing": [],
+        "padding": null,
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": []
+      }
+    ]
+  },
+  "variants": {
+    "padding": {
+      "prop": "padding",
+      "cases": {
+        "none": {
+          "root": {
+            "padding": null
+          }
+        },
+        "sm": {
+          "root": {
+            "padding": {
+              "all": "--space-md"
+            }
+          }
+        },
+        "lg": {
+          "root": {
+            "padding": {
+              "all": "--space-lg"
+            }
+          }
+        }
+      }
+    },
+    "elevated": {
+      "prop": "elevated",
+      "cases": {
+        "false": {
+          "root": {
+            "shadow": "--shadow-none"
+          }
+        },
+        "true": {
+          "root": {
+            "shadow": "--elevation-card"
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "root": {
+            "scale": "--press-scale"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Card's children are consumer-supplied content — the tree shows an empty content column since Card itself defines only the surface (background, border, radius, elevation, padding) around arbitrary children."
+}

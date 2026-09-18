@@ -1,0 +1,127 @@
+{
+  "kind": "component",
+  "name": "MapView",
+  "version": "2026-09-12",
+  "description": "Placeholder map surface with a grid pattern and a pin marker, for delivery tracking and address selection.",
+  "size": {
+    "width": "fill",
+    "height": 200
+  },
+  "surface": {
+    "background": "--gray-50",
+    "radius": "--radius-card",
+    "border": null,
+    "padding": null
+  },
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      "fill",
+      200
+    ],
+    "background": "--gray-50",
+    "radius": "--radius-card",
+    "border": null,
+    "padding": null,
+    "child": {
+      "slot": "pin",
+      "type": "box",
+      "size": [
+        36,
+        36
+      ],
+      "background": "--color-brand-primary",
+      "radius": "--radius-full",
+      "border": null,
+      "padding": null,
+      "child": {
+        "slot": "pin.icon",
+        "type": "icon",
+        "name": "map-pin",
+        "weight": "fill",
+        "size": 18,
+        "color": "--color-text-on-brand"
+      }
+    },
+    "overlay": [
+      {
+        "slot": "courier",
+        "type": "box",
+        "size": [
+          30,
+          30
+        ],
+        "radius": "--radius-full",
+        "background": "--color-bg-main",
+        "border": null,
+        "position": {
+          "top": "38%",
+          "left": "62%"
+        }
+      },
+      {
+        "slot": "labelBar",
+        "type": "box",
+        "size": [
+          "fill",
+          "hug"
+        ],
+        "radius": "--radius-md",
+        "background": "--color-bg-main",
+        "border": null,
+        "position": {
+          "bottom": 12,
+          "left": 12,
+          "right": 12
+        }
+      }
+    ]
+  },
+  "variants": {
+    "showCourier": {
+      "prop": "showCourier",
+      "cases": {
+        "true": {
+          "courier": {
+            "visible": true,
+            "child": {
+              "slot": "courier.icon",
+              "type": "icon",
+              "name": "motorcycle",
+              "weight": "fill",
+              "size": 16,
+              "color": "--color-brand-primary"
+            }
+          }
+        }
+      }
+    },
+    "markerLabel": {
+      "prop": "markerLabel",
+      "cases": {
+        "set": {
+          "labelBar": {
+            "visible": true,
+            "child": {
+              "slot": "labelBar.text",
+              "type": "text",
+              "content": "{markerLabel}",
+              "style": "--text-caption",
+              "color": "--color-text-secondary",
+              "lines": 1,
+              "overflow": "ellipsis",
+              "align": "start",
+              "transform": "none",
+              "size": {
+                "width": "fill"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Root background is a repeating grid-line pattern (--gray-100 lines every 24px over --gray-50) — generated artwork the schema cannot express as tokens beyond the base fill; recorded here as the base --gray-50 fill only. pin is rotated 45° and pin-shaped (border-radius '50% 50% 50% 0') in source — a shape the schema's box/radius model cannot express; recorded as a plain circle with the same fill/icon. pin.icon and courier.icon sizes (18/16px) are off the --icon-* scale, kept as raw numbers."
+}

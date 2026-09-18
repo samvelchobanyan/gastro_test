@@ -1,0 +1,102 @@
+{
+  "kind": "component",
+  "name": "Voucher",
+  "version": "2026-09-18",
+  "description": "Reward/coupon list row: square product image on the left, product name and a remaining-count line beside it; used in loyalty and voucher lists.",
+  "size": {
+    "width": "hug",
+    "height": "hug",
+    "maxWidth": 328
+  },
+  "surface": {
+    "background": "--gray-100",
+    "radius": "--radius-lg",
+    "border": null,
+    "padding": {
+      "top": "--space-md",
+      "right": "--space-base",
+      "bottom": "--space-md",
+      "left": "--space-md"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": "hug"
+    },
+    "children": [
+      {
+        "slot": "photo",
+        "type": "image",
+        "source": "{image}",
+        "size": [
+          48,
+          48
+        ],
+        "fit": "cover",
+        "radius": "--radius-sm",
+        "fallback": {
+          "slot": "photo.fallback",
+          "type": "box",
+          "background": "--color-bg-surface-sunken"
+        }
+      },
+      {
+        "slot": "details",
+        "type": "column",
+        "spacing": [
+          "--space-xxs"
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "hug"
+        },
+        "children": [
+          {
+            "slot": "name",
+            "type": "text",
+            "content": "{name}",
+            "style": "--text-body",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          },
+          {
+            "slot": "remaining",
+            "type": "text",
+            "content": "{remaining} remaining",
+            "style": "--text-body-sm",
+            "color": "--color-text-tertiary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "hug"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {},
+  "uses": [],
+  "notes": "Root corner radius is authored as --space-base (16px) in the source; mapped to --radius-lg per the radius-token rule. The placeholder (shown when no image is set) is a diagonal-hatch pattern painted over --color-bg-surface-sunken — the hatch is generated artwork the schema cannot express. Source used a non-existent --color-bg-muted for that fill; remapped to --color-bg-surface-sunken (its resolved value, --gray-100, is identical). Name and remaining lines are single-line and do not wrap (no ellipsis in source), recorded as overflow: clip."
+}

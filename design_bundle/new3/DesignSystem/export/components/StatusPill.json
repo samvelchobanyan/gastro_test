@@ -1,0 +1,73 @@
+{
+  "kind": "component",
+  "name": "StatusPill",
+  "version": "2026-09-18",
+  "description": "Small text pill for binary states (Open/Closed, Active/Inactive, Available/Sold out) with a tonal background.",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      "hug",
+      "hug"
+    ],
+    "background": "--color-bg-success",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "x": "--space-sm",
+      "y": "--space-xxs"
+    },
+    "child": {
+      "slot": "label",
+      "type": "text",
+      "content": "{children}",
+      "style": "--text-body-xs",
+      "color": "--color-text-success",
+      "lines": 1,
+      "overflow": "clip",
+      "align": "center",
+      "transform": "none",
+      "size": {
+        "width": "hug"
+      }
+    }
+  },
+  "variants": {
+    "tone": {
+      "prop": "tone",
+      "cases": {
+        "error": {
+          "root": {
+            "background": "--color-bg-error"
+          },
+          "label": {
+            "color": "--color-text-error"
+          }
+        },
+        "warning": {
+          "root": {
+            "background": "--color-bg-warning"
+          },
+          "label": {
+            "color": "--color-text-warning"
+          }
+        },
+        "neutral": {
+          "root": {
+            "background": "--gray-100"
+          },
+          "label": {
+            "color": "--color-text-secondary"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Label font-weight is bold in source though it uses the --text-body-xs size/line-height token, so weight is recorded via the label's own bold styling rather than the text style token (the --text-* composite tokens do not carry a bold row for this size)."
+}

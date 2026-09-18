@@ -1,0 +1,106 @@
+{
+  "kind": "component",
+  "name": "Slider",
+  "version": "2026-09-12",
+  "description": "Draggable single-thumb control for selecting a value within a range, with an optional value readout above the track.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-sm"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "value",
+        "type": "text",
+        "content": "{formattedValue}",
+        "style": "--text-body",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      },
+      {
+        "slot": "track",
+        "type": "box",
+        "size": [
+          "fill",
+          6
+        ],
+        "background": "--color-bg-surface-sunken",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "track.fill",
+          "type": "box",
+          "size": [
+            "{pct}",
+            6
+          ],
+          "background": "--color-brand-primary",
+          "radius": "--radius-full",
+          "border": null,
+          "padding": null,
+          "child": null
+        }
+      },
+      {
+        "slot": "thumb",
+        "type": "box",
+        "size": [
+          22,
+          22
+        ],
+        "background": "--color-bg-main",
+        "radius": "--radius-full",
+        "border": {
+          "width": 2,
+          "color": "--color-brand-primary"
+        },
+        "padding": null,
+        "child": null
+      }
+    ]
+  },
+  "variants": {
+    "showValue": {
+      "prop": "showValue",
+      "cases": {
+        "false": {
+          "value": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "disabled",
+      "cases": {
+        "true": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Native <input type=range> is styled via pseudo-elements in source; modeled here as track (fill portion sized by {pct}, a runtime percentage) with a separately positioned thumb (22px, 8px shadow --elevation-card) overlaid at the same percentage. thumb overlay position is not itself tokenized (computed from the input's native thumb offset)."
+}

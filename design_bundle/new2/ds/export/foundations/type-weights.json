@@ -1,0 +1,25 @@
+{
+  "kind": "foundation",
+  "name": "Type — Weights",
+  "version": "2026-09-16",
+  "description": "The four font-weight steps used across the type system, on Plus Jakarta Sans.",
+  "tokens": [
+    {
+      "name": "--font-weight-regular",
+      "value": "400"
+    },
+    {
+      "name": "--font-weight-medium",
+      "value": "500"
+    },
+    {
+      "name": "--font-weight-semibold",
+      "value": "600"
+    },
+    {
+      "name": "--font-weight-bold",
+      "value": "700"
+    }
+  ],
+  "notes": ""
+}

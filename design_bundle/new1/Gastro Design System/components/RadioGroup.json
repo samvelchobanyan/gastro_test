@@ -1,0 +1,41 @@
+{
+  "kind": "component",
+  "name": "RadioGroup",
+  "version": "2026-09-12",
+  "description": "Convenience wrapper managing a single selected value across a list of Radio options.",
+  "size": {
+    "width": "hug",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "column",
+    "spacing": [
+      "--space-xs"
+    ],
+    "padding": null,
+    "align": "start",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug"
+    },
+    "children": [
+      {
+        "slot": "option",
+        "type": "component",
+        "component": "Radio",
+        "shows": {
+          "label": "Option",
+          "checked": false
+        }
+      }
+    ]
+  },
+  "variants": {},
+  "uses": [
+    "Radio"
+  ],
+  "notes": "'option' repeats once per entry in the options array; selection state (checked) is computed by comparing each option's value to the group's value prop."
+}

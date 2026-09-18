@@ -1,0 +1,230 @@
+{
+  "kind": "component",
+  "name": "MenuItemCard",
+  "version": "2026-09-12",
+  "description": "Horizontal menu item card: name, optional tag, description, price on the left; photo and an add/quantity control on the right.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": {
+    "background": "--card-bg",
+    "radius": "--radius-card",
+    "border": {
+      "width": 1,
+      "color": "--card-border"
+    },
+    "padding": {
+      "all": "--space-base"
+    }
+  },
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-base"
+    ],
+    "padding": null,
+    "align": "stretch",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "fill"
+    },
+    "children": [
+      {
+        "slot": "text",
+        "type": "column",
+        "spacing": [
+          "--space-sm",
+          0,
+          "--space-md"
+        ],
+        "padding": null,
+        "align": "start",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "tag",
+            "type": "box",
+            "size": [
+              "hug",
+              "hug"
+            ],
+            "background": "--color-brand-subtle",
+            "radius": "--radius-tag",
+            "border": null,
+            "padding": {
+              "x": 8,
+              "y": 2
+            },
+            "child": {
+              "slot": "tag.text",
+              "type": "text",
+              "content": "{tag}",
+              "style": "--text-overline",
+              "color": "--color-text-accent",
+              "lines": 1,
+              "overflow": "clip",
+              "align": "start",
+              "transform": "uppercase",
+              "size": {
+                "width": "hug"
+              }
+            }
+          },
+          {
+            "slot": "name",
+            "type": "text",
+            "content": "{name}",
+            "style": "--text-h3",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "description",
+            "type": "text",
+            "content": "{description}",
+            "style": "--text-body",
+            "color": "--color-text-secondary",
+            "lines": 2,
+            "overflow": "ellipsis",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          },
+          {
+            "slot": "price",
+            "type": "text",
+            "content": "{currency}{price}",
+            "style": "--text-h3",
+            "color": "--color-text-primary",
+            "lines": 1,
+            "overflow": "clip",
+            "align": "start",
+            "transform": "none",
+            "size": {
+              "width": "fill"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "media",
+        "type": "column",
+        "spacing": [],
+        "padding": null,
+        "align": "end",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": 104
+        },
+        "children": [
+          {
+            "slot": "photo",
+            "type": "image",
+            "source": "{imageUrl}",
+            "size": [
+              104,
+              104
+            ],
+            "fit": "cover",
+            "radius": "--radius-md",
+            "fallback": {
+              "slot": "photo.fallback",
+              "type": "box",
+              "background": "--color-bg-surface-sunken"
+            }
+          },
+          {
+            "slot": "action",
+            "type": "box",
+            "size": [
+              36,
+              36
+            ],
+            "background": "--button-primary-bg",
+            "radius": "--radius-md",
+            "border": null,
+            "padding": null,
+            "child": {
+              "slot": "action.icon",
+              "type": "icon",
+              "name": "plus",
+              "weight": "regular",
+              "size": "--icon-md",
+              "color": "--button-primary-text"
+            },
+            "position": {
+              "right": 8,
+              "bottom": 8
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "tag": {
+      "prop": "tag",
+      "cases": {
+        "null": {
+          "tag": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "description": {
+      "prop": "description",
+      "cases": {
+        "empty": {
+          "description": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "quantity": {
+      "prop": "quantity",
+      "cases": {
+        "positive": {
+          "action": {
+            "visible": false
+          },
+          "stepper": {
+            "visible": true,
+            "component": "Stepper"
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "action": {
+            "background": "--button-primary-bg-active"
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "Stepper"
+  ],
+  "notes": "price weight is bold over --text-h3, name weight is semibold. action icon fontSize is --icon-md though the button box is fixed at 36×36 (a raw number, off the 40/48 size ramp) with --elevation-raised shadow. photo.fallback shows a raw image glyph (32px, off scale) when no imageUrl."
+}

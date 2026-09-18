@@ -1,0 +1,154 @@
+{
+  "kind": "component",
+  "name": "Stepper",
+  "version": "2026-09-12",
+  "description": "Increment/decrement pill control for quantity selection, with a centered numeric value.",
+  "size": {
+    "width": "hug",
+    "height": 40
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [],
+    "padding": null,
+    "align": "center",
+    "justify": "center",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": 40
+    },
+    "children": [
+      {
+        "slot": "decrement",
+        "type": "box",
+        "size": [
+          40,
+          40
+        ],
+        "background": "transparent",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "decrement.icon",
+          "type": "icon",
+          "name": "minus",
+          "weight": "regular",
+          "size": 18,
+          "color": "--color-text-primary"
+        }
+      },
+      {
+        "slot": "value",
+        "type": "text",
+        "content": "{value}",
+        "style": "--text-body",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "center",
+        "transform": "none",
+        "size": {
+          "width": 44
+        }
+      },
+      {
+        "slot": "increment",
+        "type": "box",
+        "size": [
+          40,
+          40
+        ],
+        "background": "transparent",
+        "radius": "--radius-full",
+        "border": null,
+        "padding": null,
+        "child": {
+          "slot": "increment.icon",
+          "type": "icon",
+          "name": "plus",
+          "weight": "regular",
+          "size": 18,
+          "color": "--color-text-primary"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "size": {
+      "prop": "size",
+      "cases": {
+        "sm": {
+          "root": {
+            "size": {
+              "height": 32
+            }
+          },
+          "decrement": {
+            "size": [
+              32,
+              32
+            ]
+          },
+          "increment": {
+            "size": [
+              32,
+              32
+            ]
+          },
+          "value": {
+            "size": {
+              "width": 32
+            },
+            "style": "--text-body-sm"
+          }
+        }
+      }
+    },
+    "atLimit": {
+      "prop": "interaction",
+      "cases": {
+        "atMin": {
+          "decrement.icon": {
+            "color": "--color-text-disabled"
+          }
+        },
+        "atMax": {
+          "increment.icon": {
+            "color": "--color-text-disabled"
+          }
+        }
+      }
+    },
+    "pressed": {
+      "prop": "interaction",
+      "cases": {
+        "pressedDec": {
+          "decrement": {
+            "background": "--overlay-press-dark"
+          }
+        },
+        "pressedInc": {
+          "increment": {
+            "background": "--overlay-press-dark"
+          }
+        }
+      }
+    },
+    "disabled": {
+      "prop": "disabled",
+      "cases": {
+        "true": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "root carries a 1px --color-border-default border and --radius-full background --color-bg-main (whole surface is the pill). decrement/increment icon size is 18px (sm: 16px), off the --icon-* scale, kept as raw numbers."
+}

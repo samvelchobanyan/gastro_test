@@ -1,0 +1,101 @@
+{
+  "kind": "component",
+  "name": "Badge",
+  "version": "2026-09-12",
+  "description": "Small numeric or dot indicator for counts or presence, shown standalone or overlaid on another element.",
+  "size": {
+    "width": "hug",
+    "height": 18
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "box",
+    "size": [
+      null,
+      18
+    ],
+    "background": "--color-status-error",
+    "radius": "--radius-full",
+    "border": null,
+    "padding": {
+      "x": "--space-xs",
+      "y": null
+    },
+    "child": {
+      "slot": "count",
+      "type": "text",
+      "content": "{count}",
+      "style": "--text-caption",
+      "color": "--color-text-on-brand",
+      "lines": 1,
+      "overflow": "clip",
+      "align": "center",
+      "transform": "none",
+      "size": {
+        "width": "hug"
+      }
+    }
+  },
+  "variants": {
+    "tone": {
+      "prop": "tone",
+      "cases": {
+        "brand": {
+          "root": {
+            "background": "--color-brand-primary"
+          }
+        },
+        "success": {
+          "root": {
+            "background": "--color-status-success"
+          }
+        },
+        "neutral": {
+          "root": {
+            "background": "--gray-700"
+          },
+          "count": {
+            "color": "--color-text-inverse"
+          }
+        }
+      }
+    },
+    "dot": {
+      "prop": "dot",
+      "cases": {
+        "true": {
+          "root": {
+            "size": [
+              10,
+              10
+            ],
+            "padding": null
+          },
+          "count": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "overlay": {
+      "prop": "children",
+      "cases": {
+        "set": {
+          "root": {
+            "position": {
+              "top": -4,
+              "right": -4
+            },
+            "border": {
+              "width": 2,
+              "color": "--color-bg-main"
+            }
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "Count text is 11px in source, off the type scale — approximated to --text-caption. Root width is 18 at minimum (hug otherwise, growing with digit count); horizontal padding is 5px in source, approximated to --space-xs (4px). When wrapping children (overlay mode), root is absolutely positioned at top:-4/right:-4 over the wrapped element with a 2px ring in --color-bg-main."
+}

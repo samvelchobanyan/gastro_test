@@ -1,0 +1,115 @@
+{
+  "kind": "component",
+  "name": "Radio",
+  "version": "2026-09-12",
+  "description": "Single choice among a small mutually-exclusive set, shown as a ring with an inner dot when selected.",
+  "size": {
+    "width": "hug",
+    "height": "--touch-target-min"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "row",
+    "spacing": [
+      "--space-md"
+    ],
+    "padding": null,
+    "align": "center",
+    "justify": "start",
+    "scroll": "none",
+    "size": {
+      "width": "hug",
+      "height": "--touch-target-min"
+    },
+    "children": [
+      {
+        "slot": "ring",
+        "type": "box",
+        "size": [
+          22,
+          22
+        ],
+        "background": "--control-off-bg",
+        "radius": "--radius-full",
+        "border": {
+          "width": 2,
+          "color": "--control-off-border"
+        },
+        "padding": null,
+        "child": {
+          "slot": "ring.dot",
+          "type": "box",
+          "size": [
+            10,
+            10
+          ],
+          "background": "transparent",
+          "radius": "--radius-full",
+          "border": null,
+          "padding": null,
+          "child": null
+        }
+      },
+      {
+        "slot": "label",
+        "type": "text",
+        "content": "{label}",
+        "style": "--text-body-lg",
+        "color": "--color-text-primary",
+        "lines": 1,
+        "overflow": "clip",
+        "align": "start",
+        "transform": "none",
+        "size": {
+          "width": "hug"
+        }
+      }
+    ]
+  },
+  "variants": {
+    "checked": {
+      "prop": "checked",
+      "cases": {
+        "true": {
+          "ring": {
+            "border": {
+              "color": "--control-on-bg"
+            }
+          },
+          "ring.dot": {
+            "background": "--control-on-bg",
+            "scale": 1
+          }
+        }
+      }
+    },
+    "interaction": {
+      "prop": "interaction",
+      "cases": {
+        "pressed": {
+          "ring": {
+            "ring": "--control-glow"
+          }
+        },
+        "disabled": {
+          "root": {
+            "opacity": "--state-disabled-opacity"
+          }
+        }
+      }
+    },
+    "label": {
+      "prop": "label",
+      "cases": {
+        "null": {
+          "label": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [],
+  "notes": "ring.dot scales from 0 to 1 when checked (CSS transform, not a swap of nodes)."
+}

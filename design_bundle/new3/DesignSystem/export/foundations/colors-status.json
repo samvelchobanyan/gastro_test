@@ -1,0 +1,73 @@
+{
+  "kind": "foundation",
+  "name": "Colors — Status",
+  "version": "2026-09-18",
+  "description": "Success, warning, error and info hues, each with a background tint, border tint, status fill and text color, for feedback and state communication.",
+  "tokens": [
+    {
+      "name": "--color-status-success",
+      "value": "#2F9E44"
+    },
+    {
+      "name": "--color-bg-success",
+      "value": "#EBFBEE"
+    },
+    {
+      "name": "--color-border-success",
+      "value": "#D3F9D8"
+    },
+    {
+      "name": "--color-text-success",
+      "value": "#237032"
+    },
+    {
+      "name": "--color-status-warning",
+      "value": "#F08C00"
+    },
+    {
+      "name": "--color-bg-warning",
+      "value": "#FFF9DB"
+    },
+    {
+      "name": "--color-border-warning",
+      "value": "#FFF3BF"
+    },
+    {
+      "name": "--color-text-warning",
+      "value": "#B35A00"
+    },
+    {
+      "name": "--color-status-error",
+      "value": "#E03131"
+    },
+    {
+      "name": "--color-bg-error",
+      "value": "#FFF5F5"
+    },
+    {
+      "name": "--color-border-error",
+      "value": "#FFE3E3"
+    },
+    {
+      "name": "--color-text-error",
+      "value": "#A51F1F"
+    },
+    {
+      "name": "--color-status-info",
+      "value": "#1971C2"
+    },
+    {
+      "name": "--color-bg-info",
+      "value": "#E7F5FF"
+    },
+    {
+      "name": "--color-border-info",
+      "value": "#D0EBFF"
+    },
+    {
+      "name": "--color-text-info",
+      "value": "#145591"
+    }
+  ],
+  "notes": ""
+}

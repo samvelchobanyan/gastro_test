@@ -1,0 +1,205 @@
+{
+  "kind": "component",
+  "name": "ItemCustomizationSheet",
+  "version": "2026-09-12",
+  "description": "Bottom sheet for configuring a menu item before adding to cart: size choice, add-ons, quantity, and total.",
+  "size": {
+    "width": "fill",
+    "height": "hug"
+  },
+  "surface": null,
+  "tree": {
+    "slot": "root",
+    "type": "component",
+    "component": "BottomSheet",
+    "shows": {
+      "title": "{itemName}"
+    },
+    "children": [
+      {
+        "slot": "body",
+        "type": "column",
+        "spacing": [
+          "--space-lg"
+        ],
+        "padding": null,
+        "align": "stretch",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "sizeSection",
+            "type": "column",
+            "spacing": [
+              "--space-md"
+            ],
+            "padding": null,
+            "align": "stretch",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "sizeSection.heading",
+                "type": "text",
+                "content": "Size",
+                "style": "--text-h3",
+                "color": "--color-text-primary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              },
+              {
+                "slot": "sizeSection.options",
+                "type": "component",
+                "component": "RadioGroup",
+                "shows": {}
+              }
+            ]
+          },
+          {
+            "slot": "addOnsSection",
+            "type": "column",
+            "spacing": [
+              "--space-md",
+              "--space-sm"
+            ],
+            "padding": null,
+            "align": "stretch",
+            "justify": "start",
+            "scroll": "none",
+            "size": {
+              "width": "fill"
+            },
+            "children": [
+              {
+                "slot": "addOnsSection.heading",
+                "type": "text",
+                "content": "Add-ons",
+                "style": "--text-h3",
+                "color": "--color-text-primary",
+                "lines": 1,
+                "overflow": "clip",
+                "align": "start",
+                "transform": "none",
+                "size": {
+                  "width": "fill"
+                }
+              },
+              {
+                "slot": "addOnRow",
+                "type": "row",
+                "spacing": [],
+                "padding": null,
+                "align": "center",
+                "justify": "between",
+                "scroll": "none",
+                "size": {
+                  "width": "fill"
+                },
+                "children": [
+                  {
+                    "slot": "addOnRow.checkbox",
+                    "type": "component",
+                    "component": "Checkbox",
+                    "shows": {
+                      "label": "Add-on"
+                    }
+                  },
+                  {
+                    "slot": "addOnRow.price",
+                    "type": "text",
+                    "content": "+${a.price}",
+                    "style": "--text-body",
+                    "color": "--color-text-tertiary",
+                    "lines": 1,
+                    "overflow": "clip",
+                    "align": "end",
+                    "transform": "none",
+                    "size": {
+                      "width": "hug"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slot": "footer",
+        "type": "row",
+        "spacing": [
+          "--space-md"
+        ],
+        "padding": null,
+        "align": "center",
+        "justify": "start",
+        "scroll": "none",
+        "size": {
+          "width": "fill"
+        },
+        "children": [
+          {
+            "slot": "footer.stepper",
+            "type": "component",
+            "component": "Stepper",
+            "shows": {
+              "value": 1,
+              "min": 1,
+              "max": 10
+            }
+          },
+          {
+            "slot": "footer.cta",
+            "type": "component",
+            "component": "Button",
+            "shows": {
+              "fullWidth": true,
+              "children": "Add to cart · ${total}"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "sizeSection": {
+      "prop": "sizeOptions",
+      "cases": {
+        "null": {
+          "sizeSection": {
+            "visible": false
+          }
+        }
+      }
+    },
+    "addOnsSection": {
+      "prop": "addOns",
+      "cases": {
+        "empty": {
+          "addOnsSection": {
+            "visible": false
+          }
+        }
+      }
+    }
+  },
+  "uses": [
+    "BottomSheet",
+    "RadioGroup",
+    "Checkbox",
+    "Stepper",
+    "Button"
+  ],
+  "notes": "This component composes BottomSheet as its root with a body/footer slot; 'addOnRow' repeats once per entry in the addOns array."
+}
