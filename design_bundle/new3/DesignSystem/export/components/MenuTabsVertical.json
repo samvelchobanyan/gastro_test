@@ -58,7 +58,7 @@
             "content": "{c.label}",
             "style": "--text-body-sm",
             "color": "--color-text-secondary",
-            "lines": 1,
+            "lines": 2,
             "overflow": "ellipsis",
             "align": "center",
             "transform": "none",
@@ -66,7 +66,8 @@
               "width": 64
             }
           }
-        ]
+        ],
+        "gap": "--space-md"
       }
     ]
   },
@@ -84,5 +85,5 @@
     }
   },
   "uses": [],
-  "notes": "root row repeats a single 'item' template per category — spacing is recorded as [] since there is one templated child, not a fixed list; the runtime applies a --space-md gap between repeated instances. Component description mentions a brand-color ring on the active item's image, but the current source does not implement that ring — only the label color/weight change is present, so only that is recorded."
+  "notes": "Component description mentions a brand-color ring on the active item's image, but the current source does not implement that ring — only the label color/weight change is present, so only that is recorded."
 }

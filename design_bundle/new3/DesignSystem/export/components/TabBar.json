@@ -80,7 +80,8 @@
               "width": "hug"
             }
           }
-        ]
+        ],
+        "gap": 0
       }
     ]
   },
@@ -114,7 +115,8 @@
             },
             "background": "--gray-100",
             "radius": "--radius-full",
-            "border": null
+            "border": null,
+            "gap": "--space-sm"
           }
         },
         "xs": {
@@ -131,7 +133,8 @@
               "height": "--button-height-xs"
             },
             "background": "--gray-100",
-            "radius": "--radius-full"
+            "radius": "--radius-full",
+            "gap": "--space-sm"
           },
           "tab.icon": {
             "visible": false

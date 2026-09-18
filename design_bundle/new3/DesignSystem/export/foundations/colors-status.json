@@ -5,6 +5,22 @@
   "description": "Success, warning, error and info hues, each with a background tint, border tint, status fill and text color, for feedback and state communication.",
   "tokens": [
     {
+      "name": "--red-50",
+      "value": "#FFF5F5"
+    },
+    {
+      "name": "--red-100",
+      "value": "#FFE3E3"
+    },
+    {
+      "name": "--red-500",
+      "value": "#E03131"
+    },
+    {
+      "name": "--red-700",
+      "value": "#A51F1F"
+    },
+    {
       "name": "--color-status-success",
       "value": "#2F9E44"
     },
@@ -38,19 +54,19 @@
     },
     {
       "name": "--color-status-error",
-      "value": "#E03131"
+      "value": "var(--red-500)"
     },
     {
       "name": "--color-bg-error",
-      "value": "#FFF5F5"
+      "value": "var(--red-50)"
     },
     {
       "name": "--color-border-error",
-      "value": "#FFE3E3"
+      "value": "var(--red-100)"
     },
     {
       "name": "--color-text-error",
-      "value": "#A51F1F"
+      "value": "var(--red-700)"
     },
     {
       "name": "--color-status-info",

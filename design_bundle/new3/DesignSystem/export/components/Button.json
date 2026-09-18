@@ -43,7 +43,7 @@
       {
         "slot": "label",
         "type": "text",
-        "content": "{children}",
+        "content": "{label}",
         "style": "--text-body",
         "color": "--button-primary-text",
         "lines": 1,

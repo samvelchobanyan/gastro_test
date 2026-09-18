@@ -25,7 +25,7 @@
     "child": {
       "slot": "label",
       "type": "text",
-      "content": "{children}",
+      "content": "{label}",
       "style": "--text-body-xs",
       "color": "--color-text-success",
       "lines": 1,

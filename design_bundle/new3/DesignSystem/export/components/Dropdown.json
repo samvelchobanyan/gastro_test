@@ -152,7 +152,8 @@
                     "size": "--icon-xs",
                     "color": "--color-text-accent"
                   }
-                ]
+                ],
+                "gap": 0
               }
             ]
           }

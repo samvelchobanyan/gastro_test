@@ -78,6 +78,46 @@
       "name": "--button-primary-bg-active",
       "value": "var(--color-brand-interactive)",
       "usage": "Button primary, pressed state"
+    },
+    {
+      "name": "--button-secondary-bg",
+      "value": "transparent",
+      "usage": "Button secondary variant"
+    },
+    {
+      "name": "--button-secondary-border",
+      "value": "var(--color-border-default)",
+      "usage": "Button secondary variant"
+    },
+    {
+      "name": "--button-secondary-text",
+      "value": "var(--color-text-primary)",
+      "usage": "Button secondary variant"
+    },
+    {
+      "name": "--button-tertiary-text",
+      "value": "var(--color-text-accent)",
+      "usage": "Button tertiary variant"
+    },
+    {
+      "name": "--input-border-error",
+      "value": "var(--color-status-error)",
+      "usage": "Dropdown field border, error state"
+    },
+    {
+      "name": "--badge-text",
+      "value": "var(--color-text-on-brand)",
+      "usage": "BottomNavigation item badge text"
+    },
+    {
+      "name": "--color-brand-interactive",
+      "value": "var(--accent-600)",
+      "usage": "Target of --button-primary-bg-active"
+    },
+    {
+      "name": "--alpha-black-12",
+      "value": "rgba(0,0,0,0.12)",
+      "usage": "Target of --overlay-press-dark"
     }
   ],
   "notes": ""
